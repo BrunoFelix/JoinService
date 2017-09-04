@@ -1,9 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.joinservice.joinservice.TelaLogin">
+    tools:context="com.joinservice.joinservice.TelaLogin"
+    android:background="@color/colorFundoBranco">
 
-</android.support.constraint.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="180dp"
+                            android:src="@drawable/logo"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp">
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Conectar com o Facebook"
+                            android:textColor="@color/colorFundoBranco"
+                            android:textAlignment="center"
+                            android:drawableLeft="@drawable/icon_facebook"
+                            android:padding="16dp"
+                            android:background="@drawable/screen_border"
+                            />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp">
+                        <EditText
+                            android:layout_height="60dp"
+                            android:layout_width="0dp"
+                            android:layout_weight="4"
+                            android:hint="Usuário/Email"
+                            android:background="@drawable/edit_text_background"
+                            android:padding="5dp"
+                            />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp">
+                        <EditText
+                            android:layout_height="60dp"
+                            android:layout_width="0dp"
+                            android:layout_weight="4"
+                            android:hint="Senha"
+                            android:background="@drawable/edit_text_background"
+                            android:layout_marginTop="-1dp"
+                            android:padding="5dp"
+                            />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="bottom"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp">
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:text="Entrar"
+                            android:textColor="@color/colorFundoBranco"
+                            android:textAlignment="center"
+                            android:padding="16dp"
+                            android:background="@drawable/screen_border"
+                            />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@color/colorFundoBranco"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:gravity="bottom">
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:text="Cadastrar"
+                            android:textColor="@color/colorFundoBranco"
+                            android:textAlignment="center"
+                            android:padding="16dp"
+                            android:background="@drawable/screen_border"
+                            />
+                </LinearLayout>
+        </LinearLayout>
+
+</ScrollView>
