@@ -15,14 +15,18 @@
         <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
                         <ImageView
                             android:layout_width="match_parent"
-                            android:layout_height="180dp"
+                            android:layout_height="117dp"
                             android:src="@drawable/logo"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/logonome"/>
                 </LinearLayout>
 
-                <LinearLayout
+                /*<LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -33,6 +37,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Conectar com o Facebook"
+                            android:backgroundTint="@color/colorButtonFacebook"
                             android:textColor="@color/colorFundoBranco"
                             android:textAlignment="center"
                             android:drawableLeft="@drawable/icon_facebook"
@@ -86,17 +91,17 @@
                     android:layout_marginBottom="5dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp">
+
                         <Button
                             android:id="@+id/btnEntrar"
-                            android:onClick="entrar"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
-                            android:text="Entrar"
-                            android:textColor="@color/colorFundoBranco"
-                            android:textAlignment="center"
-                            android:padding="16dp"
                             android:background="@drawable/screen_border"
-                            />
+                            android:onClick="entrar"
+                            android:padding="16dp"
+                            android:text="Entrar"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorFundoBranco" />
                 </LinearLayout>
 
                 <LinearLayout
