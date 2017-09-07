@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.joinservice.joinservice.TelaCadastro">
+
+
+
+
+
+    <TextView
+        android:id="@+id/textViewCadastro"
+        android:layout_width="356dp"
+        android:layout_height="49dp"
+        android:text="           Novo Cadastro"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="92dp"
+        tools:layout_editor_absoluteY="4dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/editNome"
+        android:layout_alignStart="@+id/editNome" />
+
+
+    <EditText
+        android:id="@+id/editCidade"
+        android:layout_width="290dp"
+        android:layout_height="42dp"
+        android:ems="10"
+        android:hint="Cidade"
+        android:inputType="text"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="360dp"
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/editBairro"
+        android:layout_alignLeft="@+id/editBairro"
+        android:layout_alignStart="@+id/editBairro" />
+
+
+            <EditText
+                android:id="@+id/editUF"
+                android:layout_width="56dp"
+                android:layout_height="42dp"
+                android:ems="10"
+                android:hint="UF"
+                android:inputType="textPostalAddress"
+                tools:layout_editor_absoluteX="296dp"
+                tools:layout_editor_absoluteY="360dp"
+                android:layout_alignBaseline="@+id/editCidade"
+                android:layout_alignBottom="@+id/editCidade"
+                android:layout_alignRight="@+id/editBairro"
+                android:layout_alignEnd="@+id/editBairro" />
+
+
+    <EditText
+        android:id="@+id/editN"
+        android:layout_width="56dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="11dp"
+        android:ems="10"
+        android:hint="Nº"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="256dp"
+        tools:layout_editor_absoluteY="217dp"
+        android:layout_below="@+id/editUF"
+        android:layout_alignLeft="@+id/editUF"
+        android:layout_alignStart="@+id/editUF" />
+
+            <EditText
+                android:id="@+id/editBairro"
+                android:layout_width="362dp"
+                android:layout_height="42dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Bairro"
+                android:inputType="textPostalAddress"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="297dp"
+                android:layout_marginTop="12dp"
+                android:layout_below="@+id/editText13"
+                android:layout_alignLeft="@+id/editText13"
+                android:layout_alignStart="@+id/editText13" />
+
+            <EditText
+                android:id="@+id/editEmail"
+                android:layout_width="362dp"
+                android:layout_height="42dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="E-mail"
+                android:inputType="textEmailAddress"
+                tools:layout_editor_absoluteX="11dp"
+                tools:layout_editor_absoluteY="463dp"
+                android:layout_marginTop="11dp"
+                android:layout_below="@+id/editN"
+                android:layout_alignLeft="@+id/editEndereco"
+                android:layout_alignStart="@+id/editEndereco" />
+
+            <EditText
+                android:id="@+id/editNome"
+                android:layout_width="362dp"
+                android:layout_height="42dp"
+                android:ems="10"
+                android:hint="Nome completo"
+                android:inputType="text"
+                tools:layout_editor_absoluteX="11dp"
+                tools:layout_editor_absoluteY="153dp"
+                android:layout_marginTop="176dp"
+                android:layout_below="@+id/textViewCadastro"
+                android:layout_centerHorizontal="true" />
+
+
+    <EditText
+        android:id="@+id/editEndereco"
+        android:layout_width="290dp"
+        android:layout_height="42dp"
+        android:ems="10"
+        android:hint="Endereço"
+        android:inputType="textPostalAddress"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="217dp"
+        android:layout_alignBaseline="@+id/editN"
+        android:layout_alignBottom="@+id/editN"
+        android:layout_alignLeft="@+id/editCidade"
+        android:layout_alignStart="@+id/editCidade" />
+
+    <EditText
+        android:id="@+id/editText13"
+        android:layout_width="362dp"
+        android:layout_height="42dp"
+        android:ems="10"
+        android:hint="Cpf"
+        android:inputType="number"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/editNome"
+        android:layout_alignLeft="@+id/editNome"
+        android:layout_alignStart="@+id/editNome" />
+
+
+</RelativeLayout>

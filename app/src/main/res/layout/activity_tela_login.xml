@@ -19,11 +19,11 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="117dp"
-                            android:src="@drawable/logomao2"/>
+                            android:src="@drawable/logo"/>
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/logonome"/>
+                    android:src="@drawable/logo"/>
                 </LinearLayout>
 
                 /*<LinearLayout
@@ -111,15 +111,17 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:gravity="bottom">
+
                         <Button
+                            android:id="@+id/btnCadastrar"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
-                            android:text="Cadastrar"
-                            android:textColor="@color/colorFundoBranco"
-                            android:textAlignment="center"
-                            android:padding="16dp"
                             android:background="@drawable/screen_border"
-                            />
+                            android:onClick="cadastrar"
+                            android:padding="16dp"
+                            android:text="Cadastrar"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorFundoBranco" />
                 </LinearLayout>
         </LinearLayout>
 
