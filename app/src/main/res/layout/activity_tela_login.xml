@@ -21,12 +21,12 @@
                             android:layout_height="117dp"
                             android:src="@drawable/logo"/>
                 <ImageView
-                    android:layout_width="match_parent"
+                    android:layout_width="fill_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/logo"/>
-                </LinearLayout>
+                    android:src="@drawable/logonome" />
+        </LinearLayout>
 
-                /*<LinearLayout
+                <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"

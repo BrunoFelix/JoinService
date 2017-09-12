@@ -6,10 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.joinservice.joinservice.TelaCadastro">
 
-
-
-
-
     <TextView
         android:id="@+id/textViewCadastro"
         android:layout_width="356dp"
@@ -21,7 +17,6 @@
         android:layout_alignParentTop="true"
         android:layout_alignLeft="@+id/editNome"
         android:layout_alignStart="@+id/editNome" />
-
 
     <EditText
         android:id="@+id/editCidade"
@@ -37,7 +32,6 @@
         android:layout_alignLeft="@+id/editBairro"
         android:layout_alignStart="@+id/editBairro" />
 
-
             <EditText
                 android:id="@+id/editUF"
                 android:layout_width="56dp"
@@ -51,7 +45,6 @@
                 android:layout_alignBottom="@+id/editCidade"
                 android:layout_alignRight="@+id/editBairro"
                 android:layout_alignEnd="@+id/editBairro" />
-
 
     <EditText
         android:id="@+id/editN"
@@ -102,14 +95,13 @@
                 android:layout_width="362dp"
                 android:layout_height="42dp"
                 android:ems="10"
-                android:hint="Nome completo"
+                android:hint="Nome Completo"
                 android:inputType="text"
                 tools:layout_editor_absoluteX="11dp"
                 tools:layout_editor_absoluteY="153dp"
                 android:layout_marginTop="176dp"
                 android:layout_below="@+id/textViewCadastro"
                 android:layout_centerHorizontal="true" />
-
 
     <EditText
         android:id="@+id/editEndereco"
@@ -136,6 +128,4 @@
         android:layout_below="@+id/editNome"
         android:layout_alignLeft="@+id/editNome"
         android:layout_alignStart="@+id/editNome" />
-
-
 </RelativeLayout>
