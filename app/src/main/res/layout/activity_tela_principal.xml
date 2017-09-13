@@ -1,45 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Historico de Serviços"
-        android:textColor="@color/colorFundoBranco"
-        android:textAlignment="center"
-        android:padding="16dp"
-        android:background="@drawable/screen_border"
         android:id="@+id/button"
-        android:layout_marginTop="25dp"
-        android:layout_below="@+id/button3"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-    <Button
-    android:layout_width="match_parent"
-    android:layout_height="50dp"
-    android:text="Cadastrar novo Serviço"
-    android:textColor="@color/colorFundoBranco"
-    android:textAlignment="center"
-    android:padding="16dp"
-    android:background="@drawable/screen_border"
-    android:layout_centerVertical="true"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true"
-        android:id="@+id/button4" />
-    <Button
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Meu Cadastro"
-        android:textColor="@color/colorFundoBranco"
-        android:textAlignment="center"
-        android:padding="16dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/button3"
+        android:layout_marginTop="25dp"
         android:background="@drawable/screen_border"
-        android:id="@+id/button3"
-        android:layout_marginTop="22dp"
-        android:layout_below="@+id/button4"
+        android:padding="16dp"
+        android:text="Historico de Serviços"
+        android:textAlignment="center"
+        android:textColor="@color/colorFundoBranco" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/screen_border"
+        android:padding="16dp"
+        android:text="Cadastrar novo Serviço"
+        android:textAlignment="center"
+        android:textColor="@color/colorFundoBranco" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/button4"
+        android:layout_marginTop="22dp"
+        android:background="@drawable/screen_border"
+        android:padding="16dp"
+        android:text="Meu Cadastro"
+        android:textAlignment="center"
+        android:textColor="@color/colorFundoBranco" />
 </RelativeLayout>

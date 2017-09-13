@@ -12,16 +12,17 @@ public class TelaLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_login);
-        Button button =(Button)findViewById(R.id.btnEntrar);
-        Button button1 =(Button)findViewById(R.id.btnCadastrar);
+        Button button = (Button) findViewById(R.id.btnEntrar);
+        Button button1 = (Button) findViewById(R.id.btnCadastrar);
     }
-    public  void entrar(View v){
-        Intent itEntrar = new Intent(TelaLogin.this,TelaPrincipal.class);
+
+    public void entrar(View v) {
+        Intent itEntrar = new Intent(TelaLogin.this, TelaPrincipal.class);
         startActivity(itEntrar);
     }
 
-    public  void cadastrar(View v){
-        Intent itCadastro = new Intent(TelaLogin.this,TelaCadastro.class);
+    public void cadastrar(View v) {
+        Intent itCadastro = new Intent(TelaLogin.this, TelaCadastro.class);
         startActivity(itCadastro);
     }
 }
