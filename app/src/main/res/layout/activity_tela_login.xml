@@ -3,127 +3,129 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorFundoBranco"
+    android:background="@drawable/imagem_fundo"
     tools:context="com.joinservice.joinservice.TelaLogin">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_gravity="center">
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <ImageView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="117dp"
-                android:src="@drawable/logo" />
-
-            <ImageView
-                android:layout_width="fill_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/logonome" />
-        </LinearLayout>
+                android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="15dp">
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/screen_border"
-                android:backgroundTint="@color/colorButtonFacebook"
-                android:drawableLeft="@drawable/icon_facebook"
-                android:padding="16dp"
-                android:text="Conectar com o Facebook"
-                android:textAlignment="center"
-                android:textColor="@color/colorFundoBranco" />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="160dp"
+                        android:src="@drawable/logo" />
 
-        </LinearLayout>
+                </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:orientation="horizontal">
 
-            <EditText
-                android:layout_width="0dp"
-                android:layout_height="60dp"
-                android:layout_weight="4"
-                android:background="@drawable/edit_text_background"
-                android:hint="Usuário/Email"
-                android:inputType="textWebEmailAddress"
-                android:padding="5dp" />
-        </LinearLayout>
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/screen_border"
+                        android:drawableLeft="@drawable/icon_facebook"
+                        android:padding="16dp"
+                        android:text="Conectar com o Facebook"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorFundoBranco" />
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:orientation="horizontal">
+                </LinearLayout>
 
-            <EditText
-                android:layout_width="0dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="-1dp"
-                android:layout_weight="4"
-                android:background="@drawable/edit_text_background"
-                android:hint="Senha"
-                android:inputType="textPassword"
-                android:padding="5dp"
-                android:password="true" />
-        </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:gravity="bottom">
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="4"
+                        android:background="@drawable/edit_text_background"
+                        android:hint="Usuário/Email"
+                        android:inputType="textWebEmailAddress"
+                        android:padding="5dp" />
+                </LinearLayout>
 
-            <Button
-                android:id="@+id/btnEntrar"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/screen_border"
-                android:onClick="entrar"
-                android:padding="16dp"
-                android:text="Entrar"
-                android:textAlignment="center"
-                android:textColor="@color/colorFundoBranco" />
-        </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:background="@color/colorFundoBranco"
-            android:gravity="bottom">
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="-1dp"
+                        android:layout_weight="4"
+                        android:background="@drawable/edit_text_background"
+                        android:hint="Senha"
+                        android:inputType="textPassword"
+                        android:padding="5dp"
+                        android:password="true" />
+                </LinearLayout>
 
-            <Button
-                android:id="@+id/btnCadastrar"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/screen_border"
-                android:onClick="cadastrar"
-                android:padding="16dp"
-                android:text="Cadastrar"
-                android:textAlignment="center"
-                android:textColor="@color/colorFundoBranco" />
-        </LinearLayout>
-    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:gravity="bottom">
+
+                    <Button
+                        android:id="@+id/btnEntrar"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/screen_border"
+                        android:onClick="entrar"
+                        android:padding="16dp"
+                        android:text="Entrar"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorFundoBranco" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:gravity="bottom">
+
+                        <Button
+                            android:id="@+id/btnCadastrar"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/screen_border"
+                            android:onClick="cadastrar"
+                            android:padding="16dp"
+                            android:text="Cadastrar"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorFundoBranco" />
+                </LinearLayout>
+            </LinearLayout>
+    </RelativeLayout>
 
 </ScrollView>
