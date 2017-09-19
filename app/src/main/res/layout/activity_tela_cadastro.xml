@@ -11,9 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
+an
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
@@ -24,7 +24,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="0dp"
+                android:layout_marginTop="34dp"
                 android:text="Novo Cadastro"
                 android:textSize="30sp" />
 
@@ -42,14 +42,14 @@
                 android:text="Tirar Foto" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="100dp"
                 android:orientation="vertical">
 
                 <EditText
                     android:id="@+id/editNome"
-                    android:layout_width="match_parent"
+                    android:layout_width="362dp"
                     android:layout_height="42dp"
                     android:ems="10"
                     android:background="@drawable/edit_text_background"
@@ -58,9 +58,8 @@
 
                 <EditText
                     android:id="@+id/editText13"
-                    android:layout_width="match_parent"
+                    android:layout_width="362dp"
                     android:layout_height="42dp"
-                    android:layout_marginTop="11dp"
                     android:ems="10"
                     android:background="@drawable/edit_text_background"
                     android:hint="Cpf"
@@ -68,13 +67,12 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:id="@+id/editCidade"
-                    android:layout_width="match_parent"
+                    android:layout_width="290dp"
                     android:layout_height="42dp"
                     android:layout_marginTop="11dp"
                     android:ems="10"
@@ -84,23 +82,21 @@
 
                 <Spinner
                     android:id="@+id/estados"
-                    android:layout_width="match_parent"
+                    android:layout_width="56dp"
                     android:layout_height="42dp"
                     android:layout_marginTop="11dp"
-                    android:hint="Estado"
                     android:background="@drawable/edit_text_background"
                     android:textAlignment="center" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:id="@+id/editEndereco"
-                    android:layout_width="match_parent"
+                    android:layout_width="290dp"
                     android:layout_height="42dp"
                     android:layout_marginTop="11dp"
                     android:ems="10"
@@ -110,7 +106,7 @@
 
                 <EditText
                     android:id="@+id/editN"
-                    android:layout_width="match_parent"
+                    android:layout_width="56dp"
                     android:layout_height="42dp"
                     android:layout_marginTop="11dp"
                     android:ems="10"
@@ -127,7 +123,7 @@
 
                 <EditText
                     android:id="@+id/editBairro"
-                    android:layout_width="match_parent"
+                    android:layout_width="362dp"
                     android:layout_height="42dp"
                     android:layout_marginTop="11dp"
                     android:layout_weight="1"
@@ -138,7 +134,7 @@
 
                 <EditText
                     android:id="@+id/editEmail"
-                    android:layout_width="match_parent"
+                    android:layout_width="362dp"
                     android:layout_height="42dp"
                     android:layout_marginTop="11dp"
                     android:layout_weight="1"
