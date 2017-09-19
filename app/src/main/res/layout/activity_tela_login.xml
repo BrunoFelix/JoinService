@@ -85,7 +85,6 @@
                         android:padding="5dp"
                         android:password="true" />
                 </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
@@ -93,7 +92,6 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:gravity="bottom">
-
                     <Button
                         android:id="@+id/btnEntrar"
                         android:layout_width="match_parent"
@@ -105,7 +103,6 @@
                         android:textAlignment="center"
                         android:textColor="@color/colorFundoBranco" />
                 </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
@@ -113,9 +110,8 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:gravity="bottom">
-
                     <Button
-                        android:id="@+id/button5"
+                        android:id="@+id/btnEsqueceuSenha"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_weight="1"
@@ -144,9 +140,6 @@
                          android:textAlignment="center"
                          android:textColor="@color/colorFundoBranco" />
                  </LinearLayout>
-
-
             </LinearLayout>
     </RelativeLayout>
-
 </ScrollView>
