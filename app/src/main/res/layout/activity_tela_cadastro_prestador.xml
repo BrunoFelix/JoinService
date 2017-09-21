@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorFundoBranco"
-    tools:context="com.joinservice.joinservice.TelaCadastro">
+    tools:context="com.joinservice.joinservice.TelaCadastroPrestador">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="0dp"
-                android:text="Novo Cadastro"
+                android:text="Cadastro Prestador"
                 android:textSize="30sp" />
 
             <ImageView
@@ -63,18 +63,18 @@
                     android:layout_marginTop="11dp"
                     android:ems="10"
                     android:background="@drawable/edit_text_background"
-                    android:hint="Cpf"
+                    android:hint="CPF/CNPJ"
                     android:inputType="number" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
                 <EditText
                     android:id="@+id/editCidade"
-                    android:layout_width="match_parent"
+                    android:layout_width="290dp"
                     android:layout_height="42dp"
                     android:layout_marginTop="11dp"
                     android:ems="10"
@@ -84,9 +84,10 @@
 
                 <Spinner
                     android:id="@+id/estados"
-                    android:layout_width="match_parent"
+                    android:layout_width="57dp"
                     android:layout_height="42dp"
                     android:layout_marginTop="11dp"
+                    android:layout_marginLeft="2dp"
                     android:hint="Estado"
                     android:background="@drawable/edit_text_background"
                     android:textAlignment="center" />
