@@ -85,7 +85,6 @@
                         android:padding="5dp"
                         android:password="true" />
                 </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
@@ -93,7 +92,6 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:gravity="bottom">
-
                     <Button
                         android:id="@+id/btnEntrar"
                         android:layout_width="match_parent"
@@ -105,7 +103,6 @@
                         android:textAlignment="center"
                         android:textColor="@color/colorFundoBranco" />
                 </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
@@ -113,19 +110,36 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:gravity="bottom">
-
-                        <Button
-                            android:id="@+id/btnCadastrar"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:background="@drawable/screen_border"
-                            android:onClick="cadastrar"
-                            android:padding="16dp"
-                            android:text="Cadastrar"
-                            android:textAlignment="center"
-                            android:textColor="@color/colorFundoBranco" />
+                    <Button
+                        android:id="@+id/btnEsqueceuSenha"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/screen_border"
+                        android:onClick="cadastrar"
+                        android:padding="16dp"
+                        android:text="Esqueceu a senha"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorFundoBranco" />
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:gravity="bottom">>
+                     <Button
+                         android:id="@+id/btnCadastrar"
+                         android:layout_width="match_parent"
+                         android:layout_height="50dp"
+                         android:background="@drawable/screen_border"
+                         android:onClick="cadastrar"
+                         android:padding="16dp"
+                         android:text="Cadastrar"
+                         android:textAlignment="center"
+                         android:textColor="@color/colorFundoBranco" />
+                 </LinearLayout>
             </LinearLayout>
     </RelativeLayout>
-
 </ScrollView>
