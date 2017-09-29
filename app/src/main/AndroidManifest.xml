@@ -17,7 +17,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".TelaPrincipal" />
-        <activity android:name=".TelaCadastro"></activity>
+        <activity android:name=".TelaCadastro" />
+        <activity android:name=".register.RegisterEmailActivity" />
+        <activity android:name=".register.RegisterProfileActivity" />
+        <activity android:name=".register.RegisterPictureActivity" />
+        <activity android:name=".register.RegisterPhoneActivity"></activity>
     </application>
 
 </manifest>

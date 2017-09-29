@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.joinservice.joinservice.register.RegisterEmailActivity"
+    android:gravity="center"
+    android:padding="35dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageViewCadastroEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_register"
+            android:layout_marginBottom="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="NOME COMPLETO"/>
+
+        <EditText
+            android:id="@+id/editTextCadastroNomeCompleto"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+
+            android:layout_marginBottom="15dp"
+            android:layout_alignBottom="@id/imageViewCadastroEmail"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="CPF"/>
+
+        <EditText
+            android:id="@+id/editTextCadastroCPF"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+
+            android:layout_marginBottom="15dp"
+            android:layout_alignBottom="@id/imageViewCadastroEmail"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="SENHA"/>
+
+        <EditText
+            android:id="@+id/editTextCadastroSenha"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+
+            android:layout_marginBottom="15dp"
+            android:layout_alignBottom="@id/imageViewCadastroEmail"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="CONFIRMAR SENHA"/>
+
+        <EditText
+            android:id="@+id/editTextCadastroSenhaConfirmacao"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+
+            android:layout_marginBottom="15dp"
+            android:layout_alignBottom="@id/imageViewCadastroEmail"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Avançar"
+            android:onClick="proximo"
+            android:background="@drawable/screen_border"
+            android:layout_alignBottom="@id/editTextCadastroEmail"/>
+    </LinearLayout>
+
+</RelativeLayout>
