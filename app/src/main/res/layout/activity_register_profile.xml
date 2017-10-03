@@ -29,7 +29,7 @@
             android:id="@+id/editTextCadastroNomeCompleto"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-
+            android:inputType="text"
             android:layout_marginBottom="15dp"
             android:layout_alignBottom="@id/imageViewCadastroEmail"
             />
@@ -43,7 +43,7 @@
             android:id="@+id/editTextCadastroCPF"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-
+            android:inputType="number"
             android:layout_marginBottom="15dp"
             android:layout_alignBottom="@id/imageViewCadastroEmail"
             />
@@ -57,7 +57,7 @@
             android:id="@+id/editTextCadastroSenha"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-
+            android:inputType="textPassword"
             android:layout_marginBottom="15dp"
             android:layout_alignBottom="@id/imageViewCadastroEmail"
             />
@@ -71,7 +71,7 @@
             android:id="@+id/editTextCadastroSenhaConfirmacao"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-
+            android:inputType="textPassword"
             android:layout_marginBottom="15dp"
             android:layout_alignBottom="@id/imageViewCadastroEmail"/>
 
