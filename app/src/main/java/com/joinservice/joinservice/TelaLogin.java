@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.joinservice.joinservice.register.RegisterEmailActivity;
+
 public class TelaLogin extends AppCompatActivity {
 
     @Override
@@ -22,7 +24,7 @@ public class TelaLogin extends AppCompatActivity {
     }
 
     public void cadastrar(View v) {
-        Intent itCadastro = new Intent(TelaLogin.this, TelaCadastro.class);
+        Intent itCadastro = new Intent(TelaLogin.this, RegisterEmailActivity.class);
         startActivity(itCadastro);
     }
 }
