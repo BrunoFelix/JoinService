@@ -70,11 +70,11 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <EditText
                     android:id="@+id/editCidade"
-                    android:layout_width="290dp"
+                    android:layout_width="match_parent"
                     android:layout_height="42dp"
                     android:layout_marginTop="11dp"
                     android:ems="10"
@@ -84,10 +84,9 @@
 
                 <Spinner
                     android:id="@+id/estados"
-                    android:layout_width="57dp"
+                    android:layout_width="match_parent"
                     android:layout_height="42dp"
                     android:layout_marginTop="11dp"
-                    android:layout_marginLeft="2dp"
                     android:hint="Estado"
                     android:background="@drawable/edit_text_background"
                     android:textAlignment="center" />
