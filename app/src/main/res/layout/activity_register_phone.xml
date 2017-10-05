@@ -8,49 +8,62 @@
     android:gravity="center"
     android:padding="35dp">
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/imageViewCadastroEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:src="@drawable/icon_phone"
+        android:layout_marginTop="15dp"
+        />
 
-        <ImageView
-            android:id="@+id/imageViewCadastroEmail"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/icon_phone"
-            android:layout_marginBottom="55dp"/>
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Adicione seu número de telefone"
-            android:gravity="center"
-            android:textSize="13pt"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/texto_cadastro_telefone_1"
+                android:gravity="center"
+                android:textSize="13pt"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Você pode atualizar ou remover a qualquer momento"
-            android:gravity="center"
-            android:layout_marginBottom="5dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/texto_cadastro_telefone_2"
+                android:gravity="center"
+                android:layout_marginBottom="45dp"/>
 
-        <EditText
-            android:id="@+id/editTextCadastroPhone"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_marginBottom="15dp"
-            />
+            <EditText
+                android:id="@+id/editTextCadastroPhone"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="15dp"
+                android:inputType="number"/>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Pular"
-            style="?attr/borderlessButtonStyle"
-            />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/avançar"
+                android:onClick="proximo"
+                android:background="@drawable/screen_border"
+                android:textColor="@color/colorBranco" />
 
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pular"
+                style="?attr/borderlessButtonStyle" />
 
+        </LinearLayout>
+    </RelativeLayout>
 
-    </LinearLayout>
 
 </RelativeLayout>
 

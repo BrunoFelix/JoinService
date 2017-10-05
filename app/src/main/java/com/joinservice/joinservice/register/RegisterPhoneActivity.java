@@ -1,13 +1,16 @@
 package com.joinservice.joinservice.register;
 
+import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.PhoneNumberFormattingTextWatcher;
+import android.view.View;
 import android.widget.EditText;
 
 import com.joinservice.joinservice.R;
+import com.joinservice.joinservice.principal.provider.ListOrderActivity;
 
 public class RegisterPhoneActivity extends AppCompatActivity {
 
@@ -19,5 +22,10 @@ public class RegisterPhoneActivity extends AppCompatActivity {
 
         EditText inputField = (EditText) findViewById(R.id.editTextCadastroPhone);
         inputField.addTextChangedListener(new PhoneNumberFormattingTextWatcher("BR"));
+    }
+
+    public void proximo(View v) {
+        Intent itProximo = new Intent(this, ListOrderActivity.class);
+        startActivity(itProximo);
     }
 }

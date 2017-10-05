@@ -45,7 +45,7 @@
                         android:padding="16dp"
                         android:text="Conectar com o Facebook"
                         android:textAlignment="center"
-                        android:textColor="@color/colorFundoBranco" />
+                        android:textColor="@color/colorBranco" />
 
                 </LinearLayout>
 
@@ -101,7 +101,7 @@
                         android:padding="16dp"
                         android:text="Entrar"
                         android:textAlignment="center"
-                        android:textColor="@color/colorFundoBranco" />
+                        android:textColor="@color/colorBranco" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -120,7 +120,7 @@
                         android:padding="16dp"
                         android:text="Esqueceu a senha"
                         android:textAlignment="center"
-                        android:textColor="@color/colorFundoBranco" />
+                        android:textColor="@color/colorBranco" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -138,7 +138,7 @@
                          android:padding="16dp"
                          android:text="Cadastrar"
                          android:textAlignment="center"
-                         android:textColor="@color/colorFundoBranco" />
+                         android:textColor="@color/colorBranco" />
                  </LinearLayout>
             </LinearLayout>
     </RelativeLayout>

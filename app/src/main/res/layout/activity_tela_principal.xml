@@ -68,7 +68,7 @@
                     android:padding="16dp"
                     android:text="Cadastrar Prestador"
                     android:textAlignment="center"
-                    android:textColor="@color/colorFundoBranco" />
+                    android:textColor="@color/colorBranco" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -87,7 +87,7 @@
                     android:padding="16dp"
                     android:text="Cadastrar Cliente"
                     android:textAlignment="center"
-                    android:textColor="@color/colorFundoBranco" />
+                    android:textColor="@color/colorBranco" />
             </LinearLayout>
             <LinearLayout
             android:layout_width="fill_parent"
@@ -105,7 +105,7 @@
                 android:padding="16dp"
                 android:text="CADASTRAR SERVIÇO"
                 android:textAlignment="center"
-                android:textColor="@color/colorFundoBranco" />
+                android:textColor="@color/colorBranco" />
         </LinearLayout>
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -123,7 +123,7 @@
                     android:padding="16dp"
                     android:text="CADASTRAR SERVIÇO"
                     android:textAlignment="center"
-                    android:textColor="@color/colorFundoBranco" />
+                    android:textColor="@color/colorBranco" />
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>

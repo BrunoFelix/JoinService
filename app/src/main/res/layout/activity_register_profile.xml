@@ -8,80 +8,79 @@
     android:gravity="center"
     android:padding="35dp">
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/imageViewCadastroEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:src="@drawable/icon_register"
+        android:layout_marginTop="15dp" />
 
-        <ImageView
-            android:id="@+id/imageViewCadastroEmail"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/icon_register"
-            android:layout_marginBottom="15dp"/>
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="NOME COMPLETO"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/texto_cadastro_perfil_1"/>
 
-        <EditText
-            android:id="@+id/editTextCadastroNomeCompleto"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
+            <EditText
+                android:id="@+id/editTextCadastroNomeCompleto"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="15dp"
+                android:inputType="text"/>
 
-            android:layout_marginBottom="15dp"
-            android:layout_alignBottom="@id/imageViewCadastroEmail"
-            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/texto_cadastro_perfil_2"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="CPF"/>
+            <EditText
+                android:id="@+id/editTextCadastroCPF"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="15dp"
+                android:inputType="number"/>
+                android:inputType="number"/>
 
-        <EditText
-            android:id="@+id/editTextCadastroCPF"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/texto_cadastro_perfil_3"/>
 
-            android:layout_marginBottom="15dp"
-            android:layout_alignBottom="@id/imageViewCadastroEmail"
-            />
+            <EditText
+                android:id="@+id/editTextCadastroSenha"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="15dp"
+                android:inputType="text"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="SENHA"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/texto_cadastro_perfil_4"/>
 
-        <EditText
-            android:id="@+id/editTextCadastroSenha"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
+            <EditText
+                android:id="@+id/editTextCadastroSenhaConfirmacao"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="15dp"
+                android:inputType="text"/>
 
-            android:layout_marginBottom="15dp"
-            android:layout_alignBottom="@id/imageViewCadastroEmail"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="CONFIRMAR SENHA"/>
-
-        <EditText
-            android:id="@+id/editTextCadastroSenhaConfirmacao"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-
-            android:layout_marginBottom="15dp"
-            android:layout_alignBottom="@id/imageViewCadastroEmail"/>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Avançar"
-            android:onClick="proximo"
-            android:background="@drawable/screen_border"
-            android:layout_alignBottom="@id/editTextCadastroEmail"/>
-    </LinearLayout>
-
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/avançar"
+                android:onClick="proximo"
+                android:background="@drawable/screen_border"
+                android:textColor="@color/colorBranco"/>
+        </LinearLayout>
+    </RelativeLayout>
 </RelativeLayout>

@@ -5,42 +5,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.joinservice.joinservice.register.RegisterEmailActivity"
-    android:gravity="center"
     android:padding="35dp">
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/imageViewCadastroEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:src="@drawable/icon_email"
+        android:layout_marginTop="15dp"/>
 
-        <ImageView
-            android:id="@+id/imageViewCadastroEmail"
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/icon_email"
-            android:layout_marginBottom="55dp"/>
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="EMAIL"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/texto_cadastro_email_1" />
 
-        <EditText
-            android:id="@+id/editTextCadastroEmail"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
- 
-            android:layout_marginBottom="15dp"
-            android:layout_alignBottom="@id/imageViewCadastroEmail"
-            />
+            <EditText
+                android:id="@+id/editTextCadastroEmail"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="15dp"
+                android:inputType="textEmailAddress" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Avançar"
-            android:onClick="proximo"
-            android:background="@drawable/screen_border"
-            android:layout_alignBottom="@id/editTextCadastroEmail"/>
-    </LinearLayout>
-
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/avançar"
+                android:onClick="proximo"
+                android:background="@drawable/screen_border"
+                android:textColor="@color/colorBranco"/>
+        </LinearLayout>
+    </RelativeLayout>
 </RelativeLayout>

@@ -6,52 +6,55 @@
     android:layout_height="match_parent"
     tools:context="com.joinservice.joinservice.register.RegisterEmailActivity"
     android:gravity="center"
-    android:padding="35dp">
+    android:padding="35dp"
+    android:background="#41ffffff">
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/imageViewCadastroEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:src="@drawable/icon_user"
+        android:layout_marginTop="15dp"/>
 
-        <ImageView
-            android:id="@+id/imageViewCadastroEmail"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/icon_user"
-            android:layout_marginBottom="55dp"/>
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Adicione foto ao perfil"
-            android:gravity="center"
-            android:textSize="13pt"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/texto_cadastro_foto_1"
+                android:gravity="center"
+                android:textSize="13pt"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Adicione uma foto de perfil para que outros usuários saibam quem você é"
-            android:gravity="center"
-            android:layout_marginBottom="5dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/texto_cadastro_foto_2"
+                android:gravity="center"
+                android:layout_marginBottom="45dp"/>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Adicionar Foto"
-            android:onClick="proximo"
-            android:background="@drawable/screen_border"
-            />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/adicionar_foto"
+                android:onClick="proximo"
+                android:background="@drawable/screen_border"
+                android:textColor="@color/colorBranco"/>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Pular"
-            style="?attr/borderlessButtonStyle"
-            />
-
-
-
-    </LinearLayout>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pular"
+                style="?attr/borderlessButtonStyle" />
+        </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>
 

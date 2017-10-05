@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">JoinService</string>
+    <string name="avançar">Avançar</string>
+    <string name="pular">Pular</string>
+    <string name="adicionar_foto">Adicionar foto</string>
+
+
+    <string name="texto_cadastro_perfil_1">Nome</string>
+    <string name="texto_cadastro_perfil_2">CPF</string>
+    <string name="texto_cadastro_perfil_3">Senha</string>
+    <string name="texto_cadastro_perfil_4">Confirmar Senha</string>
+
+    <string name="texto_cadastro_email_1">Email</string>
+
+    <string name="texto_cadastro_foto_1">Adicione foto ao perfil</string>
+    <string name="texto_cadastro_foto_2">Adicione uma foto de perfil para que outros usuários saibam quem você é</string>
+
+    <string name="texto_cadastro_telefone_1">Adicione seu número de telefone</string>
+    <string name="texto_cadastro_telefone_2">Você pode atualizar ou remover a qualquer momento</string>
 </resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.joinservice.joinservice.register.RegisterEmailActivity"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="2dp"
+    >
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:background="@drawable/edit_text_background"
+        android:drawableLeft="@drawable/ic_search_black_18dp"
+        android:hint="Buscar serviços"
+        android:padding="5dp"/>
+</RelativeLayout>
