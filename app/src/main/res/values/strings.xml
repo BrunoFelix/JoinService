@@ -17,4 +17,10 @@
 
     <string name="texto_cadastro_telefone_1">Adicione seu número de telefone</string>
     <string name="texto_cadastro_telefone_2">Você pode atualizar ou remover a qualquer momento</string>
+    <string name="title_activity_list_order_consumer">ListOrderConsumerActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 </resources>

@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.joinservice.joinservice.R;
-import com.joinservice.joinservice.principal.provider.ListOrderActivity;
+import com.joinservice.joinservice.principal.consumer.ListOrderConsumerActivity;
 
 public class RegisterPhoneActivity extends AppCompatActivity {
 
@@ -25,7 +25,7 @@ public class RegisterPhoneActivity extends AppCompatActivity {
     }
 
     public void proximo(View v) {
-        Intent itProximo = new Intent(this, ListOrderActivity.class);
+        Intent itProximo = new Intent(this, ListOrderConsumerActivity.class);
         startActivity(itProximo);
     }
 }

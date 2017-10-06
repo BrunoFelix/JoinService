@@ -23,7 +23,10 @@
         <activity android:name=".register.RegisterProfileActivity" />
         <activity android:name=".register.RegisterPictureActivity" />
         <activity android:name=".register.RegisterPhoneActivity" />
-        <activity android:name=".principal.provider.ListOrderActivity"></activity>
+        <activity
+            android:name=".principal.consumer.ListOrderConsumerActivity"
+            android:label="@string/title_activity_list_order_consumer"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>
