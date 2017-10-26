@@ -40,19 +40,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="@string/texto_cadastro_perfil_2"/>
-
-            <EditText
-                android:id="@+id/editTextCadastroCPF"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_marginBottom="15dp"
-                android:inputType="number"/>
-                android:inputType="number"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
                 android:text="@string/texto_cadastro_perfil_3"/>
 
             <EditText
