@@ -4,11 +4,16 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.joinservice.joinservice.R;
 
+import basica.Usuario;
+
 public class RegisterEmailActivity extends AppCompatActivity {
 
+    EditText email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,6 +21,16 @@ public class RegisterEmailActivity extends AppCompatActivity {
     }
 
     public void proximo(View v) {
+
+        Usuario usuario = new Usuario();
+        email = (EditText) findViewById(R.id.editTextCadastroEmail);
+
+        if (!email.getText().toString().isEmpty()){
+            usuario.setEmail(email.getText().toString());
+        }else{
+            Toast.makeText(getApplicationContext(), "O campo \"Email\" precisa ser preenchido!", Toast.LENGTH_SHORT).show();
+        }
+
         Intent itProximo = new Intent(this, RegisterProfileActivity.class);
         startActivity(itProximo);
     }

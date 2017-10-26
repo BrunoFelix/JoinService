@@ -15,7 +15,7 @@
     <string name="texto_cadastro_foto_1">Adicione foto ao perfil</string>
     <string name="texto_cadastro_foto_2">Adicione uma foto de perfil para que outros usuários saibam quem você é</string>
 
-    <string name="texto_cadastro_telefone_1">Adicione seu número de telefone</string>
+    <string name="texto_cadastro_telefone_1">Adicione seu número de celular</string>
     <string name="texto_cadastro_telefone_2">Você pode atualizar ou remover a qualquer momento</string>
     <string name="title_activity_list_order_consumer">ListOrderConsumerActivity</string>
 
