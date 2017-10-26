@@ -39,11 +39,11 @@ public class TelaLogin extends AppCompatActivity {
             usuario = fachada.usuarioLogar(email.getText().toString(), senha.getText().toString());
 
             if (usuario.getId() > 0){
-                Toast.makeText(getApplicationContext(), "Redirecionando, aguarde...!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Redirecionando, aguarde...!", Toast.LENGTH_LONG).show();
                 Intent itEntrar = new Intent(TelaLogin.this, ListOrderConsumerActivity.class);
                 startActivity(itEntrar);
             }else{
-                Toast.makeText(getApplicationContext(), "Dados inválidos, tente novamente!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Dados inválidos, tente novamente!", Toast.LENGTH_LONG).show();
             }
         } catch (NegocioException e) {
             Toast.makeText(getApplicationContext(), e.getMessage().toString(), Toast.LENGTH_SHORT).show();

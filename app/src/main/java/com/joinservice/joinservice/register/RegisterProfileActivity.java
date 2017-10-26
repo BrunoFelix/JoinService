@@ -32,7 +32,7 @@ public class RegisterProfileActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Todos os campos precisam ser preenchidos!", Toast.LENGTH_SHORT).show();
         }
         else if(senha.getText().toString() != confirmarSenha.getText().toString()){
-            Toast.makeText(getApplicationContext(), "O campo \"Senha\" e \"Confirmar Senha\" precisam ser igualmente preenchidos!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "O campo \"Senha\" e \"Confirmar Senha\" precisam ser igualmente preenchidos!", Toast.LENGTH_LONG).show();
         }else{
             usuario.setNome(nome.getText().toString());
             usuario.setSenha(senha.getText().toString());

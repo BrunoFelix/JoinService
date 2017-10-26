@@ -8,80 +8,84 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
+import SQL.PrestadorSQL;
 import SQL.UsuarioSQL;
+import basica.Prestador;
 import basica.Usuario;
 
 /**
- * Created by Bruno on 25/10/2017.
+ * Created by TJ on 26/10/2017.
  */
 
-public class UsuarioDAO {
+public class PrestadorDAO {
 
-    private UsuarioSQL helper;
-    public UsuarioDAO(Context ctx) {
-        helper = new UsuarioSQL(ctx);
+    private PrestadorSQL helper;
+
+    public PrestadorDAO(Context ctx) {
+        helper = new PrestadorSQL(ctx);
     }
 
-    private long inserir(Usuario usuario) {
+    private long inserir(Prestador prestador) {
         SQLiteDatabase db = helper.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put("NOME", usuario.getNome());
-        cv.put("SENHA", usuario.getSenha());
-        cv.put("EMAIL", usuario.getEmail());
-        cv.put("CELULAR", usuario.getCelular());
-        long id = db.insert("USUARIO", null, cv);
+        cv.put("NOME", prestador.getNome());
+        cv.put("SENHA", prestador.getSenha());
+        cv.put("EMAIL", prestador.getEmail());
+        cv.put("CELULAR", prestador.getCelular());
+        long id = db.insert("PRESTADOR", null, cv);
         db.close();
         return id;
     }
-    private int atualizar(Usuario usuario) {
+
+    private int atualizar(Prestador prestador) {
         SQLiteDatabase db = helper.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put("NOME", usuario.getNome());
-        cv.put("SENHA", usuario.getSenha());
-        cv.put("EMAIL", usuario.getEmail());
-        cv.put("CELULAR", usuario.getCelular());
+        cv.put("NOME", prestador.getNome());
+        cv.put("SENHA", prestador.getSenha());
+        cv.put("EMAIL", prestador.getEmail());
+        cv.put("CELULAR", prestador.getCelular());
         int linhasAfetadas = db.update(
-                "USUARIO",
+                "PRESTADOR",
                 cv,
                 "ID = ?",
-                new String[]{ String.valueOf(usuario.getId())});
-        db.close();
-        return linhasAfetadas;
-    }
-    public void salvar(Usuario usuario) {
-        if (usuario.getId() == 0) {
-            inserir(usuario);
-        } else {
-            atualizar(usuario);
-        }
-    }
-    public int excluir(Usuario usuario) {
-        SQLiteDatabase db = helper.getWritableDatabase();
-        int linhasAfetadas = db.delete(
-                "USUARIO",
-                "ID = ?",
-                new String[]{ String.valueOf(usuario.getId())});
+                new String[]{String.valueOf(prestador.getId())});
         db.close();
         return linhasAfetadas;
     }
 
+    public void salvar(Prestador prestador) {
+        if (prestador.getId() == 0) {
+            inserir(prestador);
+        } else {
+            atualizar(prestador);
+        }
+    }
+
+    public int excluir(Prestador prestador) {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        int linhasAfetadas = db.delete(
+                "PRESTADOR",
+                "ID = ?",
+                new String[]{ String.valueOf(prestador.getId())});
+        db.close();
+        return linhasAfetadas;
+    }
 
     public void deletarTudo(){
         SQLiteDatabase db = helper.getWritableDatabase();
-        db.delete("USUARIO", null, null);
+        db.delete("PRESTADOR", null, null);
         db.close();
-
     }
 
-    public Usuario logar(String email, String senha){
+    public Prestador logar(String email, String senha){
         SQLiteDatabase db = helper.getReadableDatabase();
-        String sql = "SELECT * FROM USUARIO ";
+        String sql = "SELECT * FROM PRESTADOR";
         String[] argumentos = null;
 
         sql += " WHERE EMAIL = ? AND SENHA = ?";
         argumentos = new String[]{email, senha};
         Cursor cursor = db.rawQuery(sql, argumentos);
-        Usuario usuario = new Usuario();
+        Prestador prestador = new Prestador();
 
         while (cursor.moveToNext()) {
             int id = cursor.getInt(
@@ -93,18 +97,17 @@ public class UsuarioDAO {
             String em = cursor.getString(
                     cursor.getColumnIndex("EMAIL"));
 
-            usuario.setId(id);
-            usuario.setNome(nome);
-            usuario.setEmail(em);
-            usuario.setCelular(celular);
+            prestador.setId(id);
+            prestador.setNome(nome);
+            prestador.setEmail(em);
+            prestador.setCelular(celular);
         }
-        return usuario;
+        return prestador;
     }
 
-
-    public List<Usuario> buscarUsuario(String filtro) {
+    public List<Prestador> buscarPrestador(String filtro) {
         SQLiteDatabase db = helper.getReadableDatabase();
-        String sql = "SELECT * FROM USUARIO ";
+        String sql = "SELECT * FROM PRESTADOR";
         String[] argumentos = null;
         if (filtro != null) {
             sql += " WHERE NOME LIKE ?";
@@ -112,7 +115,7 @@ public class UsuarioDAO {
         }
         sql += " ORDER BY NOME ASC";
         Cursor cursor = db.rawQuery(sql, argumentos);
-        List<Usuario> usuarios= new ArrayList<Usuario>();
+        List<Prestador> prestadores = new ArrayList<Prestador>();
         while (cursor.moveToNext()) {
             int id = cursor.getInt(
                     cursor.getColumnIndex("ID"));
@@ -122,16 +125,16 @@ public class UsuarioDAO {
                     cursor.getColumnIndex("CELULAR"));
             String email = cursor.getString(
                     cursor.getColumnIndex("EMAIL"));
-            Usuario usuario = new Usuario();
-            usuario.setId(id);
-            usuario.setNome(nome);
-            usuario.setEmail(email);
-            usuario.setCelular(celular);
+            Prestador prestador = new Prestador();
+            prestador.setId(id);
+            prestador.setNome(nome);
+            prestador.setEmail(email);
+            prestador.setCelular(celular);
 
-            usuarios.add(usuario);
+            prestadores.add(prestador);
         }
         cursor.close();
         db.close();
-        return usuarios;
+        return prestadores;
     }
 }
