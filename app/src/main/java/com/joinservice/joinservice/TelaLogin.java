@@ -1,6 +1,9 @@
 package com.joinservice.joinservice;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +22,7 @@ public class TelaLogin extends AppCompatActivity {
 
     EditText email, senha;
     Fachada fachada;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,11 +42,11 @@ public class TelaLogin extends AppCompatActivity {
         try {
             usuario = fachada.usuarioLogar(email.getText().toString(), senha.getText().toString());
 
-            if (usuario.getId() > 0){
+            if (usuario.getId() > 0) {
                 Toast.makeText(getApplicationContext(), "Redirecionando, aguarde...!", Toast.LENGTH_LONG).show();
                 Intent itEntrar = new Intent(TelaLogin.this, ListOrderConsumerActivity.class);
                 startActivity(itEntrar);
-            }else{
+            } else {
                 Toast.makeText(getApplicationContext(), "Dados inválidos, tente novamente!", Toast.LENGTH_LONG).show();
             }
         } catch (NegocioException e) {
@@ -51,7 +55,29 @@ public class TelaLogin extends AppCompatActivity {
     }
 
     public void cadastrar(View v) {
-        Intent itCadastro = new Intent(TelaLogin.this, RegisterEmailActivity.class);
-        startActivity(itCadastro);
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+
+        alert.setTitle("Deseja se cadastrar como: ");
+
+        alert.setPositiveButton("Usuário", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Usuario usuario = new Usuario();
+                usuario.setTipo("USUARIO");
+                Intent itCadastro = new Intent(TelaLogin.this, RegisterEmailActivity.class);
+                startActivity(itCadastro);
+            }
+        })
+                .setNeutralButton("Prestador", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Usuario usuario = new Usuario();
+                        usuario.setTipo("PRESTADOR");
+                        Intent itCadastro = new Intent(TelaLogin.this, RegisterEmailActivity.class);
+                        startActivity(itCadastro);
+                    }
+                });
+
+        alert.show();
     }
 }

@@ -12,7 +12,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class UsuarioSQL extends SQLiteOpenHelper{
 
     public UsuarioSQL(Context context) {
-        super(context, "dbUsuario", null, 2);
+        super(context, "dbUsuario", null, 3);
     }
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {

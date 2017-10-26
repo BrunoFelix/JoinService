@@ -14,6 +14,7 @@ import basica.Usuario;
 public class RegisterEmailActivity extends AppCompatActivity {
 
     EditText email;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,13 +26,14 @@ public class RegisterEmailActivity extends AppCompatActivity {
         Usuario usuario = new Usuario();
         email = (EditText) findViewById(R.id.editTextCadastroEmail);
 
-        if (!email.getText().toString().isEmpty()){
-            usuario.setEmail(email.getText().toString());
-        }else{
+        if (email.getText().toString().isEmpty()) {
             Toast.makeText(getApplicationContext(), "O campo \"Email\" precisa ser preenchido!", Toast.LENGTH_SHORT).show();
+        } else {
+            usuario.setEmail(email.getText().toString());
+            Intent itProximo = new Intent(this, RegisterProfileActivity.class);
+            startActivity(itProximo);
         }
 
-        Intent itProximo = new Intent(this, RegisterProfileActivity.class);
-        startActivity(itProximo);
+
     }
 }

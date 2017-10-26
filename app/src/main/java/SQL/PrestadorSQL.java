@@ -12,7 +12,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class PrestadorSQL extends SQLiteOpenHelper {
 
     public PrestadorSQL(Context context) {
-        super(context, "dbPrestador", null, 2);
+        super(context, "dbPrestador", null, 3);
     }
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
@@ -30,10 +30,10 @@ public class PrestadorSQL extends SQLiteOpenHelper {
         switch(oldVersion) {
             case 1:
                 ContentValues cv = new ContentValues();
-                cv.put("NOME", "ADMIN");
-                cv.put("SENHA","ADMIN");
-                cv.put("EMAIL", "ADMIN");
-                cv.put("CELULAR", "81995782171");
+                cv.put("NOME", "PRESTADOR");
+                cv.put("SENHA","PRESTADOR");
+                cv.put("EMAIL", "PRESTADOR");
+                cv.put("CELULAR", "81995782172");
                 db.insert("PRESTADOR", null, cv);
             case 2:
                 //upgrade logic from version 2 to 3

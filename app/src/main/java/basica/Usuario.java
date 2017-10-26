@@ -13,6 +13,7 @@ public class Usuario {
     private String email;
     private String senha;
     private Blob foto;
+    private String tipo;
 
     public int getId() {
         return id;
@@ -60,5 +61,13 @@ public class Usuario {
 
     public void setFoto(Blob foto) {
         this.foto = foto;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 }
