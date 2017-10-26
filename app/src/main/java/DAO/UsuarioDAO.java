@@ -1,4 +1,4 @@
-package Repositorio;
+package DAO;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -12,13 +12,13 @@ import SQL.UsuarioSQL;
 import basica.Usuario;
 
 /**
- * Created by Bruno on 21/10/2017.
+ * Created by Bruno on 25/10/2017.
  */
 
-public class UsuarioRepositorio {
+public class UsuarioDAO {
 
     private UsuarioSQL helper;
-    public UsuarioRepositorio(Context ctx) {
+    public UsuarioDAO(Context ctx) {
         helper = new UsuarioSQL(ctx);
     }
 
@@ -72,6 +72,35 @@ public class UsuarioRepositorio {
         db.close();
 
     }
+
+    public Usuario logar(String email, String senha){
+        SQLiteDatabase db = helper.getReadableDatabase();
+        String sql = "SELECT * FROM USUARIO ";
+        String[] argumentos = null;
+
+        sql += " WHERE EMAIL = ? AND SENHA = ?";
+        argumentos = new String[]{email, senha};
+        Cursor cursor = db.rawQuery(sql, argumentos);
+        Usuario usuario = new Usuario();
+
+        while (cursor.moveToNext()) {
+            int id = cursor.getInt(
+                    cursor.getColumnIndex("ID"));
+            String nome = cursor.getString(
+                    cursor.getColumnIndex("NOME"));
+            String celular = cursor.getString(
+                    cursor.getColumnIndex("CELULAR"));
+            String em = cursor.getString(
+                    cursor.getColumnIndex("EMAIL"));
+
+            usuario.setId(id);
+            usuario.setNome(nome);
+            usuario.setEmail(em);
+            usuario.setCelular(celular);
+        }
+        return usuario;
+    }
+
 
     public List<Usuario> buscarUsuario(String filtro) {
         SQLiteDatabase db = helper.getReadableDatabase();

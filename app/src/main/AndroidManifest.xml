@@ -18,7 +18,6 @@
         </activity>
         <activity android:name=".TelaPrincipal" />
         <activity android:name=".TelaCadastro" />
-        <activity android:name=".TelaCadastroPrestador" />
         <activity android:name=".register.RegisterEmailActivity" />
         <activity android:name=".register.RegisterProfileActivity" />
         <activity android:name=".register.RegisterPictureActivity" />

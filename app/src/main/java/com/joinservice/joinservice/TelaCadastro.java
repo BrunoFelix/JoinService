@@ -16,12 +16,6 @@ public class TelaCadastro extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tela_cadastro);
-
-        Spinner combo = (Spinner) findViewById(R.id.estados);
-        ArrayAdapter adp = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ESTADOS);
-        adp.setDropDownViewResource(android.R.layout.simple_spinner_item);
-        combo.setAdapter(adp);
     }
 }
 
