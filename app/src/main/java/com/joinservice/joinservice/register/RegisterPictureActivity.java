@@ -25,38 +25,19 @@ public class RegisterPictureActivity extends AppCompatActivity {
     @SuppressLint("SimpleDateFormat")
     public void addFoto(View v) {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(intent, TIRAR_FOTO);
+        startActivityForResult(intent, 123);
     }
-
-    /*Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-    startActivityForResult(i, 123);*/
-
-
-        /*Intent itProximo = new Intent(this, RegisterPhoneActivity.class);
-        startActivity(itProximo);*/
-
-
-    /*protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 123) {
-            if (resultCode == Activity.RESULT_OK) {
-                //usuário tirou a foto
-            } else {
-                Toast.makeText(this, "Captura Cancelada", Toast.LENGTH_SHORT).show();
-                //usuário não tirou a foto
-            }
-        }
-    }*/
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == TIRAR_FOTO) {
-            if (resultCode == RESULT_OK) {
-                if(data != null) {
+        if (requestCode == 123) {
+            if (resultCode == Activity.RESULT_OK) {
+                if (data != null) {
                     Bundle bundle = data.getExtras();
                     Bitmap bitmap = (Bitmap) bundle.get("data");
-                } else if (resultCode == RESULT_CANCELED) {
+                } else if (resultCode == Activity.RESULT_CANCELED) {
                     Toast.makeText(getBaseContext(), "A captura foi cancelada",
                             Toast.LENGTH_SHORT);
                 } else {
