@@ -44,7 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/adicionar_foto"
-                android:onClick="proximo"
+                android:onClick="addFoto"
                 android:background="@drawable/screen_border"
                 android:textColor="@color/colorBranco"/>
 
