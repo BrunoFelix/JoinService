@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.joinservice.joinservice.EditProfile;
@@ -36,6 +37,8 @@ public class ListOrderConsumerActivity extends AppCompatActivity
 
         Intent intent  = getIntent();
         Usuario usuario = (Usuario) intent.getSerializableExtra("usuario");
+        //TextView nome_usuario = (TextView)findViewById(R.id.nome_usuario);
+        //nome_usuario.setText(usuario.getNome().toString());
 
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
