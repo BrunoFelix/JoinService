@@ -13,13 +13,18 @@ import basica.Usuario;
 public class UsuarioNegocio {
     UsuarioDAO usuarioDAO;
 
-    public UsuarioNegocio(Context context){
+    public UsuarioNegocio(Context context) {
         usuarioDAO = new UsuarioDAO(context);
     }
 
     public Usuario logar(String email, String senha) throws NegocioException {
         validarLogin(email, senha);
         return usuarioDAO.logar(email, senha);
+    }
+
+    public void alterar(Usuario usuario) {
+        usuarioDAO.atualizar(usuario);
+        //return 1;
     }
 
     //############################## VALIDAÇÕES ############################## //

@@ -30,5 +30,8 @@ public class Fachada {
     public Usuario usuarioLogar(String email, String senha) throws NegocioException {
         return usuarioNegocio.logar(email, senha);
     }
+    public  void usuarioAlterar (Usuario usuario){
+       usuarioNegocio.alterar(usuario);
+    }
 
 }

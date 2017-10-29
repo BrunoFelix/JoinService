@@ -33,7 +33,7 @@ public class UsuarioDAO {
         db.close();
         return id;
     }
-    private int atualizar(Usuario usuario) {
+    public void atualizar(Usuario usuario) {
         SQLiteDatabase db = helper.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put("NOME", usuario.getNome());
@@ -46,7 +46,7 @@ public class UsuarioDAO {
                 "ID = ?",
                 new String[]{ String.valueOf(usuario.getId())});
         db.close();
-        return linhasAfetadas;
+      //  return linhasAfetadas;
     }
     public void salvar(Usuario usuario) {
         if (usuario.getId() == 0) {

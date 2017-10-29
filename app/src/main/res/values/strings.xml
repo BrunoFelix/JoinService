@@ -2,13 +2,15 @@
     <string name="app_name">JoinService</string>
     <string name="avançar">Avançar</string>
     <string name="pular">Pular</string>
-    <string name="adicionar_foto">Adicionar foto</string>
+    <string name="alterar_foto">Alterar foto</string>
+    <string name="salvar">Salvar</string>
 
 
     <string name="texto_cadastro_perfil_1">Nome</string>
     <string name="texto_cadastro_perfil_2">CPF</string>
     <string name="texto_cadastro_perfil_3">Senha</string>
     <string name="texto_cadastro_perfil_4">Confirmar Senha</string>
+    <string name="texto_cadastro_perfil_5">Telefone</string>
 
     <string name="texto_cadastro_email_1">Email</string>
 

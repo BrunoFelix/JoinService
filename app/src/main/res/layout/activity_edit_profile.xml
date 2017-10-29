@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.joinservice.joinservice.register.RegisterEmailActivity"
+    android:gravity="center"
+    android:padding="35dp"
+    android:background="#41ffffff">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/imageViewCadastroEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/icon_user" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/alterar_foto"
+            android:onClick="addFoto"
+            android:background="@drawable/screen_border"
+            android:textColor="@color/colorBranco"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/texto_cadastro_perfil_1"/>
+
+    <EditText
+        android:id="@+id/editTextEditarNomeCompleto"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginBottom="15dp"
+        android:inputType="text"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/texto_cadastro_email_1" />
+
+     <EditText
+            android:id="@+id/editTextEditarEmail"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="15dp"
+            android:inputType="textEmailAddress" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/texto_cadastro_perfil_3"/>
+
+    <EditText
+        android:id="@+id/editTextEditarSenha"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginBottom="15dp"
+        android:inputType="textPassword"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/texto_cadastro_perfil_4"/>
+
+    <EditText
+        android:id="@+id/editTextEditarSenhaConfirmacao"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginBottom="15dp"
+        android:inputType="textPassword"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/texto_cadastro_perfil_5"/>
+
+    <EditText
+            android:id="@+id/editTextEditarPhone"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginBottom="15dp"
+            android:inputType="number"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/salvar"
+            android:onClick="salvar"
+            android:background="@drawable/screen_border"
+            android:textColor="@color/colorBranco" />
+    </LinearLayout>
+</RelativeLayout>
+</ScrollView>
+

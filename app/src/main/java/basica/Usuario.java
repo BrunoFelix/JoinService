@@ -1,12 +1,16 @@
 package basica;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
 import java.sql.Blob;
 
 /**
  * Created by Bruno on 21/10/2017.
  */
 
-public class Usuario {
+public class Usuario implements Serializable{
     private int id;
     private String nome;
     private String celular;

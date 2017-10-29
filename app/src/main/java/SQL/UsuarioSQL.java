@@ -12,7 +12,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class UsuarioSQL extends SQLiteOpenHelper{
 
     public UsuarioSQL(Context context) {
-        super(context, "dbUsuario", null, 3);
+        super(context, "dbUsuario", null, 5);
     }
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
@@ -39,6 +39,18 @@ public class UsuarioSQL extends SQLiteOpenHelper{
                 //upgrade logic from version 2 to 3
             case 3:
                 //upgrade logic from version 3 to 4
+            case 4:
+
+            case 5:
+                ContentValues c = new ContentValues();
+                c.put("NOME", "ADMIN");
+                c.put("SENHA","ADMIN");
+                c.put("EMAIL", "ADMIN");
+                c.put("CELULAR", "81995782171");
+                db.insert("USUARIO", null, c);
+
+            case 6:
+
                 break;
             default:
                 throw new IllegalStateException(
