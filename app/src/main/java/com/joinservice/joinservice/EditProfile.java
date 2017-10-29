@@ -27,8 +27,8 @@ public class EditProfile extends AppCompatActivity {
     }
         public void salvar(View view){
         Usuario usuario = helper.Pegausuario();
-
         fachada.usuarioAlterar(usuario);
+
      }
     }
 

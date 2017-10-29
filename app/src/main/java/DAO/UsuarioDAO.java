@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,31 +23,30 @@ public class UsuarioDAO {
         helper = new UsuarioSQL(ctx);
     }
 
-    private long inserir(Usuario usuario) {
-        SQLiteDatabase db = helper.getWritableDatabase();
+    @NonNull
+    private ContentValues pegaDadosDoUsuario(Usuario usuario) {
         ContentValues cv = new ContentValues();
         cv.put("NOME", usuario.getNome());
         cv.put("SENHA", usuario.getSenha());
         cv.put("EMAIL", usuario.getEmail());
         cv.put("CELULAR", usuario.getCelular());
+        return cv;
+    }
+
+    private long inserir(Usuario usuario) {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        ContentValues cv = pegaDadosDoUsuario(usuario);
         long id = db.insert("USUARIO", null, cv);
         db.close();
         return id;
     }
+
     public void atualizar(Usuario usuario) {
         SQLiteDatabase db = helper.getWritableDatabase();
-        ContentValues cv = new ContentValues();
-        cv.put("NOME", usuario.getNome());
-        cv.put("SENHA", usuario.getSenha());
-        cv.put("EMAIL", usuario.getEmail());
-        cv.put("CELULAR", usuario.getCelular());
-        int linhasAfetadas = db.update(
-                "USUARIO",
-                cv,
-                "ID = ?",
-                new String[]{ String.valueOf(usuario.getId())});
+        ContentValues cv = pegaDadosDoUsuario(usuario);
+        String [] params = new String[]{ String.valueOf(usuario.getId())};
+        db.update("USUARIO",cv, "ID = ?",params);
         db.close();
-      //  return linhasAfetadas;
     }
     public void salvar(Usuario usuario) {
         if (usuario.getId() == 0) {
