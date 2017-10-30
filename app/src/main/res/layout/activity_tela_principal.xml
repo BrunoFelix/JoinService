@@ -19,8 +19,8 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginBottom="15dp">
+                android:layout_marginBottom="15dp"
+                android:orientation="vertical">
 
             </LinearLayout>
 
@@ -39,6 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
+                android:baselineAligned="false"
                 android:orientation="horizontal">
 
             </LinearLayout>
@@ -52,6 +53,7 @@
                 android:orientation="horizontal">
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
@@ -59,17 +61,18 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:gravity="bottom">
+
                 <Button
                     android:id="@+id/btnEntrar"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:background="@drawable/screen_border"
-                    android:onClick="entrar"
                     android:padding="16dp"
                     android:text="Cadastrar Prestador"
                     android:textAlignment="center"
                     android:textColor="@color/colorBranco" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
@@ -77,36 +80,19 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:gravity="bottom">
+
                 <Button
                     android:id="@+id/btnEsqueceuSenha"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_weight="1"
                     android:background="@drawable/screen_border"
-                    android:onClick="cadastrar"
                     android:padding="16dp"
                     android:text="Cadastrar Cliente"
                     android:textAlignment="center"
                     android:textColor="@color/colorBranco" />
             </LinearLayout>
-            <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:gravity="bottom">
-            <Button
-                android:id="@+id/btnCadastrar"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/screen_border"
-                android:onClick="cadastrar"
-                android:padding="16dp"
-                android:text="CADASTRAR SERVIÇO"
-                android:textAlignment="center"
-                android:textColor="@color/colorBranco" />
-        </LinearLayout>
+
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
@@ -114,12 +100,31 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:gravity="bottom">
+
+                <Button
+                    android:id="@+id/btnCadastrar"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/screen_border"
+                    android:padding="16dp"
+                    android:text="CADASTRAR SERVIÇO"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorBranco" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:gravity="bottom">
+
                 <Button
                     android:id="@+id/btnCadastrar3"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:background="@drawable/screen_border"
-                    android:onClick="cadastrar"
                     android:padding="16dp"
                     android:text="CADASTRAR SERVIÇO"
                     android:textAlignment="center"

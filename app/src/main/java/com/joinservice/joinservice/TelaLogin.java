@@ -42,6 +42,7 @@ public class TelaLogin extends AppCompatActivity {
 
 
         Usuario usuario;
+
         try {
             usuario = fachada.usuarioLogar(email.getText().toString(), senha.getText().toString());
 
@@ -59,6 +60,9 @@ public class TelaLogin extends AppCompatActivity {
     }
 
     public void cadastrar(View v) {
+        Intent itCadastro = new Intent(TelaLogin.this, RegisterEmailActivity.class);
+        startActivity(itCadastro);
+        /*
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
 
         alert.setTitle("Deseja se cadastrar como: ");
@@ -82,6 +86,7 @@ public class TelaLogin extends AppCompatActivity {
                     }
                 });
 
-        alert.show();
+        alert.show();*/
+
     }
 }

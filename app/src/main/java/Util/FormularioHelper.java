@@ -35,7 +35,7 @@ public class FormularioHelper {
         usuario.setNome(campoNome.getText().toString());
         usuario.setEmail(campoEmail.getText().toString());
         usuario.setSenha(campoSenha.getText().toString());
-        usuario.setSenha(campoConfirmarSenha.getText().toString());
+        //usuario.setSenha(campoConfirmarSenha.getText().toString());
         usuario.setCelular(campoTelefone.getText().toString());
         return usuario;
     }

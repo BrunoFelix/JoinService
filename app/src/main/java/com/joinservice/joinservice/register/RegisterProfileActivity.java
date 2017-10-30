@@ -14,16 +14,19 @@ import basica.Usuario;
 public class RegisterProfileActivity extends AppCompatActivity {
 
     EditText nome, senha, confirmarSenha;
+    Usuario usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_profile);
+
+        Intent intent  = getIntent();
+        usuario = (Usuario) intent.getSerializableExtra("usuario");
     }
 
     public void proximo(View v) {
 
-        Usuario usuario = new Usuario();
         nome = (EditText) findViewById(R.id.editTextCadastroNomeCompleto);
         senha = (EditText) findViewById(R.id.editTextCadastroSenha);
         confirmarSenha = (EditText) findViewById(R.id.editTextCadastroSenhaConfirmacao);
@@ -37,6 +40,7 @@ public class RegisterProfileActivity extends AppCompatActivity {
             usuario.setSenha(senha.getText().toString());
 
             Intent itProximo = new Intent(this, RegisterPictureActivity.class);
+            itProximo.putExtra("usuario", usuario);
             startActivity(itProximo);
         }
 

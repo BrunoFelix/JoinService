@@ -27,6 +27,10 @@ public class UsuarioNegocio {
         //return 1;
     }
 
+    public void inserir(Usuario usuario){
+        usuarioDAO.salvar(usuario);
+    }
+
     //############################## VALIDAÇÕES ############################## //
 
     public void validarLogin(String email, String senha) throws NegocioException {

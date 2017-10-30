@@ -14,10 +14,13 @@ import com.joinservice.joinservice.R;
 import com.joinservice.joinservice.principal.consumer.ListOrderConsumerActivity;
 
 import basica.Usuario;
+import Fachada.Fachada;
 
 public class RegisterPhoneActivity extends AppCompatActivity {
 
     EditText celular;
+    Usuario usuario;
+    Fachada fachada;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -27,11 +30,14 @@ public class RegisterPhoneActivity extends AppCompatActivity {
 
         EditText inputField = (EditText) findViewById(R.id.editTextCadastroPhone);
         inputField.addTextChangedListener(new PhoneNumberFormattingTextWatcher("BR"));
+
+        Intent intent  = getIntent();
+        usuario = (Usuario) intent.getSerializableExtra("usuario");
+
+        fachada = Fachada.getInstance(this);
     }
 
     public void proximo(View v) {
-
-        Usuario usuario = new Usuario();
         celular = (EditText) findViewById(R.id.editTextCadastroPhone);
 
         if (!celular.getText().toString().isEmpty()){
@@ -40,7 +46,9 @@ public class RegisterPhoneActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "O campo \"Celular\" precisa ser preenchido!", Toast.LENGTH_SHORT).show();
         }
 
+        fachada.usuarioInserir(usuario);
         Intent itProximo = new Intent(this, ListOrderConsumerActivity.class);
+        itProximo.putExtra("usuario", usuario);
         startActivity(itProximo);
     }
 }

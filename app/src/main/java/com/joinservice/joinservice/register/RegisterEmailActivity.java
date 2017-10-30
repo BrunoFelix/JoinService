@@ -14,6 +14,7 @@ import basica.Usuario;
 public class RegisterEmailActivity extends AppCompatActivity {
 
     EditText email;
+    Usuario usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +23,7 @@ public class RegisterEmailActivity extends AppCompatActivity {
     }
 
     public void proximo(View v) {
-
-        Usuario usuario = new Usuario();
+        usuario = new Usuario();
         email = (EditText) findViewById(R.id.editTextCadastroEmail);
 
         if (email.getText().toString().isEmpty()) {
@@ -31,6 +31,7 @@ public class RegisterEmailActivity extends AppCompatActivity {
         } else {
             usuario.setEmail(email.getText().toString());
             Intent itProximo = new Intent(this, RegisterProfileActivity.class);
+            itProximo.putExtra("usuario", usuario);
             startActivity(itProximo);
         }
 

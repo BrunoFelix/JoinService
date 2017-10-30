@@ -44,7 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/texto_cadastro_foto_1"
-                android:onClick="addFoto"
+                android:onClick="proximo"
                 android:background="@drawable/screen_border"
                 android:textColor="@color/colorBranco"/>
 

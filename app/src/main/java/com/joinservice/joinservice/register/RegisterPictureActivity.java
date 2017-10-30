@@ -12,14 +12,20 @@ import android.widget.Toast;
 
 import com.joinservice.joinservice.R;
 
+import basica.Usuario;
+
 public class RegisterPictureActivity extends AppCompatActivity {
 
     private static int TIRAR_FOTO = 1020394857;
+    Usuario usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_picture);
+
+        Intent intent  = getIntent();
+        usuario = (Usuario) intent.getSerializableExtra("usuario");
     }
 
     @SuppressLint("SimpleDateFormat")
@@ -46,6 +52,12 @@ public class RegisterPictureActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+
+    public void proximo(View v) {
+            Intent itProximo = new Intent(this, RegisterPhoneActivity.class);
+            itProximo.putExtra("usuario", usuario);
+            startActivity(itProximo);
     }
 
 
