@@ -10,7 +10,7 @@
     android:background="#41ffffff">
 
     <ImageView
-        android:id="@+id/imageViewCadastroEmail"
+        android:id="@+id/imageViewCadastroFoto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/icon_user"
@@ -41,12 +41,23 @@
                 android:layout_marginBottom="45dp"/>
 
             <Button
+                android:id="@+id/FotoButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/texto_cadastro_foto_1"
+                android:background="@drawable/screen_border"
+                android:textColor="@color/colorBranco"/>
+
+            <Button
+                android:id="@+id/ButtonNext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Avançar"
                 android:onClick="proximo"
                 android:background="@drawable/screen_border"
                 android:textColor="@color/colorBranco"/>
+
 
         </LinearLayout>
     </RelativeLayout>
