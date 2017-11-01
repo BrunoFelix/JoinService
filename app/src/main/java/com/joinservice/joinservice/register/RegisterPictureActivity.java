@@ -1,10 +1,8 @@
 package com.joinservice.joinservice.register;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.joinservice.joinservice.R;
+
+import java.sql.Blob;
 
 import basica.Usuario;
 
@@ -42,11 +42,6 @@ public class RegisterPictureActivity extends AppCompatActivity {
         });
     }
 
-    /*public void addFoto(View v) {
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(intent, TIRAR_FOTO);
-    }*/
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -58,7 +53,11 @@ public class RegisterPictureActivity extends AppCompatActivity {
                     Bundle bundle = data.getExtras();
                     Bitmap bitmap = (Bitmap) bundle.get("data");
                     imageView.setImageBitmap(bitmap);
+
+                    byte[] imageByte = BitmapUtility.getBytes(bitmap);
+
                     Button fotoB = (Button) findViewById(R.id.FotoButton);
+
                     fotoB.setText("Alterar Foto do Perfil");
 
 
@@ -79,6 +78,5 @@ public class RegisterPictureActivity extends AppCompatActivity {
         itProximo.putExtra("usuario", usuario);
         startActivity(itProximo);
     }
-
 
 }

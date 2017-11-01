@@ -16,7 +16,7 @@ public class Usuario implements Serializable{
     private String celular;
     private String email;
     private String senha;
-    private Blob foto;
+    private byte[] foto;
     private String tipo;
 
     public int getId() {
