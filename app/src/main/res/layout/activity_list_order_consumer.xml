@@ -22,4 +22,18 @@
         app:headerLayout="@layout/nav_header_list_order_consumer"
         app:menu="@menu/activity_list_order_consumer_drawer" />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="top">
+
+        <ListView
+            android:id="@+id/listViewServicos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp">
+        </ListView>
+
+    </LinearLayout>
+
 </android.support.v4.widget.DrawerLayout>

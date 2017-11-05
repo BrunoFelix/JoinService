@@ -1,7 +1,9 @@
 package com.joinservice.joinservice.principal.consumer;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -13,14 +15,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.joinservice.joinservice.EditProfile;
 import com.joinservice.joinservice.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import Adapter.ListaAdapterServico;
+import Fachada.Fachada;
+import basica.Servico;
 import basica.Usuario;
 
 public class ListOrderConsumerActivity extends AppCompatActivity
@@ -28,7 +38,10 @@ public class ListOrderConsumerActivity extends AppCompatActivity
 
     TextView nomeUsuario;
     ImageView fotoUsuario;
+    ListView listaServicos;
+    Fachada fachada;
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +50,17 @@ public class ListOrderConsumerActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Solicitações de serviço");
+        getSupportActionBar().setTitle("Meus serviços");
+
+        fachada = Fachada.getInstance(this);
+
+        listaServicos = (ListView) findViewById(R.id.listViewServicos);
+
+        List<Servico> servicos = fachada.ListarServicosUsuario();
+
+        ListaAdapterServico adapterServico = new ListaAdapterServico(this, (ArrayList<Servico>) servicos);
+
+        listaServicos.setAdapter(adapterServico);
 
         Intent intent  = getIntent();
         Usuario usuario = (Usuario) intent.getSerializableExtra("usuario");

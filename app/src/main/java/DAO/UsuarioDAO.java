@@ -9,7 +9,7 @@ import android.support.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.List;
 
-import SQL.UsuarioSQL;
+import SQL.BancoSQL;
 import basica.Usuario;
 
 /**
@@ -18,9 +18,9 @@ import basica.Usuario;
 
 public class UsuarioDAO {
 
-    private UsuarioSQL helper;
+    private BancoSQL helper;
     public UsuarioDAO(Context ctx) {
-        helper = new UsuarioSQL(ctx);
+        helper = new BancoSQL(ctx);
     }
 
     @NonNull

@@ -2,8 +2,12 @@ package Fachada;
 
 import android.content.Context;
 
+import java.util.List;
+
+import Negocio.ServicoNegocio;
 import Negocio.UsuarioNegocio;
 import Util.NegocioException;
+import basica.Servico;
 import basica.Usuario;
 
 /**
@@ -14,6 +18,7 @@ public class Fachada {
 
     private static Fachada fachada;
     UsuarioNegocio usuarioNegocio;
+    ServicoNegocio servicoNegocio;
 
     public static Fachada getInstance(Context context) {
         if (fachada == null)
@@ -24,6 +29,7 @@ public class Fachada {
 
     public Fachada(Context context){
         usuarioNegocio = new UsuarioNegocio(context);
+        servicoNegocio = new ServicoNegocio(context);
     }
 
     //Usuário
@@ -36,6 +42,12 @@ public class Fachada {
 
     public void usuarioInserir(Usuario usuario){
         usuarioNegocio.inserir(usuario);
+    }
+
+
+    //Serviços
+    public List<Servico> ListarServicosUsuario(){
+        return servicoNegocio.ListarServicosUsuario();
     }
 
 }

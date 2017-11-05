@@ -25,7 +25,7 @@
             android:name=".principal.consumer.ListOrderConsumerActivity"
             android:label="@string/title_activity_list_order_consumer"
             android:theme="@style/AppTheme" />
-        <activity android:name=".EditProfile"></activity>
+        <activity android:name=".EditProfile" />
     </application>
 
 </manifest>
