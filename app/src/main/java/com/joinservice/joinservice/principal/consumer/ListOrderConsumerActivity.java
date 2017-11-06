@@ -6,6 +6,10 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -23,6 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.joinservice.joinservice.EditProfile;
+import com.joinservice.joinservice.MyServicesFragment;
 import com.joinservice.joinservice.R;
 
 import java.util.ArrayList;
@@ -40,12 +45,19 @@ public class ListOrderConsumerActivity extends AppCompatActivity
     ImageView fotoUsuario;
     ListView listaServicos;
     Fachada fachada;
+    FragmentPagerAdapter adapterViewPager;
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_order_consumer);
+
+        ViewPager vpPager = (ViewPager) findViewById(R.id.vpPager);
+        TextView textView = (TextView) findViewById(R.id.tvLabel);
+        adapterViewPager = new ListOrderConsumerActivity.MyPagerAdapter(getSupportFragmentManager());
+        vpPager.setAdapter(adapterViewPager);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -93,6 +105,48 @@ public class ListOrderConsumerActivity extends AppCompatActivity
         nomeUsuario.setText(usuario.getNome());
 
     }
+
+
+
+    public static class MyPagerAdapter extends FragmentPagerAdapter {
+        private static int num_itens = 3;
+
+        public MyPagerAdapter(FragmentManager fragmentManager) {
+            super(fragmentManager);
+        }
+
+        //retorna o número total de páginas
+        @Override
+        public int getCount() {
+            return num_itens;
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            switch (position) {
+                case 0:
+                    return MyServicesFragment.newInstance(1, "Meus Serviços");
+                case 1:
+                    return MyServicesFragment.newInstance(2, "Serviços Salvos");
+                case 2:
+                    return MyServicesFragment.newInstance(3, "Todos os Serviços");
+                default:
+                    return null;
+            }
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return "Page " + position;
+        }
+
+    }
+
+
+
+
+
+
 
     @Override
     public void onBackPressed() {
