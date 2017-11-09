@@ -4,33 +4,31 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.joinservice.joinservice.EditProfile;
 import com.joinservice.joinservice.MyServicesFragment;
 import com.joinservice.joinservice.R;
 import com.joinservice.joinservice.TelaLogin;
 import com.joinservice.joinservice.principal.consumer.registrer.RegisterOrderCategoryActivity;
+import com.joinservice.joinservice.TelaInicial.PrimeiraTela;
+import com.joinservice.joinservice.TelaInicial.SegundaTela;
+import com.joinservice.joinservice.TelaInicial.TerceiraTela;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,7 +62,7 @@ public class ListOrderConsumerActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Meus serviços");
+        getSupportActionBar().setTitle("JoinService");
 
         fachada = Fachada.getInstance(this);
 
@@ -76,7 +74,7 @@ public class ListOrderConsumerActivity extends AppCompatActivity
 
         listaServicos.setAdapter(adapterServico);
 
-        Intent intent  = getIntent();
+        Intent intent = getIntent();
         Usuario usuario = (Usuario) intent.getSerializableExtra("usuario");
         //TextView nome_usuario = (TextView)findViewById(R.id.nome_usuario);
         //nome_usuario.setText(usuario.getNome().toString());
@@ -101,13 +99,12 @@ public class ListOrderConsumerActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        View header=navigationView.getHeaderView(0);
+        View header = navigationView.getHeaderView(0);
 
         nomeUsuario = (TextView) header.findViewById(R.id.textViewPrincipalNomeUsuario);
         nomeUsuario.setText(usuario.getNome());
 
     }
-
 
 
     public static class MyPagerAdapter extends FragmentPagerAdapter {
@@ -127,27 +124,34 @@ public class ListOrderConsumerActivity extends AppCompatActivity
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return MyServicesFragment.newInstance(1, "Meus Serviços");
+                    return new PrimeiraTela();
                 case 1:
-                    return MyServicesFragment.newInstance(2, "Serviços Salvos");
+                    return new SegundaTela();
                 case 2:
-                    return MyServicesFragment.newInstance(3, "Todos os Serviços");
+                    return new TerceiraTela();
                 default:
-                    return null;
+                    break;
             }
+            return null;
+        }
+
+
+        public static MyServicesFragment newInstance(int page, String title) {
+            MyServicesFragment fragment = new MyServicesFragment();
+            Bundle args = new Bundle();
+            args.putInt("someInt", page);
+            args.putString("someTitle", title);
+            fragment.setArguments(args);
+            return fragment;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return "Page " + position;
+            CharSequence title = null;
+            //title = getItem(positio n).getText();
+            return title ;
         }
-
     }
-
-
-
-
-
 
 
     @Override
@@ -189,7 +193,7 @@ public class ListOrderConsumerActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_edit_profile) {
-            Intent intent  = getIntent();
+            Intent intent = getIntent();
             Usuario usuario = (Usuario) intent.getSerializableExtra("usuario");
             Intent intentEditProfile = new Intent(this, EditProfile.class);
             intentEditProfile.putExtra("usuario", usuario);
@@ -215,7 +219,7 @@ public class ListOrderConsumerActivity extends AppCompatActivity
         return true;
     }
 
-    public void proximo(){
+    public void proximo() {
         Intent itProximo = new Intent(this, RegisterOrderCategoryActivity.class);
         startActivity(itProximo);
     }

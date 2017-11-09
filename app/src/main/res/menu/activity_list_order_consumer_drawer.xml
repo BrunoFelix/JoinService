@@ -7,15 +7,15 @@
             android:icon="@drawable/ic_settings_applications_black_24dp"
             android:title="Editar perfil" />
 
-        <item
+       <!-- <item
             android:id="@+id/nav_my_list_order"
             android:icon="@drawable/ic_assignment_black_24dp"
-            android:title="Meus Serviços" />
+            android:title="Meus Serviços" />/-->
 
         <item
             android:id="@+id/nav_be_provider"
-            android:icon="@drawable/ic_build_black_24dp"
-            android:title="Prestador" />
+            android:icon="@drawable/ic_add_box_black_24dp"
+            android:title="Seja um Prestador" />
 
         <item
             android:id="@+id/nav_exit"

@@ -27,14 +27,12 @@ public class MyServicesFragment extends Fragment {
         return fragment;
     }
 
-
     @Override
-    public void onCreate(Bundle savedInstanceState){
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         page = getArguments().getInt("someInt", 1);
         title = getArguments().getString("someTitle");
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup contaier, Bundle savedInstanceState) {

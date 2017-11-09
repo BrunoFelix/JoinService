@@ -40,15 +40,16 @@ public class RegisterPhoneActivity extends AppCompatActivity {
     public void proximo(View v) {
         celular = (EditText) findViewById(R.id.editTextCadastroPhone);
 
-        if (!celular.getText().toString().isEmpty()){
-            usuario.setCelular(celular.getText().toString());
-        }else{
+        if (celular.getText().toString().isEmpty()){
             Toast.makeText(getApplicationContext(), "O campo \"Celular\" precisa ser preenchido!", Toast.LENGTH_SHORT).show();
+        }else{
+            usuario.setCelular(celular.getText().toString());
+            fachada.usuarioInserir(usuario);
+            Intent itProximo = new Intent(this, ListOrderConsumerActivity.class);
+            itProximo.putExtra("usuario", usuario);
+            startActivity(itProximo);
         }
 
-        fachada.usuarioInserir(usuario);
-        Intent itProximo = new Intent(this, ListOrderConsumerActivity.class);
-        itProximo.putExtra("usuario", usuario);
-        startActivity(itProximo);
+
     }
 }

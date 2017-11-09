@@ -39,7 +39,10 @@
         <activity android:name=".principal.consumer.registrer.RegisterOrderCategoryActivity" />
         <activity android:name=".principal.consumer.registrer.RegisterOrderLocationActivity" />
         <activity android:name=".principal.consumer.registrer.RegisterOrderTimeActivity" />
-        <activity android:name=".principal.consumer.registrer.RegisterOrderDescriptionActivity"></activity>
+        <activity android:name=".principal.consumer.registrer.RegisterOrderDescriptionActivity" />
+        <activity android:name=".telaPrincipal.primeiraTela" />
+        <activity android:name=".telaPrincipal.segundaTela" />
+        <activity android:name=".TelaInicial.TerceiraTela"></activity>
     </application>
 
 </manifest>
