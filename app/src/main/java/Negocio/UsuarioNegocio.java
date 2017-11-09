@@ -31,6 +31,9 @@ public class UsuarioNegocio {
         usuarioDAO.salvar(usuario);
     }
 
+    public Usuario usuarioLogado(){ return usuarioDAO.Logado(); }
+    public void usuarioExcluirLogado(){ usuarioDAO.excluirLogado(); }
+
     //############################## VALIDAÇÕES ############################## //
 
     public void validarLogin(String email, String senha) throws NegocioException {

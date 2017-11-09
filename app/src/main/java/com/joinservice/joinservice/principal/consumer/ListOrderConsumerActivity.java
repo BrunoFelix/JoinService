@@ -29,6 +29,7 @@ import android.widget.Toast;
 import com.joinservice.joinservice.EditProfile;
 import com.joinservice.joinservice.MyServicesFragment;
 import com.joinservice.joinservice.R;
+import com.joinservice.joinservice.TelaLogin;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -194,9 +195,11 @@ public class ListOrderConsumerActivity extends AppCompatActivity
             startActivity(intentEditProfile);
 
             // Handle the camera action
-        } /*else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_exit) {
+            fachada.usuarioExcluirLogado();
+            Intent intentTelaLogin = new Intent(this, TelaLogin.class);
+            startActivity(intentTelaLogin);
+        } /*else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
 

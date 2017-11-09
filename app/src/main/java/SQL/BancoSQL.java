@@ -14,7 +14,7 @@ public class BancoSQL extends SQLiteOpenHelper{
     ContentValues cv;
 
     public BancoSQL(Context context) {
-        super(context, "dbJoinService", null, 5);
+        super(context, "dbJoinService4", null, 2);
     }
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
@@ -43,6 +43,11 @@ public class BancoSQL extends SQLiteOpenHelper{
                         "ID INTEGER PRIMARY KEY AUTOINCREMENT, "+
                         "DESCRICAO TEXT NOT NULL, "+
                         "CAMINHO_IMAGEM TEXT)");
+
+        sqLiteDatabase.execSQL(
+                "CREATE TABLE USUARIO_LOGADO ( " +
+                        "ID INTEGER PRIMARY KEY)");
+
     }
 
     @Override

@@ -44,6 +44,8 @@ public class Fachada {
         usuarioNegocio.inserir(usuario);
     }
 
+    public Usuario usuarioLogado(){ return usuarioNegocio.usuarioLogado(); }
+    public void usuarioExcluirLogado(){ usuarioNegocio.usuarioExcluirLogado(); }
 
     //Serviços
     public List<Servico> ListarServicosUsuario(){

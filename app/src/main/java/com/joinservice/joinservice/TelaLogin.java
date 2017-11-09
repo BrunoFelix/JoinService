@@ -3,6 +3,7 @@ package com.joinservice.joinservice;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Parcelable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 import com.joinservice.joinservice.principal.consumer.ListOrderConsumerActivity;
 import com.joinservice.joinservice.register.RegisterEmailActivity;
 
+import java.io.File;
 import java.io.Serializable;
 
 import Fachada.Fachada;
@@ -25,6 +27,7 @@ public class TelaLogin extends AppCompatActivity {
 
     EditText email, senha;
     Fachada fachada;
+    private SQLiteOpenHelper mDBHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,15 @@ public class TelaLogin extends AppCompatActivity {
         Button button = (Button) findViewById(R.id.btnEntrar_login);
         Button button1 = (Button) findViewById(R.id.btnCadastrar);
         fachada = Fachada.getInstance(this);
+
+        Usuario usuario = fachada.usuarioLogado();
+
+        if (usuario.getId() > 0) {
+            Toast.makeText(getApplicationContext(), "Redirecionando, aguarde...!", Toast.LENGTH_LONG).show();
+            Intent itEntrar = new Intent(TelaLogin.this, ListOrderConsumerActivity.class);
+            itEntrar.putExtra("usuario", usuario);
+            startActivity(itEntrar);
+        }
     }
 
     public void entrar(View v) {

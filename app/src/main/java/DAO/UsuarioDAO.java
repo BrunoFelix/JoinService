@@ -65,6 +65,12 @@ public class UsuarioDAO {
         return linhasAfetadas;
     }
 
+    public void excluirLogado() {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        db.delete("USUARIO_LOGADO", null, null);
+        db.close();
+    }
+
 
     public void deletarTudo(){
         SQLiteDatabase db = helper.getWritableDatabase();
@@ -97,6 +103,49 @@ public class UsuarioDAO {
             usuario.setNome(nome);
             usuario.setEmail(em);
             usuario.setCelular(celular);
+        }
+
+        SQLiteDatabase db2 = helper.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("ID", usuario.getId());
+        long id = db2.insert("USUARIO_LOGADO", null, cv);
+        db2.close();
+
+        return usuario;
+    }
+
+    public Usuario Logado(){
+        SQLiteDatabase db = helper.getReadableDatabase();
+        String sql = "SELECT * FROM USUARIO_LOGADO ";
+        String[] argumentos = null;
+        Cursor cursor = db.rawQuery(sql, argumentos);
+        Usuario usuario = new Usuario();
+
+        while (cursor.moveToNext()) {
+            int idUsuario = cursor.getInt(
+                    cursor.getColumnIndex("ID"));
+
+            SQLiteDatabase db2 = helper.getReadableDatabase();
+            String sql2 = "SELECT * FROM USUARIO ";
+            sql2 += " WHERE ID = ?";
+            String[] argumentos2 = {Integer.toString(idUsuario)};
+            Cursor cursor2 = db2.rawQuery(sql2, argumentos2);
+
+            while (cursor2.moveToNext()) {
+                int id = cursor2.getInt(
+                        cursor2.getColumnIndex("ID"));
+                String nome = cursor2.getString(
+                        cursor2.getColumnIndex("NOME"));
+                String celular = cursor2.getString(
+                        cursor2.getColumnIndex("CELULAR"));
+                String em = cursor2.getString(
+                        cursor2.getColumnIndex("EMAIL"));
+
+                usuario.setId(id);
+                usuario.setNome(nome);
+                usuario.setEmail(em);
+                usuario.setCelular(celular);
+            }
         }
         return usuario;
     }

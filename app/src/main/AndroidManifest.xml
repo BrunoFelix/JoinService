@@ -17,20 +17,29 @@
             </intent-filter>
         </activity>
         <activity android:name=".TelaPrincipal" />
-        <activity android:name=".register.RegisterEmailActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".register.RegisterProfileActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".register.RegisterPictureActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".register.RegisterPhoneActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".register.RegisterEmailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".register.RegisterProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".register.RegisterPictureActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".register.RegisterPhoneActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".principal.consumer.ListOrderConsumerActivity"
             android:label="@string/title_activity_list_order_consumer"
             android:theme="@style/AppTheme" />
-        <activity android:name=".EditProfile"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".EditProfile"
+            android:screenOrientation="portrait" />
+        <activity android:name=".principal.consumer.registrer.RegisterOrderCategoryActivity" />
+        <activity android:name=".principal.consumer.registrer.RegisterOrderLocationActivity" />
+        <activity android:name=".principal.consumer.registrer.RegisterOrderTimeActivity" />
+        <activity android:name=".principal.consumer.registrer.RegisterOrderDescriptionActivity"></activity>
     </application>
 
 </manifest>
