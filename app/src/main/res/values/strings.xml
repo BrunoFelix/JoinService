@@ -25,4 +25,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <string name="texto_cadastro_servico_categoria_1">Registro de serviço</string>
+    <string name="texto_cadastro_servico_categoria_2">Começaremos pela categoria, o cadastro será rápido e fácil</string>
 </resources>

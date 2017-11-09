@@ -1,10 +1,12 @@
 package basica;
 
+import java.io.Serializable;
+
 /**
  * Created by Bruno on 03/11/2017.
  */
 
-public class Servico {
+public class Servico implements Serializable {
     private int id;
     private Usuario usuario;
     private String descricao;

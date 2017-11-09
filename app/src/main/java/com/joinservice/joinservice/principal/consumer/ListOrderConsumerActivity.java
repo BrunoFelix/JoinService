@@ -30,6 +30,7 @@ import com.joinservice.joinservice.EditProfile;
 import com.joinservice.joinservice.MyServicesFragment;
 import com.joinservice.joinservice.R;
 import com.joinservice.joinservice.TelaLogin;
+import com.joinservice.joinservice.principal.consumer.registrer.RegisterOrderCategoryActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -212,5 +213,10 @@ public class ListOrderConsumerActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void proximo(){
+        Intent itProximo = new Intent(this, RegisterOrderCategoryActivity.class);
+        startActivity(itProximo);
     }
 }

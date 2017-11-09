@@ -64,10 +64,6 @@ public class BancoSQL extends SQLiteOpenHelper{
 
                 //INSERT DE 5 CATEGORIAS DE SERVIÇO
                 cv = new ContentValues();
-                cv.put("DESCRICAO", "Saúde e bem-estar");
-                db.insert("CATEGORIA_SERVICO", null, cv);
-
-                cv = new ContentValues();
                 cv.put("DESCRICAO", "Celulares e Telefones");
                 db.insert("CATEGORIA_SERVICO", null, cv);
 
@@ -80,11 +76,11 @@ public class BancoSQL extends SQLiteOpenHelper{
                 db.insert("CATEGORIA_SERVICO", null, cv);
 
                 cv = new ContentValues();
-                cv.put("DESCRICAO", "Administrativo");
+                cv.put("DESCRICAO", "Administrativos");
                 db.insert("CATEGORIA_SERVICO", null, cv);
 
                 cv = new ContentValues();
-                cv.put("DESCRICAO", "Reforma");
+                cv.put("DESCRICAO", "Reformas");
                 db.insert("CATEGORIA_SERVICO", null, cv);
             case 2:
                 //INSERT USUÁRIO SERVICO
