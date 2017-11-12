@@ -55,12 +55,11 @@ public class RegisterOrderCategoryActivity extends AppCompatActivity {
                 proximo(5);
             }
         });
-
-        servico = new Servico();
     }
 
 
     public void proximo(int categoria){
+        servico = new Servico();
         servico.getCategoria().setId(categoria);
         Intent itProximo = new Intent(this, RegisterOrderTimeActivity.class);
         itProximo.putExtra("servico", servico);

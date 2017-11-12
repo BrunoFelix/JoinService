@@ -1,9 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.joinservice.joinservice.principal.consumer.registrer.RegisterOrderTimeActivity">
+    tools:context="com.joinservice.joinservice.principal.consumer.registrer.RegisterOrderCategoryActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/linearLayoutRegisterOrderTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="30dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/texto_cadastro_servico_categoria_3"
+            android:textSize="13pt" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/texto_cadastro_servico_categoria_4" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="100dp"
+        android:layout_below="@+id/linearLayoutRegisterOrderCategory"
+        android:orientation="vertical">
+
+
+        <NumberPicker
+            android:id="@+id/numberPickerPrazoCadastroServico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            ></NumberPicker>
+
+        <Button
+            android:id="@+id/buttonProximoPrazoCadastroServico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/screen_border"
+            android:textColor="@color/colorBranco"
+            android:onClick="proximo"
+            android:text="Continuar"/>
+
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

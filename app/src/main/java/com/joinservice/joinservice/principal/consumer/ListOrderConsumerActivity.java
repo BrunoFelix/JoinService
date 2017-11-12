@@ -17,9 +17,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.joinservice.joinservice.EditProfile;
 import com.joinservice.joinservice.MyServicesFragment;
@@ -46,6 +48,7 @@ public class ListOrderConsumerActivity extends AppCompatActivity
     ListView listaServicos;
     Fachada fachada;
     FragmentPagerAdapter adapterViewPager;
+    Button cadastrarServico;
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
@@ -54,7 +57,7 @@ public class ListOrderConsumerActivity extends AppCompatActivity
         setContentView(R.layout.activity_list_order_consumer);
 
         ViewPager vpPager = (ViewPager) findViewById(R.id.vpPager);
-        TextView textView = (TextView) findViewById(R.id.tvLabel);
+        cadastrarServico = (Button) findViewById(R.id.buttonCadastrarServico);
         adapterViewPager = new ListOrderConsumerActivity.MyPagerAdapter(getSupportFragmentManager());
         vpPager.setAdapter(adapterViewPager);
 
@@ -76,20 +79,6 @@ public class ListOrderConsumerActivity extends AppCompatActivity
 
         Intent intent = getIntent();
         Usuario usuario = (Usuario) intent.getSerializableExtra("usuario");
-        //TextView nome_usuario = (TextView)findViewById(R.id.nome_usuario);
-        //nome_usuario.setText(usuario.getNome().toString());
-
-        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
-
-
-        //fotoUsuario = (ImageView) findViewById(R.id.imageViewPrincipalUsuario);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -100,6 +89,13 @@ public class ListOrderConsumerActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         View header = navigationView.getHeaderView(0);
+
+        cadastrarServico.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cadastrarServico();
+            }
+        });
 
         nomeUsuario = (TextView) header.findViewById(R.id.textViewPrincipalNomeUsuario);
         nomeUsuario.setText(usuario.getNome());
@@ -184,6 +180,11 @@ public class ListOrderConsumerActivity extends AppCompatActivity
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void cadastrarServico(){
+        Intent intentRegisterOrder = new Intent(this, RegisterOrderCategoryActivity.class);
+        startActivity(intentRegisterOrder);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")

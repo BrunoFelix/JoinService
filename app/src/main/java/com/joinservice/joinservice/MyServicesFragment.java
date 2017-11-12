@@ -2,6 +2,7 @@ package com.joinservice.joinservice;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.PagerTabStrip;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,8 +38,6 @@ public class MyServicesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup contaier, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.content_list_order_consumer, contaier, false);
-        TextView tvLabel = (TextView) view.findViewById(R.id.tvLabel);
-        tvLabel.setText(/*page + " -- " +*/ title);
         return view;
     }
 

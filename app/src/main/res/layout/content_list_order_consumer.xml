@@ -1,35 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.joinservice.joinservice.principal.consumer.ListOrderConsumerActivity"
     tools:showIn="@layout/app_bar_list_order_consumer">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/vpPager"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+    <Button
+        android:id="@+id/buttonCadastrarServico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"/>
 
-        <android.support.v4.view.PagerTabStrip
-            android:id="@+id/pager_header"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            android:background="@color/colorAzulMarinho"
-            android:elevation="15dp"
-            android:paddingBottom="4dp"
-            android:paddingTop="4dp" />
-    </android.support.v4.view.ViewPager>
-
-    <TextView
-        android:id="@+id/tvLabel"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:gravity="center"
-        android:text="texto"
-        android:textSize="30dp" />
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vpPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v4.view.PagerTabStrip
+                android:id="@+id/pager_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:background="@color/colorAzulMarinho"
+                android:elevation="15dp"
+                android:paddingBottom="4dp"
+                android:paddingTop="4dp" />
+        </android.support.v4.view.ViewPager>
+
+    </LinearLayout>
+
+</RelativeLayout>

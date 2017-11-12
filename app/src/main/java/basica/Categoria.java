@@ -1,10 +1,12 @@
 package basica;
 
+import java.io.Serializable;
+
 /**
  * Created by Bruno on 03/11/2017.
  */
 
-public class Categoria {
+public class Categoria implements Serializable {
     private int id;
     private String descricao;
     private String caminhoImagem;
