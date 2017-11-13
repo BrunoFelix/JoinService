@@ -38,7 +38,7 @@ public class RegisterOrderTimeActivity extends AppCompatActivity {
 
     public void proximo(View v){
         servico.setPrazo(np.getValue());
-        Intent itProximo = new Intent(RegisterOrderTimeActivity.this, RegisterOrderLocationActivity.class);
+        Intent itProximo = new Intent(this, RegisterOrderLocationActivity.class);
         itProximo.putExtra("servico", servico);
         startActivity(itProximo);
     }

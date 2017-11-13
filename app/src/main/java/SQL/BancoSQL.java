@@ -93,25 +93,9 @@ public class BancoSQL extends SQLiteOpenHelper{
                 cv.put("CATEGORIA_ID", "1");
                 db.insert("SERVICO", null, cv);
             case 3:
-                //INSERT USUÁRIO SERVICO
-                cv = new ContentValues();
-                cv.put("DESCRICAO", "REFORMA DE QUARTO");
-                cv.put("PRAZO","5");
-                cv.put("LONGITUDE", "99");
-                cv.put("LATITUDE", "152");
-                cv.put("USUARIO_ID", "1");
-                cv.put("CATEGORIA_ID", "1");
-                db.insert("SERVICO", null, cv);
+                //upgrade logic from version 3 to 4;
             case 4:
-                //INSERT USUÁRIO SERVICO
-                cv = new ContentValues();
-                cv.put("DESCRICAO", "CONCERTO DE NOTEBOOK");
-                cv.put("PRAZO","99");
-                cv.put("LONGITUDE", "52");
-                cv.put("LATITUDE", "175");
-                cv.put("USUARIO_ID", "1");
-                cv.put("CATEGORIA_ID", "1");
-                db.insert("SERVICO", null, cv);
+                //upgrade logic from version 4 to 5
             case 5:
                 //upgrade logic from version 5 to 6
             case 6:

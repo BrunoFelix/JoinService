@@ -51,5 +51,6 @@ public class Fachada {
     public List<Servico> ListarServicosUsuario(){
         return servicoNegocio.ListarServicosUsuario();
     }
+    public void servicoInserir(Servico servico){ servicoNegocio.inserir(servico); }
 
 }

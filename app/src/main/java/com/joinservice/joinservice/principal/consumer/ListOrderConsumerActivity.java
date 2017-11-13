@@ -49,8 +49,8 @@ public class ListOrderConsumerActivity extends AppCompatActivity
     Fachada fachada;
     FragmentPagerAdapter adapterViewPager;
     Button cadastrarServico;
+    Usuario usuario;
 
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,7 +78,11 @@ public class ListOrderConsumerActivity extends AppCompatActivity
         listaServicos.setAdapter(adapterServico);
 
         Intent intent = getIntent();
-        Usuario usuario = (Usuario) intent.getSerializableExtra("usuario");
+        if (intent.getSerializableExtra("usuario") != null) {
+            usuario = (Usuario) intent.getSerializableExtra("usuario");
+        }else{
+            usuario = fachada.usuarioLogado();
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

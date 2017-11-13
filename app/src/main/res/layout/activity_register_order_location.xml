@@ -7,7 +7,7 @@
     tools:context="com.joinservice.joinservice.principal.consumer.registrer.RegisterOrderCategoryActivity">
 
     <LinearLayout
-        android:id="@+id/linearLayoutRegisterOrderTime"
+        android:id="@+id/linearLayoutRegisterOrderLocation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -26,17 +26,31 @@
             android:gravity="center"
             android:text="@string/texto_cadastro_servico_categoria_6" />
 
+        <Button
+            android:id="@+id/buttonRegisterOrderLocation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="proximo"
+            android:text="Continuar"/>
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="100dp"
         android:layout_below="@+id/linearLayoutRegisterOrderTime"
         android:orientation="vertical">
 
+        <FrameLayout
+            android:id="@+id/frameLayoutContainerMapRegisterOrderLocation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        </FrameLayout>
 
 
     </LinearLayout>

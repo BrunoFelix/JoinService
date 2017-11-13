@@ -23,4 +23,9 @@ public class ServicoNegocio {
         Servico servico = new Servico();
         return servicoDAO.buscarServico(servico);
     }
+
+    public void inserir(Servico servico){
+        servicoDAO.salvar(servico);
+    }
+
 }

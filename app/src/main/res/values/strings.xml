@@ -32,7 +32,10 @@
     <string name="texto_cadastro_servico_categoria_3">Selecione um prazo</string>
     <string name="texto_cadastro_servico_categoria_4">Dentro de no máximo quantos dias, apartir de agora você precisa que o serviço seja realizado?</string>
 
-    <string name="texto_cadastro_servico_categoria_5">Local do serviço</string>
+    <string name="texto_cadastro_servico_categoria_5">Local</string>
     <string name="texto_cadastro_servico_categoria_6">Selecione no mapa o local onde o serviço será executado</string>
+
+    <string name="texto_cadastro_servico_categoria_7">Descrição</string>
+    <string name="texto_cadastro_servico_categoria_8">Descreva brevemente do que se trata o serviço</string>
     <string name="title_activity_maps">Map</string>
 </resources>
