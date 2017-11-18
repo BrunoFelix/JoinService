@@ -15,10 +15,6 @@ public class SegundaTela extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.activity_segunda_tela, container, false);
-
-        TextView tv = (TextView) v.findViewById(R.id.tvSegFrag);
-        tv.setText("Serviços Salvos");
-
         return v;
     }
 

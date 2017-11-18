@@ -1,10 +1,9 @@
 package com.joinservice.joinservice.principal.consumer;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -17,27 +16,20 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.joinservice.joinservice.EditProfile;
 import com.joinservice.joinservice.MyServicesFragment;
 import com.joinservice.joinservice.R;
-import com.joinservice.joinservice.TelaLogin;
-import com.joinservice.joinservice.principal.consumer.registrer.RegisterOrderCategoryActivity;
 import com.joinservice.joinservice.TelaInicial.PrimeiraTela;
 import com.joinservice.joinservice.TelaInicial.SegundaTela;
 import com.joinservice.joinservice.TelaInicial.TerceiraTela;
+import com.joinservice.joinservice.TelaLogin;
+import com.joinservice.joinservice.principal.consumer.registrer.RegisterOrderCategoryActivity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import Adapter.ListaAdapterServico;
 import Fachada.Fachada;
-import basica.Servico;
 import basica.Usuario;
 
 public class ListOrderConsumerActivity extends AppCompatActivity
@@ -48,8 +40,15 @@ public class ListOrderConsumerActivity extends AppCompatActivity
     ListView listaServicos;
     Fachada fachada;
     FragmentPagerAdapter adapterViewPager;
-    Button cadastrarServico;
     Usuario usuario;
+    private static int num_itens = 3;
+
+    //Titulos das Paginas
+    private static final String[] TITLES = new String[]{
+            "Meus Serviços",
+            "Serviços Salvos",
+            "Todos os Serviços"
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,30 +56,30 @@ public class ListOrderConsumerActivity extends AppCompatActivity
         setContentView(R.layout.activity_list_order_consumer);
 
         ViewPager vpPager = (ViewPager) findViewById(R.id.vpPager);
-        cadastrarServico = (Button) findViewById(R.id.buttonCadastrarServico);
         adapterViewPager = new ListOrderConsumerActivity.MyPagerAdapter(getSupportFragmentManager());
         vpPager.setAdapter(adapterViewPager);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("JoinService");
 
         fachada = Fachada.getInstance(this);
 
-        listaServicos = (ListView) findViewById(R.id.listViewServicos);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        for (int i = 0; i < num_itens; i++) {
+            tabLayout.addTab(tabLayout.newTab().setText(TITLES[i]));
+        }
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        List<Servico> servicos = fachada.ListarServicosUsuario();
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.vpPager);
 
-        ListaAdapterServico adapterServico = new ListaAdapterServico(this, (ArrayList<Servico>) servicos);
-
-        listaServicos.setAdapter(adapterServico);
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.setOnTabSelectedListener(onTabSelectedListener(viewPager));
 
         Intent intent = getIntent();
         if (intent.getSerializableExtra("usuario") != null) {
             usuario = (Usuario) intent.getSerializableExtra("usuario");
-        }else{
+        } else {
             usuario = fachada.usuarioLogado();
         }
 
@@ -94,21 +93,33 @@ public class ListOrderConsumerActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         View header = navigationView.getHeaderView(0);
 
-        cadastrarServico.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cadastrarServico();
-            }
-        });
-
         nomeUsuario = (TextView) header.findViewById(R.id.textViewPrincipalNomeUsuario);
         nomeUsuario.setText(usuario.getNome());
 
     }
 
 
+    private TabLayout.OnTabSelectedListener onTabSelectedListener(final ViewPager pager) {
+        return new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                pager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        };
+    }
+
     public static class MyPagerAdapter extends FragmentPagerAdapter {
-        private static int num_itens = 3;
+
 
         public MyPagerAdapter(FragmentManager fragmentManager) {
             super(fragmentManager);
@@ -124,11 +135,11 @@ public class ListOrderConsumerActivity extends AppCompatActivity
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return new PrimeiraTela();
+                    return PrimeiraTela.newInstance("Meu Serviços");
                 case 1:
-                    return new SegundaTela();
+                    return SegundaTela.newInstance("Serviços Salvos");
                 case 2:
-                    return new TerceiraTela();
+                    return TerceiraTela.newInstance("Todos os Serviços");
                 default:
                     break;
             }
@@ -147,9 +158,7 @@ public class ListOrderConsumerActivity extends AppCompatActivity
 
         @Override
         public CharSequence getPageTitle(int position) {
-            CharSequence title = null;
-            //title = getItem(positio n).getText();
-            return title ;
+            return TITLES[position % getCount()].toUpperCase();
         }
     }
 
@@ -186,7 +195,7 @@ public class ListOrderConsumerActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    public void cadastrarServico(){
+    public void cadastrarServico() {
         Intent intentRegisterOrder = new Intent(this, RegisterOrderCategoryActivity.class);
         startActivity(intentRegisterOrder);
     }

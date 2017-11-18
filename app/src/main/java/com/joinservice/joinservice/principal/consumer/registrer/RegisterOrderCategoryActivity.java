@@ -1,5 +1,6 @@
 package com.joinservice.joinservice.principal.consumer.registrer;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,7 +11,7 @@ import com.joinservice.joinservice.R;
 
 import basica.Servico;
 
-public class RegisterOrderCategoryActivity extends AppCompatActivity {
+public class RegisterOrderCategoryActivity extends Activity {
 
     Servico servico;
     Button btnCatCel, btnCatEletro, btnCatMovDec, btnCatAdmin, btnCatReformas;

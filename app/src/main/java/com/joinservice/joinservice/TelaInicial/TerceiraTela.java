@@ -15,10 +15,6 @@ public class TerceiraTela extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.activity_terceira_tela, container, false);
-
-        TextView tv = (TextView) v.findViewById(R.id.tvTerFrag);
-        tv.setText("Todos os Serviços");
-
         return v;
     }
 

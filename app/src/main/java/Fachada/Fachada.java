@@ -23,11 +23,10 @@ public class Fachada {
     public static Fachada getInstance(Context context) {
         if (fachada == null)
             fachada = new Fachada(context);
-
         return fachada;
     }
 
-    public Fachada(Context context){
+    public Fachada(Context context) {
         usuarioNegocio = new UsuarioNegocio(context);
         servicoNegocio = new ServicoNegocio(context);
     }
@@ -36,21 +35,30 @@ public class Fachada {
     public Usuario usuarioLogar(String email, String senha) throws NegocioException {
         return usuarioNegocio.logar(email, senha);
     }
-    public void usuarioAlterar (Usuario usuario){
-       usuarioNegocio.alterar(usuario);
+
+    public void usuarioAlterar(Usuario usuario) {
+        usuarioNegocio.alterar(usuario);
     }
 
-    public void usuarioInserir(Usuario usuario){
+    public void usuarioInserir(Usuario usuario) {
         usuarioNegocio.inserir(usuario);
     }
 
-    public Usuario usuarioLogado(){ return usuarioNegocio.usuarioLogado(); }
-    public void usuarioExcluirLogado(){ usuarioNegocio.usuarioExcluirLogado(); }
+    public Usuario usuarioLogado() {
+        return usuarioNegocio.usuarioLogado();
+    }
+
+    public void usuarioExcluirLogado() {
+        usuarioNegocio.usuarioExcluirLogado();
+    }
 
     //Serviços
-    public List<Servico> ListarServicosUsuario(){
+    public List<Servico> ListarServicosUsuario() {
         return servicoNegocio.ListarServicosUsuario();
     }
-    public void servicoInserir(Servico servico){ servicoNegocio.inserir(servico); }
+
+    public void servicoInserir(Servico servico) {
+        servicoNegocio.inserir(servico);
+    }
 
 }

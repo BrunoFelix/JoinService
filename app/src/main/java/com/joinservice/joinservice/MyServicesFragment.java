@@ -2,11 +2,11 @@ package com.joinservice.joinservice;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.PagerTabStrip;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
+import com.joinservice.joinservice.TelaInicial.PrimeiraTela;
 
 /**
  * Created by tj on 06/11/17.
@@ -14,9 +14,16 @@ import android.widget.TextView;
 
 public class MyServicesFragment extends Fragment {
 
-    // armazenar variáveis de instância
     private String title;
     private int page;
+
+    public static Fragment getInstance(int position) {
+        PrimeiraTela f = new PrimeiraTela();
+        Bundle args = new Bundle();
+        args.putInt("position", position);
+        f.setArguments(args);
+        return f;
+    }
 
     //armazena variáveis de instância com base nos argumentos passados
     public static MyServicesFragment newInstance(int page, String title) {
@@ -37,7 +44,7 @@ public class MyServicesFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup contaier, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.content_list_order_consumer, contaier, false);
+        View view = inflater.inflate(R.layout.activity_primeira_tela, contaier, false);
         return view;
     }
 

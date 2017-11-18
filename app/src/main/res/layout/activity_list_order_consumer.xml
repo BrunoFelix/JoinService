@@ -7,31 +7,26 @@
     android:layout_height="match_parent"
     tools:openDrawer="start">
 
-
-
-    <ListView
+    <!--<ListView
         android:id="@+id/listViewServicos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp">
+    </ListView>/-->
+
+    <include
+        layout="@layout/app_bar_list_order_consumer"
         android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
-        android:divider="@color/colorAzulMarinho"
-        android:dividerHeight="1dp"
-        android:drawSelectorOnTop="false"></ListView>
-
-
-        <include
-            layout="@layout/app_bar_list_order_consumer"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <android.support.design.widget.NavigationView
-            android:id="@+id/nav_view"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:fitsSystemWindows="true"
-            app:headerLayout="@layout/nav_header_list_order_consumer"
-            app:menu="@menu/activity_list_order_consumer_drawer"/>
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_list_order_consumer"
+        app:menu="@menu/activity_list_order_consumer_drawer" />
 
 
 </android.support.v4.widget.DrawerLayout>
