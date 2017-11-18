@@ -1,26 +1,25 @@
-package com.joinservice.joinservice.TelaInicial;
+package com.joinservice.joinservice.TelaInicialCliente;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.joinservice.joinservice.R;
 
+public class ClienteTela2 extends Fragment {
 
-public class TerceiraTela extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.activity_terceira_tela, container, false);
+        View v = inflater.inflate(R.layout.fragment_cliente_tela2, container, false);
         return v;
     }
 
-    public static TerceiraTela newInstance(String text) {
+    public static ClienteTela2 newInstance(String text) {
 
-        TerceiraTela f = new TerceiraTela();
+        ClienteTela2 f = new ClienteTela2();
         Bundle b = new Bundle();
         b.putString("msg", text);
 

@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.joinservice.joinservice.R;
-import com.joinservice.joinservice.principal.consumer.ListOrderConsumerActivity;
+import com.joinservice.joinservice.principal.consumer.StartCliente;
 
 import basica.Usuario;
 import Fachada.Fachada;
@@ -45,7 +45,7 @@ public class RegisterPhoneActivity extends AppCompatActivity {
         }else{
             usuario.setCelular(celular.getText().toString());
             fachada.usuarioInserir(usuario);
-            Intent itProximo = new Intent(this, ListOrderConsumerActivity.class);
+            Intent itProximo = new Intent(this, StartCliente.class);
             itProximo.putExtra("usuario", usuario);
             startActivity(itProximo);
         }

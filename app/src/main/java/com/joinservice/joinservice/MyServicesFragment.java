@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.joinservice.joinservice.TelaInicial.PrimeiraTela;
+import com.joinservice.joinservice.TelaInicialCliente.ClienteTela1;
 
 /**
  * Created by tj on 06/11/17.
@@ -18,7 +18,7 @@ public class MyServicesFragment extends Fragment {
     private int page;
 
     public static Fragment getInstance(int position) {
-        PrimeiraTela f = new PrimeiraTela();
+        ClienteTela1 f = new ClienteTela1();
         Bundle args = new Bundle();
         args.putInt("position", position);
         f.setArguments(args);
@@ -44,7 +44,7 @@ public class MyServicesFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup contaier, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_primeira_tela, contaier, false);
+        View view = inflater.inflate(R.layout.fragment_cliente_tela1, contaier, false);
         return view;
     }
 

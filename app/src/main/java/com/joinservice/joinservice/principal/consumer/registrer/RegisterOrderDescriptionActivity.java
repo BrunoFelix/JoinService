@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.joinservice.joinservice.R;
-import com.joinservice.joinservice.principal.consumer.ListOrderConsumerActivity;
+import com.joinservice.joinservice.principal.consumer.StartCliente;
 
 import Fachada.Fachada;
 import basica.Servico;
@@ -37,7 +37,7 @@ public class RegisterOrderDescriptionActivity extends AppCompatActivity {
         servico.setDescricao(edittext.getText().toString());
         servico.setUsuario(fachada.usuarioLogado());
         fachada.servicoInserir(servico);
-        Intent itEntrar = new Intent(this, ListOrderConsumerActivity.class);
+        Intent itEntrar = new Intent(this, StartCliente.class);
         startActivity(itEntrar);
     }
 }

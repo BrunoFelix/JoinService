@@ -23,16 +23,15 @@ import android.widget.TextView;
 import com.joinservice.joinservice.EditProfile;
 import com.joinservice.joinservice.MyServicesFragment;
 import com.joinservice.joinservice.R;
-import com.joinservice.joinservice.TelaInicial.PrimeiraTela;
-import com.joinservice.joinservice.TelaInicial.SegundaTela;
-import com.joinservice.joinservice.TelaInicial.TerceiraTela;
+import com.joinservice.joinservice.TelaInicialCliente.ClienteTela1;
+import com.joinservice.joinservice.TelaInicialCliente.ClienteTela2;
 import com.joinservice.joinservice.TelaLogin;
 import com.joinservice.joinservice.principal.consumer.registrer.RegisterOrderCategoryActivity;
 
 import Fachada.Fachada;
 import basica.Usuario;
 
-public class ListOrderConsumerActivity extends AppCompatActivity
+public class StartCliente extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     TextView nomeUsuario;
@@ -41,22 +40,21 @@ public class ListOrderConsumerActivity extends AppCompatActivity
     Fachada fachada;
     FragmentPagerAdapter adapterViewPager;
     Usuario usuario;
-    private static int num_itens = 3;
+    private static int num_itens = 2;
 
     //Titulos das Paginas
     private static final String[] TITLES = new String[]{
-            "Meus Serviços",
-            "Serviços Salvos",
-            "Todos os Serviços"
+            "Solicitações de Serviço",
+            "Meus Serviços"
     };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_order_consumer);
+        setContentView(R.layout.activity_start_cliente);
 
         ViewPager vpPager = (ViewPager) findViewById(R.id.vpPager);
-        adapterViewPager = new ListOrderConsumerActivity.MyPagerAdapter(getSupportFragmentManager());
+        adapterViewPager = new StartCliente.MyPagerAdapter(getSupportFragmentManager());
         vpPager.setAdapter(adapterViewPager);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -135,11 +133,9 @@ public class ListOrderConsumerActivity extends AppCompatActivity
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return PrimeiraTela.newInstance("Meu Serviços");
+                    return ClienteTela1.newInstance("Solicitações de Serviço");
                 case 1:
-                    return SegundaTela.newInstance("Serviços Salvos");
-                case 2:
-                    return TerceiraTela.newInstance("Todos os Serviços");
+                    return ClienteTela2.newInstance("Meus Serviços");
                 default:
                     break;
             }
@@ -195,11 +191,6 @@ public class ListOrderConsumerActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    public void cadastrarServico() {
-        Intent intentRegisterOrder = new Intent(this, RegisterOrderCategoryActivity.class);
-        startActivity(intentRegisterOrder);
-    }
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -218,9 +209,11 @@ public class ListOrderConsumerActivity extends AppCompatActivity
             fachada.usuarioExcluirLogado();
             Intent intentTelaLogin = new Intent(this, TelaLogin.class);
             startActivity(intentTelaLogin);
-        } /*else if (id == R.id.nav_slideshow) {
+        } /*else if (id == R.id.nav_prestador) {
+            Intent intentPrestador = new Intent(this, RegisterOrderCategoryActivity.class);
+            startActivity(intentRegisterOrder);
 
-        } else if (id == R.id.nav_manage) {
+        } /*else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
 

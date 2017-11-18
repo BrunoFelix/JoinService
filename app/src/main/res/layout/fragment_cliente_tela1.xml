@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    tools:context=".principal.consumer.StartCliente">
 
     <ListView
-        android:id="@+id/listViewServicos"
+        android:id="@+id/lvSolicitacoesServicos"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/buttonCadastrarServico"
-        android:layout_marginTop="20dp"
-        android:divider="@color/colorAccent"></ListView>
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btCadastrarServico"
+        android:layout_marginTop="60dp"
+        android:divider="@color/colorDestaque"></ListView>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/buttonCadastrarServico"
+        android:id="@+id/btCadastrarServico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="15dp"
         android:clickable="true"
-        android:onClick="AddServico"
         app:backgroundTint="@color/colorAzulMarinho"
         app:fabSize="normal"
-        app:rippleColor="@color/colorButtonFacebook"
+        app:rippleColor="@color/colorAccent"
         app:srcCompat="@android:drawable/ic_menu_add" />
 
 </FrameLayout>

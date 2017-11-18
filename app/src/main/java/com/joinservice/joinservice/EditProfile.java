@@ -6,13 +6,12 @@ import android.graphics.Bitmap;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.joinservice.joinservice.principal.consumer.ListOrderConsumerActivity;
+import com.joinservice.joinservice.principal.consumer.StartCliente;
 
 import Fachada.Fachada;
 import Util.FormularioHelper;
@@ -78,7 +77,7 @@ public class EditProfile extends AppCompatActivity {
         Usuario usuario = helper.Pegausuario();
         fachada.usuarioAlterar(usuario);
 
-        Intent itEntrar = new Intent(this, ListOrderConsumerActivity.class);
+        Intent itEntrar = new Intent(this, StartCliente.class);
         itEntrar.putExtra("usuario", usuario);
         startActivity(itEntrar);
 

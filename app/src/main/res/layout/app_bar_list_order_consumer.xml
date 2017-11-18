@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.joinservice.joinservice.principal.consumer.ListOrderConsumerActivity"
+    tools:context="com.joinservice.joinservice.principal.consumer.StartCliente"
     android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout
@@ -19,7 +19,6 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorAzulMarinho"
             app:popupTheme="@style/AppTheme.PopupOverlay"
-            android:title="Solicitações de serviços"
             android:subtitle="text"/>
 
     </android.support.design.widget.AppBarLayout>

@@ -4,11 +4,12 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <permission
         android:name="com.dandewine.user.thinkmobiletest.permission.MAPS_RECEIVE"
         android:protectionLevel="signature" />
+
     <uses-permission android:name="com.tp.lib.tp.permission.MAPS_RECEIVE" />
 
     <application
@@ -45,7 +46,7 @@
             android:name=".register.RegisterPhoneActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".principal.consumer.ListOrderConsumerActivity"
+            android:name=".principal.consumer.StartCliente"
             android:label="@string/title_activity_list_order_consumer"
             android:theme="@style/AppTheme" />
         <activity
@@ -66,14 +67,14 @@
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="@string/google_maps_key" />
-
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
         <activity
             android:name=".maps.MapsFragment"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps" />
+        <activity android:name=".principal.consumer.StartPrestador"></activity>
     </application>
 
 </manifest>

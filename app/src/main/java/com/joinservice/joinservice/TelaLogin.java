@@ -1,11 +1,7 @@
 package com.joinservice.joinservice;
 
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.os.Parcelable;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,11 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.joinservice.joinservice.principal.consumer.ListOrderConsumerActivity;
+import com.joinservice.joinservice.principal.consumer.StartCliente;
 import com.joinservice.joinservice.register.RegisterEmailActivity;
-
-import java.io.File;
-import java.io.Serializable;
 
 import Fachada.Fachada;
 import Util.NegocioException;
@@ -41,7 +34,7 @@ public class TelaLogin extends AppCompatActivity {
 
         if (usuario.getId() > 0) {
             Toast.makeText(getApplicationContext(), "Redirecionando, aguarde...!", Toast.LENGTH_LONG).show();
-            Intent itEntrar = new Intent(TelaLogin.this, ListOrderConsumerActivity.class);
+            Intent itEntrar = new Intent(TelaLogin.this, StartCliente.class);
             itEntrar.putExtra("usuario", usuario);
             startActivity(itEntrar);
         }
@@ -60,7 +53,7 @@ public class TelaLogin extends AppCompatActivity {
 
             if (usuario.getId() > 0) {
                 Toast.makeText(getApplicationContext(), "Redirecionando, aguarde...!", Toast.LENGTH_LONG).show();
-                Intent itEntrar = new Intent(TelaLogin.this, ListOrderConsumerActivity.class);
+                Intent itEntrar = new Intent(TelaLogin.this, StartCliente.class);
                 itEntrar.putExtra("usuario", usuario);
                 startActivity(itEntrar);
             } else {

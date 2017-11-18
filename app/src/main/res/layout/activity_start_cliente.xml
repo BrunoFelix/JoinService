@@ -7,13 +7,6 @@
     android:layout_height="match_parent"
     tools:openDrawer="start">
 
-    <!--<ListView
-        android:id="@+id/listViewServicos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="120dp">
-    </ListView>/-->
-
     <include
         layout="@layout/app_bar_list_order_consumer"
         android:layout_width="match_parent"
