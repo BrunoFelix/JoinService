@@ -9,6 +9,11 @@ import android.widget.EditText;
 import com.joinservice.joinservice.R;
 import com.joinservice.joinservice.principal.consumer.StartCliente;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import Fachada.Fachada;
 import basica.Servico;
 
@@ -29,13 +34,17 @@ public class RegisterOrderDescriptionActivity extends AppCompatActivity {
         servico = (Servico) intent.getSerializableExtra("servico");
 
         edittext = (EditText) findViewById(R.id.editTextRegisterOrderDescrition);
-
-
     }
 
-    public void proximo(View v){
+    public void proximo(View v) throws ParseException {
         servico.setDescricao(edittext.getText().toString());
         servico.setUsuario(fachada.usuarioLogado());
+
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date date = new Date();
+
+        servico.setDataInsercao(new java.sql.Date(dateFormat.parse(dateFormat.format(date)).getTime()));
+        servico.setStatus("ABERTO");
         fachada.servicoInserir(servico);
         Intent itEntrar = new Intent(this, StartCliente.class);
         startActivity(itEntrar);

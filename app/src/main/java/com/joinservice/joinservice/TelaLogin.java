@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.joinservice.joinservice.principal.consumer.StartCliente;
+import com.joinservice.joinservice.principal.consumer.StartPrestador;
 import com.joinservice.joinservice.register.RegisterEmailActivity;
 
 import Fachada.Fachada;
@@ -21,6 +22,7 @@ public class TelaLogin extends AppCompatActivity {
     EditText email, senha;
     Fachada fachada;
     private SQLiteOpenHelper mDBHelper;
+    Usuario usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,13 +32,10 @@ public class TelaLogin extends AppCompatActivity {
         Button button1 = (Button) findViewById(R.id.btnCadastrar);
         fachada = Fachada.getInstance(this);
 
-        Usuario usuario = fachada.usuarioLogado();
+        usuario = fachada.usuarioLogado();
 
         if (usuario.getId() > 0) {
-            Toast.makeText(getApplicationContext(), "Redirecionando, aguarde...!", Toast.LENGTH_LONG).show();
-            Intent itEntrar = new Intent(TelaLogin.this, StartCliente.class);
-            itEntrar.putExtra("usuario", usuario);
-            startActivity(itEntrar);
+            verificarTipoUsuario(usuario.getTipo());
         }
     }
 
@@ -45,23 +44,32 @@ public class TelaLogin extends AppCompatActivity {
         email = (EditText) findViewById(R.id.editText_email_login);
         senha = (EditText) findViewById(R.id.editText_senha_login);
 
-
-        Usuario usuario;
-
         try {
             usuario = fachada.usuarioLogar(email.getText().toString(), senha.getText().toString());
 
             if (usuario.getId() > 0) {
-                Toast.makeText(getApplicationContext(), "Redirecionando, aguarde...!", Toast.LENGTH_LONG).show();
-                Intent itEntrar = new Intent(TelaLogin.this, StartCliente.class);
-                itEntrar.putExtra("usuario", usuario);
-                startActivity(itEntrar);
+                verificarTipoUsuario(usuario.getTipo());
             } else {
                 Toast.makeText(getApplicationContext(), "Dados inválidos, tente novamente!", Toast.LENGTH_LONG).show();
             }
         } catch (NegocioException e) {
             Toast.makeText(getApplicationContext(), e.getMessage().toString(), Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void verificarTipoUsuario(String tipo){
+
+        Toast.makeText(getApplicationContext(), "Redirecionando, aguarde...!", Toast.LENGTH_LONG).show();
+        Intent itEntrar;
+
+        if (tipo.equals("Prestador")) {
+            itEntrar = new Intent(TelaLogin.this, StartPrestador.class);
+        }else{
+            itEntrar = new Intent(TelaLogin.this, StartCliente.class);
+        }
+
+        itEntrar.putExtra("usuario", usuario);
+        startActivity(itEntrar);
     }
 
     public void cadastrar(View v) {

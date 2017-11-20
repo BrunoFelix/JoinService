@@ -44,8 +44,8 @@ public class StartCliente extends AppCompatActivity
 
     //Titulos das Paginas
     private static final String[] TITLES = new String[]{
-            "Solicitações de Serviço",
-            "Meus Serviços"
+            "Abertos",
+            "Finalizados"
     };
 
     @Override
@@ -59,7 +59,7 @@ public class StartCliente extends AppCompatActivity
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("JoinService");
+        getSupportActionBar().setTitle("Meus Serviços");
 
         fachada = Fachada.getInstance(this);
 
@@ -133,9 +133,9 @@ public class StartCliente extends AppCompatActivity
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return ClienteTela1.newInstance("Solicitações de Serviço");
+                    return ClienteTela1.newInstance("Abertos");
                 case 1:
-                    return ClienteTela2.newInstance("Meus Serviços");
+                    return ClienteTela2.newInstance("Finalizados");
                 default:
                     break;
             }
@@ -209,17 +209,12 @@ public class StartCliente extends AppCompatActivity
             fachada.usuarioExcluirLogado();
             Intent intentTelaLogin = new Intent(this, TelaLogin.class);
             startActivity(intentTelaLogin);
-        } /*else if (id == R.id.nav_prestador) {
-            Intent intentPrestador = new Intent(this, RegisterOrderCategoryActivity.class);
-            startActivity(intentRegisterOrder);
-
-        } /*else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }*/
+        } else if (id == R.id.nav_prestador) {
+            usuario.setTipo("Prestador");
+            fachada.usuarioAtualizarUsuarioLogado(usuario);
+            Intent intentEditProfile = new Intent(this, StartPrestador.class);
+            startActivity(intentEditProfile);
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

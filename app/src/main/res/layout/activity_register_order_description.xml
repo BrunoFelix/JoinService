@@ -54,8 +54,6 @@
             android:onClick="proximo"
             android:text="Continuar"/>
 
-
-
     </LinearLayout>
 
 

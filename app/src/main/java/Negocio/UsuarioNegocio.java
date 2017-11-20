@@ -33,6 +33,7 @@ public class UsuarioNegocio {
 
     public Usuario usuarioLogado(){ return usuarioDAO.Logado(); }
     public void usuarioExcluirLogado(){ usuarioDAO.excluirLogado(); }
+    public void usuarioAtualizarUsuarioLogado(Usuario usuario){usuarioDAO.atualizarUsuarioLogado(usuario);}
 
     //############################## VALIDAÇÕES ############################## //
 

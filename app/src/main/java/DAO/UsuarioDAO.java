@@ -103,15 +103,21 @@ public class UsuarioDAO {
             usuario.setNome(nome);
             usuario.setEmail(em);
             usuario.setCelular(celular);
+            usuario.setTipo("Consumidor");
         }
 
-        SQLiteDatabase db2 = helper.getWritableDatabase();
-        ContentValues cv = new ContentValues();
-        cv.put("ID", usuario.getId());
-        long id = db2.insert("USUARIO_LOGADO", null, cv);
-        db2.close();
+        atualizarUsuarioLogado(usuario);
 
         return usuario;
+    }
+
+    public void atualizarUsuarioLogado(Usuario usuario){
+        SQLiteDatabase db = helper.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("ID", usuario.getId());
+        cv.put("TIPO", usuario.getTipo());
+        long id = db.insert("USUARIO_LOGADO", null, cv);
+        db.close();
     }
 
     public Usuario Logado(){
@@ -124,6 +130,8 @@ public class UsuarioDAO {
         while (cursor.moveToNext()) {
             int idUsuario = cursor.getInt(
                     cursor.getColumnIndex("ID"));
+            String tipo = cursor.getString(
+                    cursor.getColumnIndex("TIPO"));
 
             SQLiteDatabase db2 = helper.getReadableDatabase();
             String sql2 = "SELECT * FROM USUARIO ";
@@ -145,6 +153,7 @@ public class UsuarioDAO {
                 usuario.setNome(nome);
                 usuario.setEmail(em);
                 usuario.setCelular(celular);
+                usuario.setTipo(tipo);
             }
         }
         return usuario;

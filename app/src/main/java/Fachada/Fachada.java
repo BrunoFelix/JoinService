@@ -52,9 +52,11 @@ public class Fachada {
         usuarioNegocio.usuarioExcluirLogado();
     }
 
+    public void usuarioAtualizarUsuarioLogado(Usuario usuario){ usuarioNegocio.usuarioAtualizarUsuarioLogado(usuario);}
+
     //Serviços
-    public List<Servico> ListarServicosUsuario() {
-        return servicoNegocio.ListarServicosUsuario();
+    public List<Servico> ListarServicosUsuario(Usuario usuarioLogado) {
+        return servicoNegocio.ListarServicosUsuario(usuarioLogado);
     }
 
     public void servicoInserir(Servico servico) {

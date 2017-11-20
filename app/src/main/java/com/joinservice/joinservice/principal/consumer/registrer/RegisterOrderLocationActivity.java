@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -50,20 +51,15 @@ public class RegisterOrderLocationActivity extends AppCompatActivity implements 
 
         FragmentTransaction transaction = fragmentManager.beginTransaction();
 
-        transaction.add(R.id.frameLayoutContainerMapRegisterOrderLocation, new MapsFragment(), "MapsFragment" );
+        Fragment fragment = new MapsFragment();
+        Bundle args = new Bundle();
+        args.putDouble("LONGITUDE",longitude);
+        args.putDouble("LATITUDE", latitude);
+        fragment.setArguments(args);
+
+        transaction.add(R.id.frameLayoutContainerMapRegisterOrderLocation, fragment, "MapsFragment" );
 
         transaction.commitAllowingStateLoss();
-
-        /*MapView mapa = (MapView) findViewById(R.id.map_viewRegisterOrderLocation);
-        mapa.getController().setZoom(17);
-        GeoPoint status = new GeoPoint((int) latitude * 1000000, (int) longitude * 1000000);
-        mapa.getController().setCenter(status);
-        mapa.setBuiltInZoomControls(true);*/
-
-        /*MyLocationOverlay mlo = new MyLocationOverlay(this, mapView) ;
-        mlo.enableCompass() ;
-        mlo.enableMyLocation() ;
-        mapView.getOverlays().add(mlo) ;*/
     }
 
     public void proximo(View v){
@@ -120,6 +116,16 @@ public class RegisterOrderLocationActivity extends AppCompatActivity implements 
             Log.i("LOG", "longitude" + l.getLongitude() + ")");
             longitude = l.getLongitude();
             latitude = l.getLatitude();
+
+            Fragment fragment = new MapsFragment();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            Bundle args = new Bundle();
+            args.putDouble("LONGITUDE",longitude);
+            args.putDouble("LATITUDE", latitude);
+            fragment.setArguments(args);
+            fragmentTransaction.replace(R.id.frameLayoutContainerMapRegisterOrderLocation,fragment);
+            fragmentTransaction.commit();
         }
     }
 

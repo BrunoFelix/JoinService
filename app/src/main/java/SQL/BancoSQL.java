@@ -35,6 +35,8 @@ public class BancoSQL extends SQLiteOpenHelper{
                         "LATITUDE TEXT NOT NULL, "+
                         "USUARIO_ID INTEGER NOT NULL," +
                         "CATEGORIA_ID INTEGER NOT NULL,"+
+                        "STATUS TEXT NOT NULL,"+
+                        "DATA_INSERCAO TEXT NOT NULL,"+
                         "FOREIGN KEY(USUARIO_ID) REFERENCES USUARIO(ID)," +
                         "FOREIGN KEY(CATEGORIA_ID) REFERENCES CATEGORIA(ID))");
 
@@ -46,7 +48,8 @@ public class BancoSQL extends SQLiteOpenHelper{
 
         sqLiteDatabase.execSQL(
                 "CREATE TABLE USUARIO_LOGADO ( " +
-                        "ID INTEGER PRIMARY KEY)");
+                        "ID INTEGER PRIMARY KEY," +
+                        "TIPO TEXT NOT NULL)");
 
     }
 

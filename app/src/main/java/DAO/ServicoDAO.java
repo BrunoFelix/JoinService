@@ -6,11 +6,16 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import SQL.BancoSQL;
 import basica.Servico;
+import basica.Usuario;
 
 /**
  * Created by Bruno on 03/11/2017.
@@ -32,6 +37,9 @@ public class ServicoDAO {
         cv.put("PRAZO", servico.getPrazo());
         cv.put("LONGITUDE", servico.getLatitude());
         cv.put("LATITUDE", servico.getLongitude());
+        cv.put("STATUS", servico.getStatus());
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        cv.put("DATA_INSERCAO", df.format(servico.getDataInsercao()));
         return cv;
     }
 
@@ -75,19 +83,26 @@ public class ServicoDAO {
 
     }
 
-    public List<Servico> buscarServico(Servico servico) {
+    public List<Servico> buscarServico(Servico servico, Usuario usuarioLogado) {
         SQLiteDatabase db = helper.getReadableDatabase();
-        String sql = "SELECT * FROM SERVICO WHERE ID > 0";
+        String sql = "SELECT SERVICO.ID, SERVICO.DESCRICAO, SERVICO.PRAZO, SERVICO.LONGITUDE, SERVICO.LATITUDE, SERVICO.STATUS, SERVICO.DATA_INSERCAO," +
+                "USUARIO.ID AS \"ID_USUARIO\", USUARIO.NOME AS \"NOME_USUARIO\", USUARIO.EMAIL AS \"EMAIL_USUARIO\", USUARIO.CELULAR AS \"CELULAR_USUARIO\"," +
+                "CATEGORIA_SERVICO.ID AS \"ID_CATEGORIA_SERVICO\", CATEGORIA_SERVICO.DESCRICAO AS \"DESCRICAO_CATEGORIA_SERVICO\", CATEGORIA_SERVICO.CAMINHO_IMAGEM AS \"CAMINHO_IMAGEM_CATEGORIA_SERVICO\" " +
+                "FROM SERVICO " +
+                "LEFT JOIN USUARIO ON (USUARIO.ID = SERVICO.USUARIO_ID) "+
+                "LEFT JOIN CATEGORIA_SERVICO ON (CATEGORIA_SERVICO.ID = SERVICO.CATEGORIA_ID) ";
+                //"WHERE USUARIO_ID = ? ";
         List<String> lista = new ArrayList<String>();
+        //lista.add(Integer.toString(usuarioLogado.getId()));
         if (servico.getDescricao() != null) {
-            sql += " AND DESCRICAO LIKE ?";
+            sql += " AND SERVICO.DESCRICAO LIKE ?";
             lista.add(servico.getDescricao());
         }
         if (servico.getDescricao() != null) {
-            sql += " AND CATEGORIA_ID = ? ";
+            sql += " AND SERVICO.CATEGORIA_ID = ? ";
             lista.add(Integer.toString(servico.getCategoria().getId()));
         }
-        sql += " ORDER BY DESCRICAO ASC";
+        sql += " ORDER BY SERVICO.DESCRICAO ASC";
         String[] argumentos = (String[]) lista.toArray (new String[lista.size()]);
         Cursor cursor = db.rawQuery(sql, argumentos);
         List<Servico> servicos= new ArrayList<Servico>();
@@ -102,18 +117,46 @@ public class ServicoDAO {
                     cursor.getColumnIndex("LONGITUDE"));
             String latitude = cursor.getString(
                     cursor.getColumnIndex("LATITUDE"));
-            int usuarioId = cursor.getInt(
-                    cursor.getColumnIndex("USUARIO_ID"));
-            int categoriaId = cursor.getInt(
-                    cursor.getColumnIndex("CATEGORIA_ID"));
+            String status = cursor.getString(
+                    cursor.getColumnIndex("STATUS"));
+            String dataInsercao = cursor.getString(
+                    cursor.getColumnIndex("DATA_INSERCAO"));
+
+            int idUsuario = cursor.getInt(
+                    cursor.getColumnIndex("ID_USUARIO"));
+            String nomeUsuario = cursor.getString(
+                    cursor.getColumnIndex("NOME_USUARIO"));
+            String emailUsuario = cursor.getString(
+                    cursor.getColumnIndex("EMAIL_USUARIO"));
+            String celularUsuario = cursor.getString(
+                    cursor.getColumnIndex("CELULAR_USUARIO"));
+
+            int idCategoria = cursor.getInt(
+                    cursor.getColumnIndex("ID_CATEGORIA_SERVICO"));
+            String descricaoCategoria = cursor.getString(
+                    cursor.getColumnIndex("DESCRICAO_CATEGORIA_SERVICO"));
+
             Servico servicoCursor = new Servico();
             servicoCursor.setId(id);
             servicoCursor.setDescricao(descricao);
             servicoCursor.setPrazo(prazo);
             servicoCursor.setLongitude(longitude);
             servicoCursor.setLatitude(latitude);
-            servicoCursor.getUsuario().setId(usuarioId);
-            servicoCursor.getCategoria().setId(categoriaId);
+            servicoCursor.setStatus(status);
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+            Date date = null;
+            try {
+                date = formatter.parse(dataInsercao);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            servicoCursor.setDataInsercao(date);
+            servicoCursor.getUsuario().setId(idUsuario);
+            servicoCursor.getUsuario().setNome(nomeUsuario);
+            servicoCursor.getUsuario().setEmail(emailUsuario);
+            servicoCursor.getUsuario().setCelular(celularUsuario);
+            servicoCursor.getCategoria().setId(idCategoria);
+            servicoCursor.getCategoria().setDescricao(descricaoCategoria);
 
             servicos.add(servicoCursor);
         }

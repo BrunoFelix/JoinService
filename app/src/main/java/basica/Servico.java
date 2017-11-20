@@ -1,6 +1,7 @@
 package basica;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by Bruno on 03/11/2017.
@@ -12,6 +13,8 @@ public class Servico implements Serializable {
     private String descricao;
     private int prazo;
     private Categoria categoria;
+    private String status;
+    private Date dataInsercao;
 
     //Salvar latitude e longitude para poder exibir no google maps
     private String latitude;
@@ -77,6 +80,22 @@ public class Servico implements Serializable {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Date getDataInsercao() {
+        return dataInsercao;
+    }
+
+    public void setDataInsercao(Date dataInsercao) {
+        this.dataInsercao = dataInsercao;
     }
 
     @Override
