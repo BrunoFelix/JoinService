@@ -13,8 +13,8 @@ public class PrestadorTela2 extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_cliente_tela2, container, false);
-        return v;
+        View view = inflater.inflate(R.layout.fragment_prestador_tela2, container, false);
+        return view;
     }
 
     public static PrestadorTela2 newInstance(String text) {

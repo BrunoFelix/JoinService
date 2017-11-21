@@ -25,27 +25,14 @@ public class PrestadorTela1 extends Fragment {
 
     Fachada fachada;
     private ListView listaServicos;
-    private FloatingActionButton cadastrarServico;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_cliente_tela1, container, false);
-        listaServicos = (ListView) view.findViewById(R.id.lvSolicitacoesServicos);
-        cadastrarServico = (FloatingActionButton) view.findViewById(R.id.btCadastrarServico);
+        View view = inflater.inflate(R.layout.fragment_prestador_tela1, container, false);
+        listaServicos = (ListView) view.findViewById(R.id.lvSericosAbertos);
         return view;
     }
 
-    @Override
-    public void onViewCreated(View view, Bundle savedBundle) {
-        cadastrarServico = (FloatingActionButton) view.findViewById(R.id.btCadastrarServico);
-        cadastrarServico.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent it = new Intent(getActivity(), RegisterOrderCategoryActivity.class);
-                startActivity(it);
-            }
-        });
-    }
 
     @Override
     public void onResume() {
@@ -65,11 +52,11 @@ public class PrestadorTela1 extends Fragment {
     public void carregarLista() {
         fachada = Fachada.getInstance(getActivity());
 
-        listaServicos = (ListView) getActivity().findViewById(R.id.lvSolicitacoesServicos);
+        listaServicos = (ListView) getActivity().findViewById(R.id.lvSericosAbertos);
         List<Servico> servicos = null;
         servicos = fachada.ListarServicosUsuario(fachada.usuarioLogado());
         ListaAdapterServico adapterServico = new ListaAdapterServico(getActivity(), (ArrayList<Servico>) servicos);
-        listaServicos.setAdapter(adapterServico);
+        //listaServicos.setAdapter(adapterServico);
 
     }
 }

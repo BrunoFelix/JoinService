@@ -4,14 +4,13 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".principal.consumer.StartCliente">
+    tools:context=".principal.consumer.StartPrestador">
 
     <ListView
-        android:id="@+id/lvMeusServicos"
+        android:id="@+id/lvServicosFinalizados"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/buttonCadastrarServico"
-        android:layout_marginTop="20dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
         android:divider="@color/colorAccent"></ListView>
 
 </FrameLayout>

@@ -59,7 +59,7 @@ public class StartCliente extends AppCompatActivity
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Meus Serviços");
+        getSupportActionBar().setTitle("JoinService");
 
         fachada = Fachada.getInstance(this);
 
@@ -204,16 +204,16 @@ public class StartCliente extends AppCompatActivity
             intentEditProfile.putExtra("usuario", usuario);
             startActivity(intentEditProfile);
 
-            // Handle the camera action
         } else if (id == R.id.nav_exit) {
             fachada.usuarioExcluirLogado();
             Intent intentTelaLogin = new Intent(this, TelaLogin.class);
             startActivity(intentTelaLogin);
+
         } else if (id == R.id.nav_prestador) {
             usuario.setTipo("Prestador");
             fachada.usuarioAtualizarUsuarioLogado(usuario);
-            Intent intentEditProfile = new Intent(this, StartPrestador.class);
-            startActivity(intentEditProfile);
+            Intent intentPrestador = new Intent(this, StartPrestador.class);
+            startActivity(intentPrestador);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

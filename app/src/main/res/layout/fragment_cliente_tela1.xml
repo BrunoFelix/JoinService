@@ -24,6 +24,6 @@
         app:backgroundTint="@color/colorAzulMarinho"
         app:fabSize="normal"
         app:rippleColor="@color/colorAccent"
-        app:srcCompat="@android:drawable/ic_menu_add" />
+        app:srcCompat="@android:drawable/ic_input_add" />
 
 </FrameLayout>

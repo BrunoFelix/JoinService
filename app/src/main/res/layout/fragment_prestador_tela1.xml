@@ -4,26 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".principal.consumer.StartCliente">
+    tools:context=".principal.consumer.StartPrestador">
 
     <ListView
-        android:id="@+id/lvSolicitacoesServicos"
+        android:id="@+id/lvSericosAbertos"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/btCadastrarServico"
         android:layout_marginTop="60dp"
         android:divider="@color/colorAccent"></ListView>
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/btCadastrarServico"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="15dp"
-        android:clickable="true"
-        app:backgroundTint="@color/colorAzulMarinho"
-        app:fabSize="normal"
-        app:rippleColor="@color/colorButtonFacebook"
-        app:srcCompat="@android:drawable/ic_menu_add" />
 
 </FrameLayout>

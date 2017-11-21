@@ -14,7 +14,7 @@ public class BancoSQL extends SQLiteOpenHelper{
     ContentValues cv;
 
     public BancoSQL(Context context) {
-        super(context, "dbJoinService4", null, 2);
+        super(context, "dbJoinService4", null, 1);
     }
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
@@ -51,50 +51,55 @@ public class BancoSQL extends SQLiteOpenHelper{
                         "ID INTEGER PRIMARY KEY," +
                         "TIPO TEXT NOT NULL)");
 
+
+        //INSERT USUÁRIO ADMINISTRADOR
+        cv = new ContentValues();
+        cv.put("NOME", "A");
+        cv.put("SENHA","A");
+        cv.put("EMAIL", "A");
+        cv.put("CELULAR", "81995782171");
+        sqLiteDatabase.insert("USUARIO", null, cv);
+
+        //INSERT DE 5 CATEGORIAS DE SERVIÇO
+        cv = new ContentValues();
+        cv.put("DESCRICAO", "Celulares e Telefones");
+        sqLiteDatabase.insert("CATEGORIA_SERVICO", null, cv);
+
+        cv = new ContentValues();
+        cv.put("DESCRICAO", "Eletrodomésticos");
+        sqLiteDatabase.insert("CATEGORIA_SERVICO", null, cv);
+
+        cv = new ContentValues();
+        cv.put("DESCRICAO", "Móveis e Decoração");
+        sqLiteDatabase.insert("CATEGORIA_SERVICO", null, cv);
+
+        cv = new ContentValues();
+        cv.put("DESCRICAO", "Administrativos");
+        sqLiteDatabase.insert("CATEGORIA_SERVICO", null, cv);
+
+        cv = new ContentValues();
+        cv.put("DESCRICAO", "Reformas");
+        sqLiteDatabase.insert("CATEGORIA_SERVICO", null, cv);
+
+        //INSERT USUÁRIO SERVICO
+        cv = new ContentValues();
+        cv.put("DESCRICAO", "CONSERTO DE CHUVEIRO ELÉTRICO");
+        cv.put("PRAZO","2 SEMANAS");
+        cv.put("LONGITUDE", "60");
+        cv.put("LATITUDE", "30");
+        cv.put("USUARIO_ID", "1");
+        cv.put("CATEGORIA_ID", "1");
+        sqLiteDatabase.insert("SERVICO", null, cv);
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         switch(oldVersion) {
             case 1:
-                //INSERT USUÁRIO ADMINISTRADOR
-                cv = new ContentValues();
-                cv.put("NOME", "A");
-                cv.put("SENHA","A");
-                cv.put("EMAIL", "A");
-                cv.put("CELULAR", "81995782171");
-                db.insert("USUARIO", null, cv);
-
-                //INSERT DE 5 CATEGORIAS DE SERVIÇO
-                cv = new ContentValues();
-                cv.put("DESCRICAO", "Celulares e Telefones");
-                db.insert("CATEGORIA_SERVICO", null, cv);
-
-                cv = new ContentValues();
-                cv.put("DESCRICAO", "Eletrodomésticos");
-                db.insert("CATEGORIA_SERVICO", null, cv);
-
-                cv = new ContentValues();
-                cv.put("DESCRICAO", "Móveis e Decoração");
-                db.insert("CATEGORIA_SERVICO", null, cv);
-
-                cv = new ContentValues();
-                cv.put("DESCRICAO", "Administrativos");
-                db.insert("CATEGORIA_SERVICO", null, cv);
-
-                cv = new ContentValues();
-                cv.put("DESCRICAO", "Reformas");
-                db.insert("CATEGORIA_SERVICO", null, cv);
+                //upgrade logic from version 1 to 2;
             case 2:
-                //INSERT USUÁRIO SERVICO
-                cv = new ContentValues();
-                cv.put("DESCRICAO", "CONSERTO DE CHUVEIRO ELÉTRICO");
-                cv.put("PRAZO","2 SEMANAS");
-                cv.put("LONGITUDE", "60");
-                cv.put("LATITUDE", "30");
-                cv.put("USUARIO_ID", "1");
-                cv.put("CATEGORIA_ID", "1");
-                db.insert("SERVICO", null, cv);
+                //upgrade logic from version 2 to 3;
             case 3:
                 //upgrade logic from version 3 to 4;
             case 4:

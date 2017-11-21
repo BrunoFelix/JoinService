@@ -42,12 +42,13 @@ public class StartPrestador extends AppCompatActivity
     Fachada fachada;
     FragmentPagerAdapter adapterViewPager;
     Usuario usuario;
-    private static int num_itens = 2;
+    private static int num_itens = 3;
 
     //Titulos das Paginas
     private static final String[] TITLES = new String[]{
             "Abertos",
-            "Solicitados"
+            "Finalizados",
+            "Todos os Serviços"
     };
 
     @Override
@@ -154,16 +155,16 @@ public class StartPrestador extends AppCompatActivity
             intentEditProfile.putExtra("usuario", usuario);
             startActivity(intentEditProfile);
 
-            // Handle the camera action
         } else if (id == R.id.nav_exit) {
             fachada.usuarioExcluirLogado();
             Intent intentTelaLogin = new Intent(this, TelaLogin.class);
             startActivity(intentTelaLogin);
+
         } else if (id == R.id.nav_prestador) {
             usuario.setTipo("Prestador");
             fachada.usuarioAtualizarUsuarioLogado(usuario);
-            Intent intentEditProfile = new Intent(this, StartPrestador.class);
-            startActivity(intentEditProfile);
+            Intent intentCliente = new Intent(this, StartCliente.class);
+            startActivity(intentCliente);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
