@@ -6,6 +6,18 @@
     <string name="salvar">Salvar</string>
 
 
+
+    <string name="texto_start_cliente_1">Editar Perfil</string>
+    <string name="texto_start_cliente_2">Seja um prestador</string>
+    <string name="texto_start_cliente_3">Sair</string>
+
+
+    <string name="texto_login_1">Conectar com o Facebook</string>
+    <string name="texto_login_2">Usuário/Email</string>
+    <string name="texto_login_3">Senha</string>
+    <string name="texto_login_4">Entrar</string>
+    <string name="texto_login_5">Esqueceu a senha</string>
+    <string name="texto_login_6">Cadastrar</string>
     <string name="texto_cadastro_perfil_1">Nome</string>
     <string name="texto_cadastro_perfil_2">CPF</string>
     <string name="texto_cadastro_perfil_3">Senha</string>

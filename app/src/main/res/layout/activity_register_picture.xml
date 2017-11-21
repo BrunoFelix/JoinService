@@ -53,7 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:text="Avançar"
+                android:text="@string/avançar"
                 android:onClick="proximo"
                 android:background="@drawable/screen_border"
                 android:textColor="@color/colorBranco"/>
