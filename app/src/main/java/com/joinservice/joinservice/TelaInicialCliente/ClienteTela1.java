@@ -4,12 +4,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.joinservice.joinservice.DetalheServicoActivity;
 import com.joinservice.joinservice.R;
+import com.joinservice.joinservice.ServicoFragment;
 import com.joinservice.joinservice.principal.consumer.registrer.RegisterOrderCategoryActivity;
 
 import java.util.ArrayList;
@@ -24,6 +29,8 @@ public class ClienteTela1 extends Fragment {
 
     Fachada fachada;
     private ListView listaServicos;
+    List<Servico> servicos;
+
     private FloatingActionButton cadastrarServico;
 
     @Override
@@ -65,9 +72,25 @@ public class ClienteTela1 extends Fragment {
         fachada = Fachada.getInstance(getActivity());
 
         listaServicos = (ListView) getActivity().findViewById(R.id.lvSolicitacoesServicos);
-        List<Servico> servicos = fachada.ListarServicosUsuario(fachada.usuarioLogado());
+        servicos = fachada.ListarServicosUsuario(fachada.usuarioLogado());
         ListaAdapterServico adapterServico = new ListaAdapterServico(getActivity(), (ArrayList<Servico>) servicos);
         listaServicos.setAdapter(adapterServico);
 
+        listaServicos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View v, int pos, long id) {
+
+                Intent it = new Intent(getActivity(), DetalheServicoActivity.class);
+                it.putExtra("SERVICO", servicos.get(pos));
+                startActivity(it);
+            }
+        });
+
+
     }
+
+    public void exibirDetalhesServico(){
+
+    }
+
 }

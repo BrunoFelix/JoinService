@@ -35,8 +35,8 @@ public class ServicoDAO {
         cv.put("USUARIO_ID", servico.getUsuario().getId());
         cv.put("CATEGORIA_ID", servico.getCategoria().getId());
         cv.put("PRAZO", servico.getPrazo());
-        cv.put("LONGITUDE", servico.getLatitude());
-        cv.put("LATITUDE", servico.getLongitude());
+        cv.put("LONGITUDE", servico.getLongitude());
+        cv.put("LATITUDE", servico.getLatitude());
         cv.put("STATUS", servico.getStatus());
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         cv.put("DATA_INSERCAO", df.format(servico.getDataInsercao()));

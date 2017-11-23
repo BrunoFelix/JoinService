@@ -49,7 +49,10 @@
     <string name="texto_cadastro_servico_categoria_5">Local</string>
     <string name="texto_cadastro_servico_categoria_6">Select on the map the location where the service will be run</string>
 
-    <string name="texto_cadastro_servico_categoria_7">description</string>
+    <string name="texto_cadastro_servico_categoria_7">Description</string>
     <string name="texto_cadastro_servico_categoria_8">Describe briefly what the service is about</string>
     <string name="title_activity_maps">Map</string>
+
+    <string name="texto_profissionais_interessados_fragment_servico">Interested Professionals</string>
+    <string name="texto_anunciantes_fragment_servico">Advertiser</string>
 </resources>

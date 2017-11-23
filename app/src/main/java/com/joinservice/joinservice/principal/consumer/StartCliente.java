@@ -59,7 +59,7 @@ public class StartCliente extends AppCompatActivity
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("JoinService");
+        getSupportActionBar().setTitle("Meus Serviços");
 
         fachada = Fachada.getInstance(this);
 
@@ -199,7 +199,7 @@ public class StartCliente extends AppCompatActivity
 
         if (id == R.id.nav_edit_profile) {
             Intent intent = getIntent();
-            Usuario usuario = (Usuario) intent.getSerializableExtra("usuario");
+            usuario = (Usuario) intent.getSerializableExtra("usuario");
             Intent intentEditProfile = new Intent(this, EditProfile.class);
             intentEditProfile.putExtra("usuario", usuario);
             startActivity(intentEditProfile);

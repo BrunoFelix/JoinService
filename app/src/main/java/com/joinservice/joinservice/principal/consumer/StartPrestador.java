@@ -62,7 +62,7 @@ public class StartPrestador extends AppCompatActivity
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("JoinService");
+        getSupportActionBar().setTitle("Serviços");
 
         fachada = Fachada.getInstance(this);
 
@@ -150,7 +150,7 @@ public class StartPrestador extends AppCompatActivity
 
         if (id == R.id.nav_edit_profile) {
             Intent intent = getIntent();
-            Usuario usuario = (Usuario) intent.getSerializableExtra("usuario");
+            usuario = (Usuario) intent.getSerializableExtra("usuario");
             Intent intentEditProfile = new Intent(this, EditProfile.class);
             intentEditProfile.putExtra("usuario", usuario);
             startActivity(intentEditProfile);
@@ -161,7 +161,7 @@ public class StartPrestador extends AppCompatActivity
             startActivity(intentTelaLogin);
 
         } else if (id == R.id.nav_prestador) {
-            usuario.setTipo("Prestador");
+            usuario.setTipo("Consumidor");
             fachada.usuarioAtualizarUsuarioLogado(usuario);
             Intent intentCliente = new Intent(this, StartCliente.class);
             startActivity(intentCliente);
