@@ -53,4 +53,5 @@
     
     <string name="texto_profissionais_interessados_fragment_servico">Profissionais Interessados</string>
     <string name="texto_anunciantes_fragment_servico">Anunciante</string>
+    <string name = "texto_quero_realizar_servico_fragment_servico">Quero realizar esse serviço</string>
 </resources>

@@ -55,4 +55,5 @@
 
     <string name="texto_profissionais_interessados_fragment_servico">Interested Professionals</string>
     <string name="texto_anunciantes_fragment_servico">Advertiser</string>
+    <string name = "texto_quero_realizar_servico_fragment_servico">I want to perform this service</string>
 </resources>

@@ -7,6 +7,7 @@
 
     <!-- TODO: Update blank fragment layout -->
     <Button
+        android:id="@+id/btnRealizarServico"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/screen_border"
@@ -14,7 +15,7 @@
         android:layout_marginTop="2dp"
         android:layout_marginLeft="2dp"
         android:layout_marginRight="2dp"
-        android:text="Quero realizar esse serviço"/>
+        android:text="@string/texto_quero_realizar_servico_fragment_servico"/>
 
     <FrameLayout
         android:id="@+id/frameLayoutContainerMapServico"
@@ -69,6 +70,7 @@
         android:text="@string/texto_profissionais_interessados_fragment_servico"/>
 
     <ListView
+        android:id="@+id/listViewPrestInt"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></ListView>
 

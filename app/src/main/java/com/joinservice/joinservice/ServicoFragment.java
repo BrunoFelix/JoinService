@@ -9,6 +9,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.joinservice.joinservice.maps.MapsFragment;
@@ -19,6 +21,7 @@ import java.text.SimpleDateFormat;
 import basica.Categoria;
 import basica.Servico;
 import basica.Usuario;
+import Fachada.Fachada;
 
 public class ServicoFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
@@ -32,7 +35,10 @@ public class ServicoFragment extends Fragment {
 
     Servico servico;
 
-    TextView descricaoServico, prazoServico, dataServico, usuarioServico;
+    TextView descricaoServico, prazoServico, dataServico, usuarioServico, lblPrestInt;
+    Button btnRealizarServico;
+    Fachada fachada;
+    ListView listaPrestInt;
 
     private FragmentManager fragmentManager;
 
@@ -93,6 +99,8 @@ public class ServicoFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_servico, container, false);
 
+        fachada = Fachada.getInstance(getActivity());
+
         descricaoServico = (TextView) view.findViewById(R.id.textViewDescricaoFragmentServico);
         descricaoServico.setText(servico.getDescricao());
 
@@ -102,6 +110,17 @@ public class ServicoFragment extends Fragment {
 
         usuarioServico = (TextView) view.findViewById(R.id.textViewUsuarioFragmentServico);
         usuarioServico.setText(servico.getUsuario().getNome());
+
+        listaPrestInt = (ListView) view.findViewById(R.id.listViewPrestInt);
+        lblPrestInt = (TextView) view.findViewById(R.id.textViewPrestIntFragmentServico);
+
+        btnRealizarServico = (Button) view.findViewById(R.id.btnRealizarServico);
+        if (!fachada.usuarioLogado().getTipo().equals("Prestador")){
+            btnRealizarServico.setVisibility(View.INVISIBLE);
+        }else{
+            listaPrestInt.setVisibility(View.INVISIBLE);
+            lblPrestInt.setVisibility(View.INVISIBLE);
+        }
 
         return view;
     }
