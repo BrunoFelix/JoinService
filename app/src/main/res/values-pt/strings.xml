@@ -54,4 +54,23 @@
     <string name="texto_profissionais_interessados_fragment_servico">Profissionais Interessados</string>
     <string name="texto_anunciantes_fragment_servico">Anunciante</string>
     <string name = "texto_quero_realizar_servico_fragment_servico">Quero realizar esse serviço</string>
+
+
+    <string name="texto_toast_01">"Dados inválidos, tente novamente!"</string>
+    <string name="texto_toast_02">"Redirecionando, aguarde...!"</string>
+
+    <string name="texto_toast_edit_profile_01">"A captura foi cancelada"</string>
+    <string name="texto_toast_edit_profile_02">"A câmera foi fechada"</string>
+
+    <string name="texto_toast_RegiterEmail">"O campo \"Email\" precisa ser preenchido!"</string>
+    <string name="texto_toast_RegisterPhone">"O campo \"Celular\" precisa ser preenchido!"</string>
+
+    <string name="texto_toast_RegisterPicture_01">"A captura foi cancelada"</string>
+    <string name="texto_toast_RegisterPicture_02">"A câmera foi fechada"</string>
+
+    <string name="texto_toast_RegisterProfile_01">"Todos os campos precisam ser preenchidos!"</string>
+    <string name="texto_toast_RegisterProfile_02">"O campo \"Senha\" e \"Confirmar Senha\" precisam ser igualmente preenchidos!"</string>
+
+
+
 </resources>

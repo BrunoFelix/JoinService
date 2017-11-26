@@ -56,4 +56,20 @@
     <string name="texto_profissionais_interessados_fragment_servico">Interested Professionals</string>
     <string name="texto_anunciantes_fragment_servico">Advertiser</string>
     <string name = "texto_quero_realizar_servico_fragment_servico">I want to perform this service</string>
+
+    <string name="texto_toast_01">"Invalid data, try again!"</string>
+    <string name="texto_toast_02">"Redirecting, please wait ...!"</string>
+
+    <string name="texto_toast_edit_profile_01">"Catch was canceled"</string>
+    <string name="texto_toast_edit_profile_02">"The camera was closed"</string>
+
+    <string name="texto_toast_RegiterEmail">"The \" Email \ "field needs to be filled!"</string>
+    <string name="texto_toast_RegisterPhone">"The field \" Cell Number \ "needs to be logged!"</string>
+
+    <string name="texto_toast_RegisterPicture_01">"Catch was canceled"</string>
+    <string name="texto_toast_RegisterPicture_02">"The camera was closed"</string>
+
+    <string name="texto_toast_RegisterProfile_01">"The camera was closed"</string>
+    <string name="texto_toast_RegisterProfile_02">"The camera was closed"</string>
+
 </resources>

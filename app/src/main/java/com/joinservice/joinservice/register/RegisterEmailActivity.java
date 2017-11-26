@@ -27,7 +27,7 @@ public class RegisterEmailActivity extends AppCompatActivity {
         email = (EditText) findViewById(R.id.editTextCadastroEmail);
 
         if (email.getText().toString().isEmpty()) {
-            Toast.makeText(getApplicationContext(), "O campo \"Email\" precisa ser preenchido!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.texto_toast_RegiterEmail), Toast.LENGTH_SHORT).show();
         } else {
             usuario.setEmail(email.getText().toString());
             Intent itProximo = new Intent(this, RegisterProfileActivity.class);

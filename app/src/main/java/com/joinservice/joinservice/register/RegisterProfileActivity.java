@@ -32,9 +32,9 @@ public class RegisterProfileActivity extends AppCompatActivity {
         confirmarSenha = (EditText) findViewById(R.id.editTextCadastroSenhaConfirmacao);
 
         if ((nome.getText().toString().isEmpty()) || (senha.getText().toString().isEmpty()) || (confirmarSenha.getText().toString().isEmpty())) {
-            Toast.makeText(getApplicationContext(), "Todos os campos precisam ser preenchidos!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.texto_toast_RegisterProfile_01), Toast.LENGTH_SHORT).show();
         } else if ((!senha.getText().toString().equals(confirmarSenha.getText().toString()))) {
-            Toast.makeText(getApplicationContext(), "O campo \"Senha\" e \"Confirmar Senha\" precisam ser igualmente preenchidos!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.texto_toast_RegisterProfile_02), Toast.LENGTH_LONG).show();
         } else {
             usuario.setNome(nome.getText().toString());
             usuario.setSenha(senha.getText().toString());

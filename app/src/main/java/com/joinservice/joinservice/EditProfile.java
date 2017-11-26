@@ -62,10 +62,10 @@ public class EditProfile extends AppCompatActivity {
                     Button fotoB = (Button) findViewById(R.id.FotoButton);
 
                 } else if (resultCode == Activity.RESULT_CANCELED) {
-                    Toast.makeText(getBaseContext(), "A captura foi cancelada",
+                    Toast.makeText(getBaseContext(), getString(R.string.texto_toast_edit_profile_01) ,
                             Toast.LENGTH_SHORT);
                 } else {
-                    Toast.makeText(getBaseContext(), "A câmera foi fechada",
+                    Toast.makeText(getBaseContext(), getString(R.string.texto_toast_edit_profile_02),
                             Toast.LENGTH_SHORT);
                 }
             }

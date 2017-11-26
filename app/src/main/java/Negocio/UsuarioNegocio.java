@@ -2,6 +2,8 @@ package Negocio;
 
 import android.content.Context;
 
+import com.joinservice.joinservice.R;
+
 import DAO.UsuarioDAO;
 import Util.NegocioException;
 import basica.Usuario;
@@ -39,6 +41,7 @@ public class UsuarioNegocio {
 
     public void validarLogin(String email, String senha) throws NegocioException {
         if (((email == null) || (email.isEmpty())) && ((senha == null) || (senha.isEmpty()))) {
+
             throw new NegocioException("Os campos \"Email\" e \"Senha\" precisam ser preenchidos!");
         }
         if ((email == null) || (email.isEmpty()))

@@ -41,7 +41,7 @@ public class RegisterPhoneActivity extends AppCompatActivity {
         celular = (EditText) findViewById(R.id.editTextCadastroPhone);
 
         if (celular.getText().toString().isEmpty()){
-            Toast.makeText(getApplicationContext(), "O campo \"Celular\" precisa ser preenchido!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.texto_toast_RegisterPhone), Toast.LENGTH_SHORT).show();
         }else{
             usuario.setCelular(celular.getText().toString());
             fachada.usuarioInserir(usuario);

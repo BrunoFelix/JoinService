@@ -50,7 +50,7 @@ public class TelaLogin extends AppCompatActivity {
             if (usuario.getId() > 0) {
                 verificarTipoUsuario(usuario.getTipo());
             } else {
-                Toast.makeText(getApplicationContext(), "Dados inválidos, tente novamente!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.texto_toast_01), Toast.LENGTH_LONG).show();
             }
         } catch (NegocioException e) {
             Toast.makeText(getApplicationContext(), e.getMessage().toString(), Toast.LENGTH_SHORT).show();
@@ -59,7 +59,7 @@ public class TelaLogin extends AppCompatActivity {
 
     public void verificarTipoUsuario(String tipo){
 
-        Toast.makeText(getApplicationContext(), "Redirecionando, aguarde...!", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), getString(R.string.texto_toast_02), Toast.LENGTH_LONG).show();
         Intent itEntrar;
 
         if (tipo.equals("Prestador")) {
