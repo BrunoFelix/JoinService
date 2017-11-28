@@ -21,6 +21,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.joinservice.joinservice.EditProfile;
+import com.joinservice.joinservice.FindAJobActivity;
 import com.joinservice.joinservice.MyServicesFragment;
 import com.joinservice.joinservice.R;
 import com.joinservice.joinservice.TelaInicialCliente.ClienteTela1;

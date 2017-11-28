@@ -15,6 +15,8 @@ public class Servico implements Serializable {
     private Categoria categoria;
     private String status;
     private Date dataInsercao;
+    //TODO o cliente poderá informar qual o valor está disposto a pagar
+    //private Double orçamento;
 
     //Salvar latitude e longitude para poder exibir no google maps
     private String latitude;

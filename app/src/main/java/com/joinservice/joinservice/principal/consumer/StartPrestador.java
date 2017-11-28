@@ -9,10 +9,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,8 +24,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.joinservice.joinservice.EditProfile;
+import com.joinservice.joinservice.FindAJobActivity;
 import com.joinservice.joinservice.MyServicesFragment;
 import com.joinservice.joinservice.R;
+import com.joinservice.joinservice.SearchFragment;
 import com.joinservice.joinservice.TelaInicialPrestador.PrestadorTela1;
 import com.joinservice.joinservice.TelaInicialPrestador.PrestadorTela2;
 import com.joinservice.joinservice.TelaInicialPrestador.PrestadorTela3;
@@ -34,7 +38,7 @@ import basica.Usuario;
 
 
 public class StartPrestador extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, SearchView.OnQueryTextListener {
 
     TextView nomeUsuario;
     ImageView fotoUsuario;
@@ -119,6 +123,17 @@ public class StartPrestador extends AppCompatActivity
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_search,menu);
+
+        MenuItem searchItem = menu.findItem(R.id.findajob_menu_search);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+        searchView.setOnQueryTextListener(this);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -165,11 +180,24 @@ public class StartPrestador extends AppCompatActivity
             fachada.usuarioAtualizarUsuarioLogado(usuario);
             Intent intentCliente = new Intent(this, StartCliente.class);
             startActivity(intentCliente);
+        }else if (id == R.id.findajob_menu_search) {
+            Intent intentSearch = new Intent(this, FindAJobActivity.class);
+            startActivity(intentSearch);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        return false;
     }
 
     public static class MyPagerAdapter extends FragmentPagerAdapter {
@@ -189,11 +217,11 @@ public class StartPrestador extends AppCompatActivity
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return PrestadorTela1.newInstance("Abertos");
+                    return PrestadorTela1.newInstance("Find a Job");
                 case 1:
                     return PrestadorTela2.newInstance("Finalizados");
                 case 2:
-                    return PrestadorTela3.newInstance("Finalizados");
+                    return PrestadorTela3.newInstance("Todos os Serviços");
                 default:
                     break;
             }

@@ -3,6 +3,12 @@
 
     <group android:checkableBehavior="single">
 
+
+        <item
+            android:id="@+id/findajob"
+            android:title="@string/nav_bar_provider_menu_findajob"
+            android:icon="@drawable/ic_search_black_24dp"/>
+
         <item
             android:id="@+id/nav_edit_profile"
             android:icon="@drawable/ic_settings_applications_black_24dp"

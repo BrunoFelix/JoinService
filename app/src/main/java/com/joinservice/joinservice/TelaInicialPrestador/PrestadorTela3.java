@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.joinservice.joinservice.R;
 
@@ -51,7 +52,8 @@ public class PrestadorTela3 extends Fragment {
 
         listaServicos = (ListView) getActivity().findViewById(R.id.lvTodosServicos);
         List<Servico> servicos = null;
-        servicos = fachada.ListarServicosUsuario(fachada.usuarioLogado());
+        servicos=fachada.ListarServicosUsuario(fachada.usuarioLogado());
+
         ListaAdapterServico adapterServico = new ListaAdapterServico(getActivity(), (ArrayList<Servico>) servicos);
         listaServicos.setAdapter(adapterServico);
 

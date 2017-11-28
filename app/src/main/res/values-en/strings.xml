@@ -71,5 +71,6 @@
 
     <string name="texto_toast_RegisterProfile_01">"The camera was closed"</string>
     <string name="texto_toast_RegisterProfile_02">"The camera was closed"</string>
+    <string name="nav_bar_provider_menu_findajob">Find a Job</string>
 
 </resources>
