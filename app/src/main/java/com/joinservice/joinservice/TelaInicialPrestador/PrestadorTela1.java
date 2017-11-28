@@ -7,9 +7,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.joinservice.joinservice.DetalheServicoActivity;
 import com.joinservice.joinservice.R;
 import com.joinservice.joinservice.principal.consumer.registrer.RegisterOrderCategoryActivity;
 
@@ -26,11 +28,21 @@ public class PrestadorTela1 extends Fragment {
 
     Fachada fachada;
     private ListView listaServicos;
+    List<Servico> servicos;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_prestador_tela1, container, false);
         listaServicos = (ListView) view.findViewById(R.id.lvSericosAbertos);
+        listaServicos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View v, int pos, long id) {
+
+                Intent it = new Intent(getActivity(), DetalheServicoActivity.class);
+                it.putExtra("SERVICO", servicos.get(pos));
+                startActivity(it);
+            }
+        });
         return view;
     }
 

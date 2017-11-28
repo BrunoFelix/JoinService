@@ -24,10 +24,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.joinservice.joinservice.EditProfile;
-import com.joinservice.joinservice.FindAJobActivity;
 import com.joinservice.joinservice.MyServicesFragment;
 import com.joinservice.joinservice.R;
-import com.joinservice.joinservice.SearchFragment;
 import com.joinservice.joinservice.TelaInicialPrestador.PrestadorTela1;
 import com.joinservice.joinservice.TelaInicialPrestador.PrestadorTela2;
 import com.joinservice.joinservice.TelaInicialPrestador.PrestadorTela3;
@@ -181,7 +179,7 @@ public class StartPrestador extends AppCompatActivity
             Intent intentCliente = new Intent(this, StartCliente.class);
             startActivity(intentCliente);
         }else if (id == R.id.findajob_menu_search) {
-            Intent intentSearch = new Intent(this, FindAJobActivity.class);
+            Intent intentSearch = new Intent(this, StartPrestador.class);
             startActivity(intentSearch);
         }
 
