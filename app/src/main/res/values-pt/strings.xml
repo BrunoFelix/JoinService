@@ -72,5 +72,10 @@
     <string name="texto_toast_RegisterProfile_02">"O campo \"Senha\" e \"Confirmar Senha\" precisam ser igualmente preenchidos!"</string>
 
 
+    <string name="texto_novo_registro_01">"Celulares e Telefones"</string>
+    <string name="texto_novo_registro_02">"Eletrodomésticos"</string>
+    <string name="texto_novo_registro_03">"Móveis e Decoração"</string>
+    <string name="texto_novo_registro_04">"Administrativos"</string>
+    <string name="texto_novo_registro_05">"Reformas"</string>
 
 </resources>

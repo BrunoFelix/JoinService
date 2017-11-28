@@ -40,7 +40,7 @@
                 android:id="@+id/buttomCelETelRegisterOrderCategory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Celulares e Telefones"
+                android:text="@string/texto_novo_registro_01"
                 android:background="@drawable/screen_border"
                 android:textColor="@color/colorBranco"
                 android:layout_marginBottom="1dp"/>
@@ -49,7 +49,7 @@
                 android:id="@+id/buttomEletroRegisterOrderCategory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Eletrodomésticos"
+                android:text="@string/texto_novo_registro_02"
                 android:background="@drawable/screen_border"
                 android:textColor="@color/colorBranco"
                 android:layout_marginBottom="1dp"/>
@@ -58,7 +58,7 @@
                 android:id="@+id/buttomMovEDecRegisterOrderCategory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Móveis e Decoração"
+                android:text="@string/texto_novo_registro_03"
                 android:background="@drawable/screen_border"
                 android:textColor="@color/colorBranco"
                 android:layout_marginBottom="1dp"/>
@@ -67,7 +67,7 @@
                 android:id="@+id/buttomAdminRegisterOrderCategory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Administrativos"
+                android:text="@string/texto_novo_registro_04"
                 android:background="@drawable/screen_border"
                 android:textColor="@color/colorBranco"
                 android:layout_marginBottom="1dp"/>
@@ -76,7 +76,7 @@
                 android:id="@+id/buttomReformasRegisterOrderCategory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Reformas"
+                android:text="@string/texto_novo_registro_05"
                 android:background="@drawable/screen_border"
                 android:textColor="@color/colorBranco"
                 android:layout_marginBottom="1dp"/>

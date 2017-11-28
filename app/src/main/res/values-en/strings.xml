@@ -73,4 +73,12 @@
     <string name="texto_toast_RegisterProfile_02">"The camera was closed"</string>
     <string name="nav_bar_provider_menu_findajob">Find a Job</string>
 
+    <string name="texto_novo_registro_01">"Cell Phones and Accessories"</string>
+    <string name="texto_novo_registro_02">"Home appliances"</string>
+    <string name="texto_novo_registro_03">"Furniture and decoration"</string>
+    <string name="texto_novo_registro_04">"Administrative"</string>
+    <string name="texto_novo_registro_05">"Reforms"</string>
+
+
+
 </resources>
