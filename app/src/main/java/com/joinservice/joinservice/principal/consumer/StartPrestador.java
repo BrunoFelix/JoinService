@@ -76,8 +76,6 @@ public class StartPrestador extends AppCompatActivity
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.vpPager);
 
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.setOnTabSelectedListener(onTabSelectedListener(viewPager));
 
         Intent intent = getIntent();
         if (intent.getSerializableExtra("usuario") != null) {
