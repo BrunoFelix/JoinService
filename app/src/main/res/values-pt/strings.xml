@@ -7,8 +7,9 @@
 
 
 
+    <string name="texto_start_cliente">Perfil Cliente</string>
     <string name="texto_start_cliente_1">Editar Perfil</string>
-    <string name="texto_start_cliente_2">Seja um prestador</string>
+    <string name="texto_start_cliente_2">Perfil Prestador</string>
     <string name="texto_start_cliente_3">Sair</string>
 
 
