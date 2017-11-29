@@ -1,6 +1,7 @@
 package com.joinservice.joinservice.principal.consumer;
 
 import android.content.Intent;
+import android.icu.text.StringSearch;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -13,6 +14,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.GetChars;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,6 +29,8 @@ import com.joinservice.joinservice.TelaInicialCliente.ClienteTela1;
 import com.joinservice.joinservice.TelaInicialCliente.ClienteTela2;
 import com.joinservice.joinservice.TelaLogin;
 import com.joinservice.joinservice.principal.consumer.registrer.RegisterOrderCategoryActivity;
+
+import org.w3c.dom.Text;
 
 import Fachada.Fachada;
 import basica.Usuario;
@@ -44,6 +48,7 @@ public class StartCliente extends AppCompatActivity
 
     //Titulos das Paginas
     private static final String[] TITLES = new String[]{
+
             "Abertos",
             "Finalizados"
     };
@@ -59,7 +64,7 @@ public class StartCliente extends AppCompatActivity
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Meus Serviços");
+        getSupportActionBar().setTitle(R.string.texto_fragment_03);
 
         fachada = Fachada.getInstance(this);
 

@@ -78,4 +78,11 @@
     <string name="texto_novo_registro_04">"Administrativos"</string>
     <string name="texto_novo_registro_05">"Reformas"</string>
 
+    <string name="texto_continue">"Continuar"</string>
+
+    <string name="texto_fragment_01">"Abertos"</string>
+    <string name="texto_fragment_02">"Finalizados"</string>
+
+    <string name="texto_fragment_03">"Meus Serviços"</string>
+
 </resources>

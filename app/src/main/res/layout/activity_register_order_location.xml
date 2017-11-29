@@ -33,7 +33,7 @@
             android:background="@drawable/screen_border"
             android:textColor="@color/colorBranco"
             android:onClick="proximo"
-            android:text="Continuar"/>
+            android:text="@string/texto_continue"/>
 
     </LinearLayout>
 

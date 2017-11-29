@@ -79,6 +79,14 @@
     <string name="texto_novo_registro_04">"Administrative"</string>
     <string name="texto_novo_registro_05">"Reforms"</string>
 
+    <string name="texto_continue">"Continue"</string>
+
+
+    <string name="texto_fragment_01">"Open"</string>
+    <string name="texto_fragment_02">"Finalized"</string>
+
+    <string name="texto_fragment_03">"My Services"</string>
+
 
 
 </resources>
