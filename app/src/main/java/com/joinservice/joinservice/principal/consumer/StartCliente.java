@@ -199,7 +199,7 @@ public class StartCliente extends AppCompatActivity
 
         if (id == R.id.nav_edit_profile) {
             Intent intent = getIntent();
-            usuario = (Usuario) intent.getSerializableExtra("usuario");
+            usuario = fachada.usuarioLogado();
             Intent intentEditProfile = new Intent(this, EditProfile.class);
             intentEditProfile.putExtra("usuario", usuario);
             startActivity(intentEditProfile);

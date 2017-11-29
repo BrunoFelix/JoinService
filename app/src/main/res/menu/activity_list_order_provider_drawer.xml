@@ -22,7 +22,7 @@
         <item
             android:id="@+id/nav_prestador"
             android:icon="@drawable/ic_add_box_black_24dp"
-            android:title="@string/texto_start_cliente_2" />
+            android:title="@string/texto_start_cliente" />
 
         <item
             android:id="@+id/nav_exit"

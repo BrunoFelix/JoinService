@@ -75,6 +75,8 @@ public class StartPrestador extends AppCompatActivity
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.vpPager);
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.setOnTabSelectedListener(onTabSelectedListener(viewPager));
 
 
         Intent intent = getIntent();
@@ -161,7 +163,7 @@ public class StartPrestador extends AppCompatActivity
 
         if (id == R.id.nav_edit_profile) {
             Intent intent = getIntent();
-            usuario = (Usuario) intent.getSerializableExtra("usuario");
+            usuario = fachada.usuarioLogado();
             Intent intentEditProfile = new Intent(this, EditProfile.class);
             intentEditProfile.putExtra("usuario", usuario);
             startActivity(intentEditProfile);
@@ -172,7 +174,7 @@ public class StartPrestador extends AppCompatActivity
             startActivity(intentTelaLogin);
 
         } else if (id == R.id.nav_prestador) {
-            usuario.setTipo("Consumidor");
+            usuario.setTipo("Cliente");
             fachada.usuarioAtualizarUsuarioLogado(usuario);
             Intent intentCliente = new Intent(this, StartCliente.class);
             startActivity(intentCliente);
