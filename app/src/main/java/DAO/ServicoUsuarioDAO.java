@@ -75,7 +75,7 @@ public class ServicoUsuarioDAO {
         String sql = "SELECT SERVICO_USUARIO.VALOR_OFERTADO, SERVICO_USUARIO.DATA_OFERTA, SERVICO_USUARIO.DESCRICAO, "+
                 "USUARIO.ID AS \"ID_USUARIO\", USUARIO.NOME AS \"NOME_USUARIO\", USUARIO.EMAIL AS \"EMAIL_USUARIO\", USUARIO.CELULAR AS \"CELULAR_USUARIO\" " +
                 "FROM SERVICO_USUARIO " +
-                "LEFT JOIN USUARIO ON (USUARIO.ID = SERVICO_USUARIO.USUARIO_ID) ";
+                "INNER JOIN USUARIO ON (USUARIO.ID = SERVICO_USUARIO.USUARIO_ID) ";
         //"WHERE USUARIO_ID = ? ";
         List<String> lista = new ArrayList<String>();
         if (servico.getId() > 0) {

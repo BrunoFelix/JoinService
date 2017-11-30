@@ -48,5 +48,6 @@ public class RegisterOrderDescriptionActivity extends AppCompatActivity {
         fachada.servicoInserir(servico);
         Intent itEntrar = new Intent(this, StartCliente.class);
         startActivity(itEntrar);
+        fileList();
     }
 }

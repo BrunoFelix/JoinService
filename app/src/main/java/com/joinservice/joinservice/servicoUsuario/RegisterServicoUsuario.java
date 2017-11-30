@@ -74,5 +74,6 @@ public class RegisterServicoUsuario extends AppCompatActivity {
         Intent it = new Intent(this, DetalheServicoActivity.class);
         it.putExtra("SERVICO", servico);
         startActivity(it);
+        finish();
     }
 }

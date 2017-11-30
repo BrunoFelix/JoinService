@@ -21,9 +21,14 @@ public class ServicoNegocio {
         servicoDAO = new ServicoDAO(context);
     }
 
-    public List<Servico> ListarServicosUsuario(Usuario usuarioLogado) {
+    public List<Servico> ListarServicosDoUsuarioLogado(Usuario usuarioLogado) {
         Servico servico = new Servico();
-        return servicoDAO.buscarServico(servico, usuarioLogado);
+        return servicoDAO.buscarServicosDoUsuario(servico, usuarioLogado);
+    }
+
+    public List<Servico> ListarTodosOsServicos() {
+        Servico servico = new Servico();
+        return servicoDAO.buscarServicos(servico);
     }
 
     public void inserir(Servico servico){

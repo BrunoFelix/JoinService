@@ -48,6 +48,7 @@ public class RegisterPhoneActivity extends AppCompatActivity {
             Intent itProximo = new Intent(this, StartCliente.class);
             itProximo.putExtra("usuario", usuario);
             startActivity(itProximo);
+            finish();
         }
 
 
