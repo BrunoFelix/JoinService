@@ -75,12 +75,13 @@
             android:name=".maps.MapsFragment"
             android:label="@string/title_activity_maps" />
         <activity android:name=".principal.consumer.StartPrestador" />
-        <activity android:name=".DetalheServicoActivity" />
+        <activity android:name=".servico.DetalheServicoActivity" />
         <activity
             android:name=".principal.consumer.HomeProvider"
             android:label="@string/title_activity_home_provider"
             android:theme="@style/AppTheme" />
-        <activity android:name=".DetalhePropostaActivity"></activity>
+        <activity android:name=".servico.DetalhePropostaActivity" />
+        <activity android:name=".servicoUsuario.RegisterServicoUsuario"></activity>
     </application>
 
 </manifest>

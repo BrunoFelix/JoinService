@@ -1,4 +1,4 @@
-package com.joinservice.joinservice;
+package com.joinservice.joinservice.servico;
 
 import android.content.Intent;
 import android.support.v4.app.Fragment;
@@ -7,11 +7,10 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.joinservice.joinservice.maps.MapsFragment;
+import com.joinservice.joinservice.R;
+import com.joinservice.joinservice.servico.ServicoFragment;
 
-import basica.Categoria;
 import basica.Servico;
-import basica.Usuario;
 
 public class DetalheServicoActivity extends AppCompatActivity {
 

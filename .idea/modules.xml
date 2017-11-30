@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/JoinService.iml" filepath="$PROJECT_DIR$/JoinService.iml" />
+      <module fileurl="file://C:\Users\bruno.barbosa\StudioProjects\JoinService\JoinService.iml" filepath="C:\Users\bruno.barbosa\StudioProjects\JoinService\JoinService.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\bruno.barbosa\StudioProjects\JoinService\app\app.iml" filepath="C:\Users\bruno.barbosa\StudioProjects\JoinService\app\app.iml" />
     </modules>
   </component>
 </project>

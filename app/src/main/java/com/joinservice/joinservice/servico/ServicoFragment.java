@@ -1,7 +1,6 @@
-package com.joinservice.joinservice;
+package com.joinservice.joinservice.servico;
 
-import android.content.Context;
-import android.net.Uri;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,14 +12,18 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.joinservice.joinservice.R;
 import com.joinservice.joinservice.maps.MapsFragment;
+import com.joinservice.joinservice.servicoUsuario.RegisterServicoUsuario;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
-import basica.Categoria;
+import Adapter.ListaAdapterServicoUsuario;
 import basica.Servico;
-import basica.Usuario;
+import basica.ServicoUsuario;
 import Fachada.Fachada;
 
 public class ServicoFragment extends Fragment {
@@ -39,6 +42,7 @@ public class ServicoFragment extends Fragment {
     Button btnRealizarServico;
     Fachada fachada;
     ListView listaPrestInt;
+    List<ServicoUsuario> servicoUsuarios;
 
     private FragmentManager fragmentManager;
 
@@ -112,6 +116,10 @@ public class ServicoFragment extends Fragment {
         usuarioServico.setText(servico.getUsuario().getNome());
 
         listaPrestInt = (ListView) view.findViewById(R.id.listViewPrestInt);
+        servicoUsuarios = fachada.ListarProfIntServico(servico);
+        ListaAdapterServicoUsuario adapterServicoUsuario = new ListaAdapterServicoUsuario(getActivity(), (ArrayList<ServicoUsuario>) servicoUsuarios);
+        listaPrestInt.setAdapter(adapterServicoUsuario);
+
         lblPrestInt = (TextView) view.findViewById(R.id.textViewPrestIntFragmentServico);
 
         btnRealizarServico = (Button) view.findViewById(R.id.btnRealizarServico);
@@ -123,5 +131,12 @@ public class ServicoFragment extends Fragment {
         }
 
         return view;
+    }
+
+    public void realizarServico(){
+        Intent itRealizarServico;
+        itRealizarServico = new Intent(getActivity(), RegisterServicoUsuario.class);
+        itRealizarServico.putExtra("servico", servico);
+        startActivity(itRealizarServico);
     }
 }

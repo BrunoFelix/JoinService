@@ -80,6 +80,7 @@
     <string name="texto_novo_registro_05">"Reforms"</string>
 
     <string name="texto_continue">"Continue"</string>
+    <string name="texto_confirmar">"Confirm"</string>
 
 
     <string name="texto_fragment_01">"Open"</string>
@@ -87,6 +88,8 @@
 
     <string name="texto_fragment_03">"My Services"</string>
 
-
-
+    <string name="texto_cadastro_servico_usuario_1">"Estimative"</string>
+    <string name="texto_cadastro_servico_usuario_2">"How much would you do this service?"</string>
+    <string name="texto_cadastro_servico_usuario_3">"Convince the consumer to choose you"</string>
+    
 </resources>

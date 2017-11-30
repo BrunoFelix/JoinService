@@ -1,7 +1,9 @@
-package com.joinservice.joinservice;
+package com.joinservice.joinservice.servico;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.joinservice.joinservice.R;
 
 public class DetalhePropostaActivity extends AppCompatActivity {
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.joinservice.joinservice.DetalhePropostaActivity">
+    tools:context="com.joinservice.joinservice.servico.DetalhePropostaActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

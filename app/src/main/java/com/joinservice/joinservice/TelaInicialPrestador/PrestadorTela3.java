@@ -8,9 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.joinservice.joinservice.DetalheServicoActivity;
+import com.joinservice.joinservice.servico.DetalheServicoActivity;
 import com.joinservice.joinservice.R;
 
 import java.util.ArrayList;

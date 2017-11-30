@@ -80,10 +80,15 @@
     <string name="texto_novo_registro_05">"Reformas"</string>
 
     <string name="texto_continue">"Continuar"</string>
+    <string name="texto_confirmar">"Confirmar"</string>
 
     <string name="texto_fragment_01">"Abertos"</string>
     <string name="texto_fragment_02">"Finalizados"</string>
 
     <string name="texto_fragment_03">"Meus Serviços"</string>
+
+    <string name="texto_cadastro_servico_usuario_1">"Orçamento"</string>
+    <string name="texto_cadastro_servico_usuario_2">"Por quanto você realizaria esse serviço?"</string>
+    <string name="texto_cadastro_servico_usuario_3">"Convença o consumidor a te escolher"</string>
 
 </resources>

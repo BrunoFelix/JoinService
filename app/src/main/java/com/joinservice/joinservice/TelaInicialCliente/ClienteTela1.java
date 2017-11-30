@@ -4,17 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.joinservice.joinservice.DetalheServicoActivity;
+import com.joinservice.joinservice.servico.DetalheServicoActivity;
 import com.joinservice.joinservice.R;
-import com.joinservice.joinservice.ServicoFragment;
 import com.joinservice.joinservice.principal.consumer.registrer.RegisterOrderCategoryActivity;
 
 import java.util.ArrayList;
