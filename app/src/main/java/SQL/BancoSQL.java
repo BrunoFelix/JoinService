@@ -51,6 +51,14 @@ public class BancoSQL extends SQLiteOpenHelper{
                         "ID INTEGER PRIMARY KEY," +
                         "TIPO TEXT NOT NULL)");
 
+        sqLiteDatabase.execSQL(
+                "CREATE TABLE SERVICO_USUARIO ( " +
+                        "USUARIO_ID INTEGER NOT NULL," +
+                        "SERVICO_ID INTEGER NOT NULL," +
+                        "VALOR_OFERTADO REAL NOT NULL," +
+                        "DATA_OFERTA TEXT NOT NULL," +
+                        "DESCRICAO TEXT," +
+                        "PRIMARY KEY (USUARIO_ID, SERVICO_ID))");
 
         //INSERT USUÁRIO ADMINISTRADOR
         cv = new ContentValues();
