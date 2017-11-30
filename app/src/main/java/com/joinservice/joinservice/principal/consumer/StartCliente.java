@@ -219,6 +219,7 @@ public class StartCliente extends AppCompatActivity
             fachada.usuarioAtualizarUsuarioLogado(usuario);
             Intent intentPrestador = new Intent(this, StartPrestador.class);
             startActivity(intentPrestador);
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

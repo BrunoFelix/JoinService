@@ -75,7 +75,9 @@
             android:name=".maps.MapsFragment"
             android:label="@string/title_activity_maps" />
         <activity android:name=".principal.consumer.StartPrestador" />
-        <activity android:name=".servico.DetalheServicoActivity" />
+        <activity android:name=".servico.DetalheServicoActivity"
+                  android:screenOrientation="portrait">
+        </activity>
         <activity
             android:name=".principal.consumer.HomeProvider"
             android:label="@string/title_activity_home_provider"

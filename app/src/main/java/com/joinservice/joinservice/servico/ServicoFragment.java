@@ -9,7 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.joinservice.joinservice.R;
@@ -43,6 +45,7 @@ public class ServicoFragment extends Fragment {
     Fachada fachada;
     ListView listaPrestInt;
     List<ServicoUsuario> servicoUsuarios;
+    FrameLayout frameLayout;
 
     private FragmentManager fragmentManager;
 
@@ -123,6 +126,16 @@ public class ServicoFragment extends Fragment {
         lblPrestInt = (TextView) view.findViewById(R.id.textViewPrestIntFragmentServico);
 
         btnRealizarServico = (Button) view.findViewById(R.id.btnRealizarServico);
+
+        btnRealizarServico.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                realizarServico();
+            }
+        });
+
+        frameLayout = (FrameLayout) view.findViewById(R.id.frameLayoutContainerMapServico);
+
         if (!fachada.usuarioLogado().getTipo().equals("Prestador")){
             btnRealizarServico.setVisibility(View.INVISIBLE);
         }else{

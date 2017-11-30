@@ -3,6 +3,8 @@ package com.joinservice.joinservice.servicoUsuario;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.joinservice.joinservice.servico.DetalheServicoActivity;
@@ -25,6 +27,7 @@ public class RegisterServicoUsuario extends AppCompatActivity {
     Fachada fachada;
 
     EditText valor, descricao;
+    Button btnConfirmar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +44,19 @@ public class RegisterServicoUsuario extends AppCompatActivity {
 
         valor = (EditText) findViewById(R.id.editTextRegisterServicoUsuarioValor);
         descricao = (EditText) findViewById(R.id.editTextRegisterServicoUsuarioDescricao);
+
+        btnConfirmar = (Button) findViewById(R.id.buttonProximoRegisterServicoUsuario);
+
+        btnConfirmar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    confirmar();
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
     }
 

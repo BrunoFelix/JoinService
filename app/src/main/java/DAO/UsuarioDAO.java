@@ -108,15 +108,22 @@ public class UsuarioDAO {
 
         atualizarUsuarioLogado(usuario);
 
+        SQLiteDatabase db2 = helper.getWritableDatabase();
+        ContentValues cv2 = new ContentValues();
+        cv2.put("ID", usuario.getId());
+        cv2.put("TIPO", usuario.getTipo());
+        long id = db2.insert("USUARIO_LOGADO", null, cv2);
+        db2.close();
+
         return usuario;
     }
 
     public void atualizarUsuarioLogado(Usuario usuario){
         SQLiteDatabase db = helper.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put("ID", usuario.getId());
         cv.put("TIPO", usuario.getTipo());
-        long id = db.insert("USUARIO_LOGADO", null, cv);
+        String [] params = new String[]{ String.valueOf(usuario.getId())};
+        db.update("USUARIO_LOGADO",cv, "ID = ?",params);
         db.close();
     }
 

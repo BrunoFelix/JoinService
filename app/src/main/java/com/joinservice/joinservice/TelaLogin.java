@@ -70,6 +70,7 @@ public class TelaLogin extends AppCompatActivity {
 
         itEntrar.putExtra("usuario", usuario);
         startActivity(itEntrar);
+        finish();
     }
 
     public void cadastrar(View v) {

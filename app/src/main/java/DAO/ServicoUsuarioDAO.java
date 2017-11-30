@@ -72,7 +72,7 @@ public class ServicoUsuarioDAO {
 
     public List<ServicoUsuario> buscarProfInt(Servico servico) {
         SQLiteDatabase db = helper.getReadableDatabase();
-        String sql = "SERVICO_USUARIO.VALOR_OFERTADO, SERVICO_USUARIO.DATA_OFERTA, SERVICO_USUARIO.DESCRICAO, "+
+        String sql = "SELECT SERVICO_USUARIO.VALOR_OFERTADO, SERVICO_USUARIO.DATA_OFERTA, SERVICO_USUARIO.DESCRICAO, "+
                 "USUARIO.ID AS \"ID_USUARIO\", USUARIO.NOME AS \"NOME_USUARIO\", USUARIO.EMAIL AS \"EMAIL_USUARIO\", USUARIO.CELULAR AS \"CELULAR_USUARIO\" " +
                 "FROM SERVICO_USUARIO " +
                 "LEFT JOIN USUARIO ON (USUARIO.ID = SERVICO_USUARIO.USUARIO_ID) ";
@@ -101,7 +101,7 @@ public class ServicoUsuarioDAO {
             String descricao = cursor.getString(
                     cursor.getColumnIndex("DESCRICAO"));
             String dataOfertado = cursor.getString(
-                    cursor.getColumnIndex("DATA_OFERTADO"));
+                    cursor.getColumnIndex("DATA_OFERTA"));
 
             ServicoUsuario servicoUsuarioCursor = new ServicoUsuario();
 
