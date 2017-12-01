@@ -18,6 +18,8 @@ public class Usuario implements Serializable{
     private String senha;
     private Blob foto;
     private String tipo;
+    private String longitude;
+    private String latitude;
 
     public int getId() {
         return id;
@@ -73,5 +75,21 @@ public class Usuario implements Serializable{
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
     }
 }

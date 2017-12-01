@@ -12,8 +12,10 @@ import android.widget.ListView;
 import com.joinservice.joinservice.servico.DetalheServicoActivity;
 import com.joinservice.joinservice.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import Adapter.ListaAdapterServico;
 import Fachada.Fachada;
 import basica.Servico;
 
@@ -60,9 +62,8 @@ public class PrestadorTela1 extends Fragment {
         fachada = Fachada.getInstance(getActivity());
 
         listaServicos = (ListView) getActivity().findViewById(R.id.lvSericosAbertos);
-        /*List<Servico> servicos = null;
-        servicos = fachada.ListarServicosUsuario(fachada.usuarioLogado());
+        servicos = fachada.ListarServicosProfVinc(fachada.usuarioLogado(), "");
         ListaAdapterServico adapterServico = new ListaAdapterServico(getActivity(), (ArrayList<Servico>) servicos);
-        listaServicos.setAdapter(adapterServico);*/
+        listaServicos.setAdapter(adapterServico);
     }
 }

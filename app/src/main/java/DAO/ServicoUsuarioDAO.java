@@ -70,6 +70,88 @@ public class ServicoUsuarioDAO {
 
     }
 
+    public List<Servico> buscarServicosProfVinc(Usuario usuarioLogado, String filtro){
+        SQLiteDatabase db = helper.getReadableDatabase();
+        String sql = "SELECT SERVICO.ID, SERVICO.DESCRICAO, SERVICO.PRAZO, SERVICO.LONGITUDE, SERVICO.LATITUDE, SERVICO.STATUS, SERVICO.DATA_INSERCAO," +
+                "USUARIO.ID AS \"ID_USUARIO\", USUARIO.NOME AS \"NOME_USUARIO\", USUARIO.EMAIL AS \"EMAIL_USUARIO\", USUARIO.CELULAR AS \"CELULAR_USUARIO\"," +
+                "CATEGORIA_SERVICO.ID AS \"ID_CATEGORIA_SERVICO\", CATEGORIA_SERVICO.DESCRICAO AS \"DESCRICAO_CATEGORIA_SERVICO\", CATEGORIA_SERVICO.CAMINHO_IMAGEM AS \"CAMINHO_IMAGEM_CATEGORIA_SERVICO\" " +
+                "FROM SERVICO_USUARIO " +
+                "INNER JOIN SERVICO ON (SERVICO.ID = SERVICO_USUARIO.SERVICO_ID) "+
+                "INNER JOIN USUARIO ON (USUARIO.ID = SERVICO_USUARIO.USUARIO_ID) "+
+                "INNER JOIN CATEGORIA_SERVICO ON (CATEGORIA_SERVICO.ID = SERVICO.CATEGORIA_ID) ";
+        //"WHERE USUARIO_ID = ? ";
+        List<String> lista = new ArrayList<String>();
+        if (usuarioLogado.getId() > 0) {
+            sql += " WHERE SERVICO_USUARIO.USUARIO_ID = ?";
+            lista.add(Integer.toString(usuarioLogado.getId()));
+        }
+        if (!filtro.isEmpty()) {
+            sql += " AND STATUS = ?";
+            lista.add(filtro);
+        }
+        sql += " ORDER BY SERVICO_USUARIO.DATA_OFERTA";
+        String[] argumentos = (String[]) lista.toArray (new String[lista.size()]);
+        Cursor cursor = db.rawQuery(sql, argumentos);
+        List<Servico> servicos= new ArrayList<Servico>();
+        while (cursor.moveToNext()) {
+            int id = cursor.getInt(
+                    cursor.getColumnIndex("ID"));
+            String descricao = cursor.getString(
+                    cursor.getColumnIndex("DESCRICAO"));
+            int prazo = cursor.getInt(
+                    cursor.getColumnIndex("PRAZO"));
+            String longitude = cursor.getString(
+                    cursor.getColumnIndex("LONGITUDE"));
+            String latitude = cursor.getString(
+                    cursor.getColumnIndex("LATITUDE"));
+            String status = cursor.getString(
+                    cursor.getColumnIndex("STATUS"));
+            String dataInsercao = cursor.getString(
+                    cursor.getColumnIndex("DATA_INSERCAO"));
+
+            int idUsuario = cursor.getInt(
+                    cursor.getColumnIndex("ID_USUARIO"));
+            String nomeUsuario = cursor.getString(
+                    cursor.getColumnIndex("NOME_USUARIO"));
+            String emailUsuario = cursor.getString(
+                    cursor.getColumnIndex("EMAIL_USUARIO"));
+            String celularUsuario = cursor.getString(
+                    cursor.getColumnIndex("CELULAR_USUARIO"));
+
+            int idCategoria = cursor.getInt(
+                    cursor.getColumnIndex("ID_CATEGORIA_SERVICO"));
+            String descricaoCategoria = cursor.getString(
+                    cursor.getColumnIndex("DESCRICAO_CATEGORIA_SERVICO"));
+
+            Servico servicoCursor = new Servico();
+            servicoCursor.setId(id);
+            servicoCursor.setDescricao(descricao);
+            servicoCursor.setPrazo(prazo);
+            servicoCursor.setLongitude(longitude);
+            servicoCursor.setLatitude(latitude);
+            servicoCursor.setStatus(status);
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+            Date date = null;
+            try {
+                date = formatter.parse(dataInsercao);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            servicoCursor.setDataInsercao(date);
+            servicoCursor.getUsuario().setId(idUsuario);
+            servicoCursor.getUsuario().setNome(nomeUsuario);
+            servicoCursor.getUsuario().setEmail(emailUsuario);
+            servicoCursor.getUsuario().setCelular(celularUsuario);
+            servicoCursor.getCategoria().setId(idCategoria);
+            servicoCursor.getCategoria().setDescricao(descricaoCategoria);
+
+            servicos.add(servicoCursor);
+        }
+        cursor.close();
+        db.close();
+        return servicos;
+    }
+
     public List<ServicoUsuario> buscarProfInt(Servico servico) {
         SQLiteDatabase db = helper.getReadableDatabase();
         String sql = "SELECT SERVICO_USUARIO.VALOR_OFERTADO, SERVICO_USUARIO.DATA_OFERTA, SERVICO_USUARIO.DESCRICAO, "+

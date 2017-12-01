@@ -127,6 +127,16 @@ public class UsuarioDAO {
         db.close();
     }
 
+    public void atualizarLocalizacaoUsuarioLogado(Usuario usuario){
+        SQLiteDatabase db = helper.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("LATITUDE", usuario.getLatitude());
+        cv.put("LONGITUDE", usuario.getLongitude());
+        String [] params = new String[]{ String.valueOf(usuario.getId())};
+        db.update("USUARIO_LOGADO",cv, "ID = ?",params);
+        db.close();
+    }
+
     public Usuario Logado(){
         SQLiteDatabase db = helper.getReadableDatabase();
         String sql = "SELECT * FROM USUARIO_LOGADO ";
@@ -139,6 +149,10 @@ public class UsuarioDAO {
                     cursor.getColumnIndex("ID"));
             String tipo = cursor.getString(
                     cursor.getColumnIndex("TIPO"));
+            String latitude = cursor.getString(
+                    cursor.getColumnIndex("LATITUDE"));
+            String longitude = cursor.getString(
+                    cursor.getColumnIndex("LONGITUDE"));
 
             SQLiteDatabase db2 = helper.getReadableDatabase();
             String sql2 = "SELECT * FROM USUARIO ";
@@ -161,6 +175,8 @@ public class UsuarioDAO {
                 usuario.setEmail(em);
                 usuario.setCelular(celular);
                 usuario.setTipo(tipo);
+                usuario.setLatitude(latitude);
+                usuario.setLongitude(longitude);
             }
         }
         return usuario;

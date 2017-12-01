@@ -21,6 +21,8 @@ import com.joinservice.joinservice.R;
 import com.joinservice.joinservice.maps.MapsFragment;
 
 import basica.Servico;
+import Fachada.Fachada;
+import basica.Usuario;
 
 public class RegisterOrderLocationActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, ActivityCompat.OnRequestPermissionsResultCallback{
 
@@ -30,6 +32,8 @@ public class RegisterOrderLocationActivity extends AppCompatActivity implements 
     double longitude;
     double latitude;
     Servico servico;
+    Fachada fachada;
+    Usuario usuarioLocalizacao;
 
     private FragmentManager fragmentManager;
 
@@ -41,10 +45,19 @@ public class RegisterOrderLocationActivity extends AppCompatActivity implements 
         Intent intent  = getIntent();
         servico = (Servico) intent.getSerializableExtra("servico");
 
-        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+        fachada = Fachada.getInstance(this);
 
-        if (checkLocationPermission()) {
-            callConnection();
+        usuarioLocalizacao = fachada.usuarioLogado();
+
+        if (Double.parseDouble(usuarioLocalizacao.getLatitude()) <= 0 || Double.parseDouble(usuarioLocalizacao.getLongitude()) <= 0){
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+
+            if (checkLocationPermission()) {
+                callConnection();
+            }
+        }else{
+            latitude = Double.parseDouble(usuarioLocalizacao.getLatitude());
+            longitude = Double.parseDouble(usuarioLocalizacao.getLongitude());
         }
 
         fragmentManager = getSupportFragmentManager();

@@ -31,12 +31,17 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import basica.Servico;
+import Fachada.Fachada;
+import basica.Usuario;
 
 /**
  * Created by Bruno on 04/11/2017.
  */
 
 public class ListaAdapterServico extends ArrayAdapter<Servico> {
+
+    Fachada fachada;
+    Usuario usuarioLocalizacao;
 
     private Context context;
     private ArrayList<Servico> lista;
@@ -45,6 +50,8 @@ public class ListaAdapterServico extends ArrayAdapter<Servico> {
         super(context,0,lista);
         this.context = context;
         this.lista = lista;
+
+        fachada = Fachada.getInstance(context);
     }
 
 
@@ -68,7 +75,9 @@ public class ListaAdapterServico extends ArrayAdapter<Servico> {
 
         TextView textViewDistancia = (TextView) convertView.findViewById(R.id.textViewServicoDistancia);
         //textViewDistancia.setText(Integer.toString(servicoPosicao.getPrazo()));
-        textViewDistancia.setText("Distância: \"Em desenvolvimento\" km");
+        usuarioLocalizacao = fachada.usuarioLogado();
+        double distancia = distance(Double.parseDouble(servicoPosicao.getLatitude()), Double.parseDouble(servicoPosicao.getLongitude()), Double.parseDouble(usuarioLocalizacao.getLatitude()), Double.parseDouble(usuarioLocalizacao.getLongitude()), "K");
+        textViewDistancia.setText("Distância: "+ distancia + " km");
 
         TextView textViewTempo = (TextView) convertView.findViewById(R.id.textViewServicoPrazo);
         Date date = new Date();
@@ -85,19 +94,32 @@ public class ListaAdapterServico extends ArrayAdapter<Servico> {
         return convertView;
     }
 
-    private double calculaDistancia(double lat1, double lng1, double lat2, double lng2) {
-        //double earthRadius = 3958.75;//miles
-        double earthRadius = 6371;//kilometers
-        double dLat = Math.toRadians(lat2 - lat1);
-        double dLng = Math.toRadians(lng2 - lng1);
-        double sindLat = Math.sin(dLat / 2);
-        double sindLng = Math.sin(dLng / 2);
-        double a = Math.pow(sindLat, 2) + Math.pow(sindLng, 2)
-                * Math.cos(Math.toRadians(lat1))
-                * Math.cos(Math.toRadians(lat2));
-        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        double dist = earthRadius * c;
+    private static double distance(double lat1, double lon1, double lat2, double lon2, String unit) {
+        double theta = lon1 - lon2;
+        double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
+        dist = Math.acos(dist);
+        dist = rad2deg(dist);
+        dist = dist * 60 * 1.1515;
+        if (unit == "K") {
+            dist = dist * 1.609344;
+        } else if (unit == "N") {
+            dist = dist * 0.8684;
+        }
 
-        return dist * 1000; //em metros
+        return (dist);
+    }
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /*::    This function converts decimal degrees to radians                         :*/
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    private static double deg2rad(double deg) {
+        return (deg * Math.PI / 180.0);
+    }
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /*::    This function converts radians to decimal degrees                         :*/
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    private static double rad2deg(double rad) {
+        return (rad * 180 / Math.PI);
     }
 }

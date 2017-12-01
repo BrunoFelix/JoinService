@@ -49,6 +49,8 @@ public class BancoSQL extends SQLiteOpenHelper{
         sqLiteDatabase.execSQL(
                 "CREATE TABLE USUARIO_LOGADO ( " +
                         "ID INTEGER PRIMARY KEY," +
+                        "LONGITUDE TEXT, "+
+                        "LATITUDE TEXT, "+
                         "TIPO TEXT NOT NULL)");
 
         sqLiteDatabase.execSQL(
