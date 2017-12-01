@@ -11,8 +11,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.joinservice.joinservice.R;
+import com.joinservice.joinservice.TelaLogin;
 import com.joinservice.joinservice.principal.consumer.StartCliente;
 
+import Util.NegocioException;
 import basica.Usuario;
 import Fachada.Fachada;
 
@@ -37,7 +39,7 @@ public class RegisterPhoneActivity extends AppCompatActivity {
         fachada = Fachada.getInstance(this);
     }
 
-    public void proximo(View v) {
+    public void proximo(View v) throws NegocioException {
         celular = (EditText) findViewById(R.id.editTextCadastroPhone);
 
         if (celular.getText().toString().isEmpty()){
@@ -45,12 +47,10 @@ public class RegisterPhoneActivity extends AppCompatActivity {
         }else{
             usuario.setCelular(celular.getText().toString());
             fachada.usuarioInserir(usuario);
-            Intent itProximo = new Intent(this, StartCliente.class);
-            itProximo.putExtra("usuario", usuario);
+            usuario = fachada.usuarioLogar(usuario.getEmail(), usuario.getSenha());
+            Intent itProximo = new Intent(this, TelaLogin.class);
             startActivity(itProximo);
             finish();
         }
-
-
     }
 }

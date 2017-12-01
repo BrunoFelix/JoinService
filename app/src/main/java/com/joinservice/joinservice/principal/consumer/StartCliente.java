@@ -80,11 +80,9 @@ public class StartCliente extends AppCompatActivity
         tabLayout.setOnTabSelectedListener(onTabSelectedListener(viewPager));
 
         Intent intent = getIntent();
-        if (intent.getSerializableExtra("usuario") != null) {
-            usuario = (Usuario) intent.getSerializableExtra("usuario");
-        } else {
-            usuario = fachada.usuarioLogado();
-        }
+
+        //pega usuário logado
+        usuario = fachada.usuarioLogado();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

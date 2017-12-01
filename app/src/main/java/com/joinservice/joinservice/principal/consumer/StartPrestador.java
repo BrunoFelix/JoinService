@@ -80,11 +80,9 @@ public class StartPrestador extends AppCompatActivity
 
 
         Intent intent = getIntent();
-        if (intent.getSerializableExtra("usuario") != null) {
-            usuario = (Usuario) intent.getSerializableExtra("usuario");
-        } else {
-            usuario = fachada.usuarioLogado();
-        }
+
+        //Pega Usuário logado
+        usuario = fachada.usuarioLogado();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

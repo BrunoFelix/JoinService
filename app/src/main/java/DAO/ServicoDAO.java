@@ -165,11 +165,13 @@ public class ServicoDAO {
 
     public List<Servico> buscarServicosDoUsuario(Servico servico, Usuario usuarioLogado) {
         SQLiteDatabase db = helper.getReadableDatabase();
-        String sql = "SELECT SERVICO.ID, SERVICO.DESCRICAO, SERVICO.PRAZO, SERVICO.LONGITUDE, SERVICO.LATITUDE, SERVICO.STATUS, SERVICO.DATA_INSERCAO," +
-                "USUARIO.ID AS \"ID_USUARIO\", USUARIO.NOME AS \"NOME_USUARIO\", USUARIO.EMAIL AS \"EMAIL_USUARIO\", USUARIO.CELULAR AS \"CELULAR_USUARIO\"," +
+        String sql = "SELECT SERVICO.ID, SERVICO.DESCRICAO, SERVICO.PRAZO, SERVICO.LONGITUDE, SERVICO.LATITUDE, SERVICO.STATUS, SERVICO.DATA_INSERCAO, SERVICO.PROFISSIONAL_ID, SERVICO.VALOR_PROFISSIONAL, " +
+                "CONS.ID AS \"ID_CONSUMIDOR\", CONS.NOME AS \"NOME_CONSUMIDOR\", CONS.EMAIL AS \"EMAIL_CONSUMIDOR\", CONS.CELULAR AS \"CELULAR_CONSUMIDOR\"," +
+                "PROF.ID AS \"ID_PROFISSIONAL\", PROF.NOME AS \"NOME_PROFISSIONAL\", PROF.EMAIL AS \"EMAIL_PROFISSIONAL\", PROF.CELULAR AS \"CELULAR_PROFISSIONAL\"," +
                 "CATEGORIA_SERVICO.ID AS \"ID_CATEGORIA_SERVICO\", CATEGORIA_SERVICO.DESCRICAO AS \"DESCRICAO_CATEGORIA_SERVICO\", CATEGORIA_SERVICO.CAMINHO_IMAGEM AS \"CAMINHO_IMAGEM_CATEGORIA_SERVICO\" " +
                 "FROM SERVICO " +
-                "INNER JOIN USUARIO ON (USUARIO.ID = SERVICO.USUARIO_ID) "+
+                "INNER JOIN USUARIO AS CONS ON (CONS.ID = SERVICO.USUARIO_ID) "+
+                "LEFT JOIN USUARIO AS PROF ON (PROF.ID = SERVICO.USUARIO_ID) "+
                 "INNER JOIN CATEGORIA_SERVICO ON (CATEGORIA_SERVICO.ID = SERVICO.CATEGORIA_ID) "+
                 "WHERE USUARIO_ID = ? ";
         List<String> lista = new ArrayList<String>();
@@ -202,14 +204,15 @@ public class ServicoDAO {
             String dataInsercao = cursor.getString(
                     cursor.getColumnIndex("DATA_INSERCAO"));
 
+
             int idUsuario = cursor.getInt(
-                    cursor.getColumnIndex("ID_USUARIO"));
+                    cursor.getColumnIndex("ID_CONSUMIDOR"));
             String nomeUsuario = cursor.getString(
-                    cursor.getColumnIndex("NOME_USUARIO"));
+                    cursor.getColumnIndex("NOME_CONSUMIDOR"));
             String emailUsuario = cursor.getString(
-                    cursor.getColumnIndex("EMAIL_USUARIO"));
+                    cursor.getColumnIndex("EMAIL_CONSUMIDOR"));
             String celularUsuario = cursor.getString(
-                    cursor.getColumnIndex("CELULAR_USUARIO"));
+                    cursor.getColumnIndex("CELULAR_CONSUMIDOR"));
 
             int idCategoria = cursor.getInt(
                     cursor.getColumnIndex("ID_CATEGORIA_SERVICO"));

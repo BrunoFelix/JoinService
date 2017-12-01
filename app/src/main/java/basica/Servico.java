@@ -15,6 +15,8 @@ public class Servico implements Serializable {
     private Categoria categoria;
     private String status;
     private Date dataInsercao;
+    private Usuario profissional;
+    private double valorProfissional;
     //TODO o cliente poderá informar qual o valor está disposto a pagar
     //private Double orçamento;
 
@@ -103,5 +105,21 @@ public class Servico implements Serializable {
     @Override
     public String toString(){
         return descricao + " - " + prazo;
+    }
+
+    public Usuario getProfissional() {
+        return profissional;
+    }
+
+    public void setProfissional(Usuario profissional) {
+        this.profissional = profissional;
+    }
+
+    public double getValorProfissional() {
+        return valorProfissional;
+    }
+
+    public void setValorProfissional(double valorProfissional) {
+        this.valorProfissional = valorProfissional;
     }
 }

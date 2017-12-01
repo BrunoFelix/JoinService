@@ -77,7 +77,7 @@ public class ListaAdapterServico extends ArrayAdapter<Servico> {
         //textViewDistancia.setText(Integer.toString(servicoPosicao.getPrazo()));
         usuarioLocalizacao = fachada.usuarioLogado();
         double distancia = distance(Double.parseDouble(servicoPosicao.getLatitude()), Double.parseDouble(servicoPosicao.getLongitude()), Double.parseDouble(usuarioLocalizacao.getLatitude()), Double.parseDouble(usuarioLocalizacao.getLongitude()), "K");
-        textViewDistancia.setText("Distância: "+ distancia + " km");
+        textViewDistancia.setText("Distância: "+ String.format("%.1f", distancia)  + " km");
 
         TextView textViewTempo = (TextView) convertView.findViewById(R.id.textViewServicoPrazo);
         Date date = new Date();

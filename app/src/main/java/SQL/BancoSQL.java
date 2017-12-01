@@ -37,6 +37,8 @@ public class BancoSQL extends SQLiteOpenHelper{
                         "CATEGORIA_ID INTEGER NOT NULL,"+
                         "STATUS TEXT NOT NULL,"+
                         "DATA_INSERCAO TEXT NOT NULL,"+
+                        "PROFISSIONAL_ID INTEGER, "+
+                        "VALOR_PROFISSIONAL REAL, "+
                         "FOREIGN KEY(USUARIO_ID) REFERENCES USUARIO(ID)," +
                         "FOREIGN KEY(CATEGORIA_ID) REFERENCES CATEGORIA(ID))");
 

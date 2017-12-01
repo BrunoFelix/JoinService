@@ -24,6 +24,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:gravity="center">
+
             <TextView
                 android:id="@+id/textViewServicoDescricao"
                 android:layout_width="match_parent"

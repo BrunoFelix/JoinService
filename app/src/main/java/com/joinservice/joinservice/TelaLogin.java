@@ -53,8 +53,6 @@ public class TelaLogin extends AppCompatActivity implements GoogleApiClient.Conn
         Button button1 = (Button) findViewById(R.id.btnCadastrar);
         fachada = Fachada.getInstance(this);
 
-        verificarLocalizacaoUsuario();
-
         usuario = fachada.usuarioLogado();
 
         if (usuario.getId() > 0) {
@@ -84,17 +82,16 @@ public class TelaLogin extends AppCompatActivity implements GoogleApiClient.Conn
 
         Toast.makeText(getApplicationContext(), getString(R.string.texto_toast_02), Toast.LENGTH_LONG).show();
 
+        verificarLocalizacaoUsuario();
+
         Intent itEntrar;
 
-        usuario.setLatitude("0");
-        usuario.setLongitude("0");
         if (tipo.equals("Prestador")) {
             itEntrar = new Intent(TelaLogin.this, StartPrestador.class);
         }else{
             itEntrar = new Intent(TelaLogin.this, StartCliente.class);
         }
 
-        itEntrar.putExtra("usuario", usuario);
         startActivity(itEntrar);
         finish();
     }
