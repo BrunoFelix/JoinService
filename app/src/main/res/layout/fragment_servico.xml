@@ -48,7 +48,7 @@
             android:paddingBottom="7dp"
             android:text="Prazo"
             android:textSize="15dp" />
-        
+
         <TextView
             android:id="@+id/textViewLabelAnunciantesFragmentServico"
             android:layout_width="match_parent"

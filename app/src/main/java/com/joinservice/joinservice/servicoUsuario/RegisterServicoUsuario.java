@@ -57,7 +57,6 @@ public class RegisterServicoUsuario extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     public void confirmar() throws ParseException {

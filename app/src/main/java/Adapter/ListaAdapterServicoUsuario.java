@@ -43,6 +43,12 @@ public class ListaAdapterServicoUsuario extends ArrayAdapter<ServicoUsuario> {
         TextView textViewNome = (TextView) convertView.findViewById(R.id.textViewServicoUsuarioNome);
         textViewNome.setText(servicoUsuarioPosicao.getUsuario().getNome());
 
+        TextView textViewTelefone = (TextView) convertView.findViewById(R.id.textViewServicoUsuarioTelefone);
+        textViewTelefone.setText(servicoUsuarioPosicao.getUsuario().getCelular());
+
+        TextView textViewEmail = (TextView) convertView.findViewById(R.id.textViewServicoUsuarioEmail);
+        textViewEmail.setText(servicoUsuarioPosicao.getUsuario().getEmail());
+
         TextView textViewValorOfertado = (TextView) convertView.findViewById(R.id.textViewServicoUsuarioValorOfertado);
         textViewValorOfertado.setText("R$: " + servicoUsuarioPosicao.getValorOfertado());
 
@@ -63,4 +69,6 @@ public class ListaAdapterServicoUsuario extends ArrayAdapter<ServicoUsuario> {
 
         return convertView;
     }
+
+
 }
