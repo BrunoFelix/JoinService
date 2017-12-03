@@ -98,6 +98,7 @@ public class ServicoFragment extends Fragment {
             Bundle args = new Bundle();
             args.putDouble("LONGITUDE", Double.parseDouble(servico.getLongitude()));
             args.putDouble("LATITUDE", Double.parseDouble(servico.getLatitude()));
+            args.putBoolean("EXIBIRROTA", true);
             fragment.setArguments(args);
 
             transaction.add(R.id.frameLayoutContainerMapServico, fragment, "MapsFragment" );

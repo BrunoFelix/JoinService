@@ -68,6 +68,7 @@ public class RegisterOrderLocationActivity extends AppCompatActivity implements 
         Bundle args = new Bundle();
         args.putDouble("LONGITUDE",longitude);
         args.putDouble("LATITUDE", latitude);
+        args.putBoolean("EXIBIRROTA", false);
         fragment.setArguments(args);
 
         transaction.add(R.id.frameLayoutContainerMapRegisterOrderLocation, fragment, "MapsFragment" );

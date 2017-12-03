@@ -25,7 +25,6 @@ public class RegisterOrderDescriptionActivity extends AppCompatActivity {
     Fachada fachada;
     Servico servico;
     EditText edittext;
-    Usuario usuarioServ = fachada.usuarioLogado();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +49,7 @@ public class RegisterOrderDescriptionActivity extends AppCompatActivity {
         servico.setDataInsercao(new java.sql.Date(dateFormat.parse(dateFormat.format(date)).getTime()));
         servico.setStatus("ABERTO");
         fachada.servicoInserir(servico);
-        servico.setUsuario(usuarioServ);
+        servico.setUsuario(fachada.usuarioLogado());
         Intent itEntrar = new Intent(this, StartCliente.class);
         startActivity(itEntrar);
         fileList();
