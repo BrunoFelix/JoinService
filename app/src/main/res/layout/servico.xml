@@ -54,7 +54,7 @@
                 android:id="@+id/textViewServicoPrazo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Distancia"
+                android:text="Prazo"
                 android:textSize="11dp"/>
 
         </LinearLayout>

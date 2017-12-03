@@ -55,12 +55,6 @@
                 android:background="@drawable/screen_border"
                 android:textColor="@color/colorBranco" />
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/pular"
-                style="?attr/borderlessButtonStyle" />
-
         </LinearLayout>
     </RelativeLayout>
 

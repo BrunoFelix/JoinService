@@ -77,7 +77,8 @@ public class StartPrestador extends AppCompatActivity
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Serviços");
+        getSupportActionBar().setTitle(R.string.texto_fragment_05);
+        //getSupportActionBar().setTitle("Serviços");
 
         fachada = Fachada.getInstance(this);
 

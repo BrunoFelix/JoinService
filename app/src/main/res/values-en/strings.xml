@@ -14,7 +14,7 @@
     <string name="texto_login_6">Register</string>
 
 
-
+    <string name="texto_start_cliente">Client Profile</string>
     <string name="texto_start_cliente_1">Edit profile</string>
     <string name="texto_start_cliente_2">Be a provider</string>
     <string name="texto_start_cliente_3">Exit</string>
@@ -87,6 +87,7 @@
     <string name="texto_fragment_02">"Finalized"</string>
     <string name="texto_fragment_03">"My Services"</string>
     <string name="texto_fragment_04">"All services"</string>
+    <string name="texto_fragment_05">"Services"</string>
 
     <string name="texto_cadastro_servico_usuario_1">"Estimative"</string>
     <string name="texto_cadastro_servico_usuario_2">"How much would you do this service?"</string>

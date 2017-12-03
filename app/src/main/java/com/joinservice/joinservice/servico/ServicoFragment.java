@@ -48,6 +48,8 @@ public class ServicoFragment extends Fragment {
     List<ServicoUsuario> servicoUsuarios;
     Boolean exibirMapa;
 
+
+
     private FragmentManager fragmentManager;
 
     public ServicoFragment() {
@@ -121,6 +123,7 @@ public class ServicoFragment extends Fragment {
 
         usuarioServico = (TextView) view.findViewById(R.id.textViewUsuarioFragmentServico);
         usuarioServico.setText(servico.getUsuario().getNome());
+
 
         listaPrestInt = (ListView) view.findViewById(R.id.listViewPrestInt);
         servicoUsuarios = fachada.ListarProfIntServico(servico);
