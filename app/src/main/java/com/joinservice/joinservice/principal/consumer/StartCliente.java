@@ -8,6 +8,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -28,11 +29,14 @@ import com.joinservice.joinservice.R;
 import com.joinservice.joinservice.TelaInicialCliente.ClienteTela1;
 import com.joinservice.joinservice.TelaInicialCliente.ClienteTela2;
 import com.joinservice.joinservice.TelaLogin;
+import com.joinservice.joinservice.maps.MapsFragment;
 import com.joinservice.joinservice.principal.consumer.registrer.RegisterOrderCategoryActivity;
+import com.joinservice.joinservice.servico.ServicoFragment;
 
 import org.w3c.dom.Text;
 
 import Fachada.Fachada;
+import basica.Servico;
 import basica.Usuario;
 
 public class StartCliente extends AppCompatActivity
@@ -45,6 +49,7 @@ public class StartCliente extends AppCompatActivity
     FragmentPagerAdapter adapterViewPager;
     Usuario usuario;
     private static int num_itens = 2;
+    private FragmentManager fragmentManager;
 
     //Titulos das Paginas
     private static final String[] TITLES = new String[]{
@@ -57,6 +62,11 @@ public class StartCliente extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_cliente);
+
+
+        fragmentManager = getSupportFragmentManager();
+
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
 
         ViewPager vpPager = (ViewPager) findViewById(R.id.vpPager);
         adapterViewPager = new StartCliente.MyPagerAdapter(getSupportFragmentManager());

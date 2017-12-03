@@ -14,7 +14,7 @@ public class BancoSQL extends SQLiteOpenHelper{
     ContentValues cv;
 
     public BancoSQL(Context context) {
-        super(context, "dbJoinService4", null, 1);
+        super(context, "dbJoinService5", null, 1);
     }
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {

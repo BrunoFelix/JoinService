@@ -46,7 +46,7 @@ public class ServicoFragment extends Fragment {
     Fachada fachada;
     ListView listaPrestInt;
     List<ServicoUsuario> servicoUsuarios;
-    FrameLayout frameLayout;
+    Boolean exibirMapa;
 
     private FragmentManager fragmentManager;
 
@@ -82,23 +82,26 @@ public class ServicoFragment extends Fragment {
 
         if (getArguments() != null) {
             servico = (Servico) getArguments().getSerializable("SERVICO");
+            exibirMapa = (Boolean) getArguments().getSerializable("EXIBIRMAPA");
         }else{
             servico = new Servico();
         }
 
-        fragmentManager = getActivity().getSupportFragmentManager();
+        if (exibirMapa){
+            fragmentManager = getActivity().getSupportFragmentManager();
 
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
 
-        Fragment fragment = new MapsFragment();
-        Bundle args = new Bundle();
-        args.putDouble("LONGITUDE", Double.parseDouble(servico.getLongitude()));
-        args.putDouble("LATITUDE", Double.parseDouble(servico.getLatitude()));
-        fragment.setArguments(args);
+            Fragment fragment = new MapsFragment();
+            Bundle args = new Bundle();
+            args.putDouble("LONGITUDE", Double.parseDouble(servico.getLongitude()));
+            args.putDouble("LATITUDE", Double.parseDouble(servico.getLatitude()));
+            fragment.setArguments(args);
 
-        transaction.add(R.id.frameLayoutContainerMapServico, fragment, "MapsFragment" );
+            transaction.add(R.id.frameLayoutContainerMapServico, fragment, "MapsFragment" );
 
-        transaction.commitAllowingStateLoss();
+            transaction.commitAllowingStateLoss();
+        }
     }
 
     @Override
@@ -134,8 +137,6 @@ public class ServicoFragment extends Fragment {
                 realizarServico();
             }
         });
-
-        frameLayout = (FrameLayout) view.findViewById(R.id.frameLayoutContainerMapServico);
 
         if (!fachada.usuarioLogado().getTipo().equals("Prestador")){
             btnRealizarServico.setVisibility(View.INVISIBLE);

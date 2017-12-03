@@ -33,6 +33,7 @@ public class DetalheServicoActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         Bundle args = new Bundle();
         args.putSerializable("SERVICO", servico);
+        args.putSerializable("EXIBIRMAPA", true);
         fragmentServico.setArguments(args);
         fragmentTransaction.replace(R.id.frameLayoutContainerServico, fragmentServico);
         fragmentTransaction.commit();

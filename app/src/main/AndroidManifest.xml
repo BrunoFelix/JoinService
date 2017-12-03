@@ -52,10 +52,18 @@
         <activity
             android:name=".EditProfile"
             android:screenOrientation="portrait" />
-        <activity android:name=".principal.consumer.registrer.RegisterOrderCategoryActivity" />
-        <activity android:name=".principal.consumer.registrer.RegisterOrderLocationActivity" />
-        <activity android:name=".principal.consumer.registrer.RegisterOrderTimeActivity" />
-        <activity android:name=".principal.consumer.registrer.RegisterOrderDescriptionActivity" />
+        <activity
+            android:name=".principal.consumer.registrer.RegisterOrderCategoryActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".principal.consumer.registrer.RegisterOrderLocationActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".principal.consumer.registrer.RegisterOrderTimeActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".principal.consumer.registrer.RegisterOrderDescriptionActivity"
+            android:screenOrientation="portrait"/>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
