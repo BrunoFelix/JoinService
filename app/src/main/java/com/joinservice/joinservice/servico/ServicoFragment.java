@@ -82,6 +82,8 @@ public class ServicoFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
+        fachada = Fachada.getInstance(getActivity());
+
         if (getArguments() != null) {
             servico = (Servico) getArguments().getSerializable("SERVICO");
             exibirMapa = (Boolean) getArguments().getSerializable("EXIBIRMAPA");
@@ -99,6 +101,8 @@ public class ServicoFragment extends Fragment {
             args.putDouble("LONGITUDE", Double.parseDouble(servico.getLongitude()));
             args.putDouble("LATITUDE", Double.parseDouble(servico.getLatitude()));
             args.putBoolean("EXIBIRROTA", true);
+            args.putDouble("LONGITUDEPROFISSIONAL", Double.parseDouble(fachada.usuarioLogado().getLongitude()));
+            args.putDouble("LATITUDEEPROFISSIONAL", Double.parseDouble(fachada.usuarioLogado().getLatitude()));
             fragment.setArguments(args);
 
             transaction.add(R.id.frameLayoutContainerMapServico, fragment, "MapsFragment" );
@@ -112,8 +116,6 @@ public class ServicoFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_servico, container, false);
-
-        fachada = Fachada.getInstance(getActivity());
 
         descricaoServico = (TextView) view.findViewById(R.id.textViewDescricaoFragmentServico);
         descricaoServico.setText(servico.getDescricao());

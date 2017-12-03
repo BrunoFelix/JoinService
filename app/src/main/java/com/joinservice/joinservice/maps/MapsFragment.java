@@ -41,7 +41,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MapsFragment extends SupportMapFragment implements OnMapReadyCallback {
+public class MapsFragment extends SupportMapFragment implements OnMapReadyCallback  {
 
     private GoogleMap mMap;
     double  longitude;
@@ -70,8 +70,11 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
             longitude = getArguments().getDouble("LONGITUDE");
             latitude = getArguments().getDouble("LATITUDE");
             exibirRota = getArguments().getBoolean("EXIBIRROTA");
-            /*longitude = getArguments().getDouble("LONGITUDEPROFISSIONAL");
-            latitude = getArguments().getDouble("LATITUDEEPROFISSIONAL");*/
+
+            if (exibirRota){
+                longitudeProfissional = getArguments().getDouble("LONGITUDEPROFISSIONAL");
+                latitudeProfissional = getArguments().getDouble("LATITUDEEPROFISSIONAL");
+            }
         }
 
 
@@ -101,7 +104,7 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
 
         if (exibirRota) {
             LatLngBounds zoom = new LatLngBounds(
-                    new LatLng(latitude, longitude), new LatLng(-8.1197916, -34.9188463));
+                    new LatLng(latitude, longitude), new LatLng(latitudeProfissional, longitudeProfissional));
 
             //Defini um marcador no local onde o serviço deve ser executado
             LatLng marcacao = new LatLng(latitude, longitude);
@@ -110,14 +113,14 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
             mMap.addMarker(mo);
 
             //Defini um marcador onde o profissional se encontra
-            marcacao = new LatLng(-8.1197916, -34.9188463);
+            marcacao = new LatLng(latitudeProfissional, longitudeProfissional);
             mo = new MarkerOptions();
-            mo.position(marcacao).title("Localização do serviço");
+            mo.position(marcacao).title("Serviço deve ser feito aqui");
             mMap.addMarker(mo);
 
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(zoom.getCenter(), 10));
 
-            getRoute(new LatLng(latitude, longitude), new LatLng(-8.1197916, -34.9188463));
+            getRoute(new LatLng(latitude, longitude), new LatLng(latitudeProfissional, longitudeProfissional));
         }else{
             LatLng marcador = new LatLng(latitude,longitude);
 
@@ -138,7 +141,7 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
 
     // WEB CONNECTION
     //public void getRoute(final String origin, final String destination){
-    public void getRoute(final LatLng origin, final LatLng destination) {
+    public void getRoute(final LatLng origin, final LatLng destination)  {
         new Thread(){
             public void run(){
 						/*String url= "http://maps.googleapis.com/maps/api/directions/json?origin="
