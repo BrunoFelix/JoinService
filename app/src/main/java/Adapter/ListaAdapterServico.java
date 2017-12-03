@@ -42,6 +42,7 @@ public class ListaAdapterServico extends ArrayAdapter<Servico> {
 
     Fachada fachada;
     Usuario usuarioLocalizacao;
+    String categoria;
 
     private Context context;
     private ArrayList<Servico> lista;
@@ -69,7 +70,20 @@ public class ListaAdapterServico extends ArrayAdapter<Servico> {
         textViewDescricao.setText(servicoPosicao.getDescricao().toString());
 
         TextView textViewCategoria = (TextView) convertView.findViewById(R.id.textViewServicoCategoria);
-        textViewCategoria.setText("Categoria: " + servicoPosicao.getCategoria().getDescricao());
+
+        if (servicoPosicao.getCategoria().getId() == 1){
+            categoria = context.getString(R.string.texto_novo_registro_01);
+        } else if (servicoPosicao.getCategoria().getId() == 2){
+            categoria = context.getString(R.string.texto_novo_registro_02);
+        } else if (servicoPosicao.getCategoria().getId() == 3){
+            categoria = context.getString(R.string.texto_novo_registro_03);
+        } else if (servicoPosicao.getCategoria().getId() == 4){
+            categoria = context.getString(R.string.texto_novo_registro_04);
+        } else if (servicoPosicao.getCategoria().getId() == 5){
+            categoria = context.getString(R.string.texto_novo_registro_05);
+        }
+
+        textViewCategoria.setText(context.getString(R.string.texto_lista_servico_01) + ": " + categoria);
 
         //calculaDistancia(Double.parseDouble(servicoPosicao.getLatitude()), Double.parseDouble(servicoPosicao.getLongitude()), latitude, longitude)
 
@@ -77,16 +91,16 @@ public class ListaAdapterServico extends ArrayAdapter<Servico> {
         //textViewDistancia.setText(Integer.toString(servicoPosicao.getPrazo()));
         usuarioLocalizacao = fachada.usuarioLogado();
         double distancia = distance(Double.parseDouble(servicoPosicao.getLatitude()), Double.parseDouble(servicoPosicao.getLongitude()), Double.parseDouble(usuarioLocalizacao.getLatitude()), Double.parseDouble(usuarioLocalizacao.getLongitude()), "K");
-        textViewDistancia.setText("Distância: "+ String.format("%.1f", distancia)  + " km");
+        textViewDistancia.setText(context.getString(R.string.texto_lista_servico_02) + ": "+ String.format("%.1f", distancia)  + " km");
 
         TextView textViewTempo = (TextView) convertView.findViewById(R.id.textViewServicoPrazo);
         Date date = new Date();
         int qtdDias = (date.compareTo(servicoPosicao.getDataInsercao()) - 1);
         String texto;
         if (qtdDias > 1) {
-            texto = "Postado há " + Integer.toString(qtdDias) + " dias atrás";
+            texto = context.getString(R.string.texto_lista_servico_03) + " " + Integer.toString(qtdDias) + " " + context.getString(R.string.texto_lista_servico_05);
         }else{
-            texto = "Postado hoje";
+            texto = context.getString(R.string.texto_lista_servico_04);
         }
 
         textViewTempo.setText(texto);

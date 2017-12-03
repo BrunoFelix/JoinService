@@ -83,15 +83,17 @@ public class ServicoDAO {
 
     }
 
-    public List<Servico> buscarServicos(Servico servico){
+    public List<Servico> buscarServicos(Servico servico, Usuario usuarioLogado){
         SQLiteDatabase db = helper.getReadableDatabase();
         String sql = "SELECT SERVICO.ID, SERVICO.DESCRICAO, SERVICO.PRAZO, SERVICO.LONGITUDE, SERVICO.LATITUDE, SERVICO.STATUS, SERVICO.DATA_INSERCAO," +
                 "USUARIO.ID AS \"ID_USUARIO\", USUARIO.NOME AS \"NOME_USUARIO\", USUARIO.EMAIL AS \"EMAIL_USUARIO\", USUARIO.CELULAR AS \"CELULAR_USUARIO\"," +
                 "CATEGORIA_SERVICO.ID AS \"ID_CATEGORIA_SERVICO\", CATEGORIA_SERVICO.DESCRICAO AS \"DESCRICAO_CATEGORIA_SERVICO\", CATEGORIA_SERVICO.CAMINHO_IMAGEM AS \"CAMINHO_IMAGEM_CATEGORIA_SERVICO\" " +
                 "FROM SERVICO " +
                 "INNER JOIN USUARIO ON (USUARIO.ID = SERVICO.USUARIO_ID) "+
-                "INNER JOIN CATEGORIA_SERVICO ON (CATEGORIA_SERVICO.ID = SERVICO.CATEGORIA_ID) ";
+                "INNER JOIN CATEGORIA_SERVICO ON (CATEGORIA_SERVICO.ID = SERVICO.CATEGORIA_ID) "+
+                "WHERE SERVICO.ID NOT IN (SELECT SERVICO_ID FROM SERVICO_USUARIO WHERE USUARIO_ID = ?) ";
         List<String> lista = new ArrayList<String>();
+        lista.add(Integer.toString(usuarioLogado.getId()));
         if (servico.getDescricao() != null) {
             sql += " AND SERVICO.DESCRICAO LIKE ?";
             lista.add(servico.getDescricao());

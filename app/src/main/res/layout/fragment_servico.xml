@@ -1,7 +1,10 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="0dp"
+    android:padding="0dp"
     tools:context="com.joinservice.joinservice.servico.ServicoFragment">
 
     <RelativeLayout
@@ -11,14 +14,26 @@
         android:padding="0dp">
 
         <!-- TODO: Update blank fragment layout -->
+
+        <Button
+            android:id="@+id/btnFinalizarServico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/screen_border"
+            android:textColor="@color/colorBranco"
+            android:text="@string/texto_quero_finalizar_servico_fragment_servico"
+            android:clickable="true" />
+
         <Button
             android:id="@+id/btnRealizarServico"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
-            android:layout_marginTop="2dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
             android:background="@drawable/screen_border"
+            android:clickable="true"
             android:text="@string/texto_quero_realizar_servico_fragment_servico"
             android:textColor="@color/colorBranco" />
 
@@ -26,9 +41,7 @@
             android:id="@+id/frameLayoutContainerMapServico"
             android:layout_width="match_parent"
             android:layout_height="160dp"
-            android:layout_below="@id/btnRealizarServico"
-            android:layout_marginBottom="7dp"
-            android:layout_marginTop="15dp"></FrameLayout>
+            android:layout_marginBottom="7dp"/>
 
         <TextView
             android:id="@+id/textViewDescricaoFragmentServico"
@@ -81,7 +94,7 @@
         <ListView
             android:id="@+id/listViewPrestInt"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="240dp"
             android:layout_below="@id/textViewPrestIntFragmentServico"
             android:footerDividersEnabled="false"
             android:headerDividersEnabled="false">

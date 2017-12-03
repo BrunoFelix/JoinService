@@ -54,8 +54,8 @@
     
     <string name="texto_profissionais_interessados_fragment_servico">Profissionais Interessados</string>
     <string name="texto_anunciantes_fragment_servico">Anunciante</string>
-    <string name = "texto_quero_realizar_servico_fragment_servico">Quero realizar esse serviço</string>
-
+    <string name="texto_quero_realizar_servico_fragment_servico">Quero realizar esse serviço</string>
+    <string name="texto_quero_finalizar_servico_fragment_servico">Finalizar serviço</string>
 
     <string name="texto_toast_01">"Dados inválidos, tente novamente!"</string>
     <string name="texto_toast_02">"Redirecionando, aguarde...!"</string>
@@ -72,7 +72,6 @@
     <string name="texto_toast_RegisterProfile_01">"Todos os campos precisam ser preenchidos!"</string>
     <string name="texto_toast_RegisterProfile_02">"O campo \"Senha\" e \"Confirmar Senha\" precisam ser igualmente preenchidos!"</string>
 
-
     <string name="texto_novo_registro_01">"Celulares e Telefones"</string>
     <string name="texto_novo_registro_02">"Eletrodomésticos"</string>
     <string name="texto_novo_registro_03">"Móveis e Decoração"</string>
@@ -84,11 +83,17 @@
 
     <string name="texto_fragment_01">"Abertos"</string>
     <string name="texto_fragment_02">"Finalizados"</string>
-
     <string name="texto_fragment_03">"Meus Serviços"</string>
+    <string name="texto_fragment_04">"Todos os serviços"</string>
 
     <string name="texto_cadastro_servico_usuario_1">"Orçamento"</string>
     <string name="texto_cadastro_servico_usuario_2">"Por quanto você realizaria esse serviço?"</string>
     <string name="texto_cadastro_servico_usuario_3">"Convença o consumidor a te escolher"</string>
+
+    <string name="texto_lista_servico_01">"Categoria"</string>
+    <string name="texto_lista_servico_02">"Distância"</string>
+    <string name="texto_lista_servico_03">"Postado há"</string>
+    <string name="texto_lista_servico_04">"Postado Hoje"</string>
+    <string name="texto_lista_servico_05">"dias atrás"</string>
 
 </resources>

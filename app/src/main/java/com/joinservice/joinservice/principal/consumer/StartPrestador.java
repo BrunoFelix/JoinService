@@ -45,18 +45,31 @@ public class StartPrestador extends AppCompatActivity
     FragmentPagerAdapter adapterViewPager;
     Usuario usuario;
     private static int num_itens = 3;
+    private static String txtAbertos;
+    private static String txtFinalizados;
+    private static String txtTodosOsServicos;
 
     //Titulos das Paginas
-    private static final String[] TITLES = new String[]{
-            "Abertos",
-            "Finalizados",
-            "Todos os Serviços"
+    private static String[] TITLES = new String[]{
+            txtAbertos,
+            txtFinalizados,
+            txtTodosOsServicos
     };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_prestador);
+
+        txtAbertos = getString(R.string.texto_fragment_01);
+        txtFinalizados = getString(R.string.texto_fragment_02);
+        txtTodosOsServicos = getString(R.string.texto_fragment_04);
+
+        TITLES = new String[]{
+                txtAbertos,
+                txtFinalizados,
+                txtTodosOsServicos
+        };
 
         ViewPager vpPager = (ViewPager) findViewById(R.id.vpPager);
         adapterViewPager = new StartPrestador.MyPagerAdapter(getSupportFragmentManager());

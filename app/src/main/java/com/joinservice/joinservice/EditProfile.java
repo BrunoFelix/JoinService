@@ -80,6 +80,7 @@ public class EditProfile extends AppCompatActivity {
         Intent itEntrar = new Intent(this, StartCliente.class);
         itEntrar.putExtra("usuario", usuario);
         startActivity(itEntrar);
+        finish();
 
     }
 }

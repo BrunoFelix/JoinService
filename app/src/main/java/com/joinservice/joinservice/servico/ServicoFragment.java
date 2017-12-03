@@ -42,7 +42,7 @@ public class ServicoFragment extends Fragment {
     Servico servico;
 
     TextView descricaoServico, prazoServico, dataServico, usuarioServico, lblPrestInt;
-    Button btnRealizarServico;
+    Button btnRealizarServico, btnFinalizarServico;
     Fachada fachada;
     ListView listaPrestInt;
     List<ServicoUsuario> servicoUsuarios;
@@ -130,6 +130,7 @@ public class ServicoFragment extends Fragment {
         lblPrestInt = (TextView) view.findViewById(R.id.textViewPrestIntFragmentServico);
 
         btnRealizarServico = (Button) view.findViewById(R.id.btnRealizarServico);
+        btnFinalizarServico = (Button) view.findViewById(R.id.btnFinalizarServico);
 
         btnRealizarServico.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -143,6 +144,12 @@ public class ServicoFragment extends Fragment {
         }else{
             listaPrestInt.setVisibility(View.INVISIBLE);
             lblPrestInt.setVisibility(View.INVISIBLE);
+            btnFinalizarServico.setVisibility(View.INVISIBLE);
+        }
+
+        if (servico.getStatus().equals("Finalizado")){
+            btnFinalizarServico.setVisibility(View.INVISIBLE);
+            btnRealizarServico.setVisibility(View.INVISIBLE);
         }
 
         return view;
@@ -153,5 +160,10 @@ public class ServicoFragment extends Fragment {
         itRealizarServico = new Intent(getActivity(), RegisterServicoUsuario.class);
         itRealizarServico.putExtra("servico", servico);
         startActivity(itRealizarServico);
+    }
+
+    public void finalizarServico(){
+        btnRealizarServico.setText("Finalizado");
+        btnRealizarServico.setEnabled(false);
     }
 }

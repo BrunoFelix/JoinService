@@ -64,8 +64,8 @@ public class Fachada {
         return servicoNegocio.ListarServicosDoUsuarioLogado(usuarioLogado);
     }
 
-    public List<Servico> ListarTodosOsServicos() {
-        return servicoNegocio.ListarTodosOsServicos();
+    public List<Servico> ListarTodosOsServicos(Usuario usuarioLogado) {
+        return servicoNegocio.ListarTodosOsServicos(usuarioLogado);
     }
 
     public void servicoInserir(Servico servico) {

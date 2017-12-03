@@ -50,12 +50,14 @@ public class StartCliente extends AppCompatActivity
     Usuario usuario;
     private static int num_itens = 2;
     private FragmentManager fragmentManager;
+    private static String txtAbertos;
+    private static String txtFinalizados;
 
     //Titulos das Paginas
-    private static final String[] TITLES = new String[]{
+    private static String[] TITLES = new String[]{
 
-            "Abertos",
-            "Finalizados"
+            txtAbertos,
+            txtFinalizados
     };
 
     @Override
@@ -63,6 +65,13 @@ public class StartCliente extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_cliente);
 
+        txtAbertos = getString(R.string.texto_fragment_01);
+        txtFinalizados = getString(R.string.texto_fragment_02);
+
+        TITLES = new String[]{
+                txtAbertos,
+                txtFinalizados
+        };
 
         fragmentManager = getSupportFragmentManager();
 

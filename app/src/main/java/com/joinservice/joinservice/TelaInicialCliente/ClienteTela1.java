@@ -111,6 +111,15 @@ public class ClienteTela1 extends Fragment {
 
                     startActivity(it);
                 }else if (orientacao == Configuration.ORIENTATION_LANDSCAPE) {
+                    FragmentManager fm = getActivity().getSupportFragmentManager();
+                    Fragment fragmentDestroy = fm.findFragmentById(R.id.relativeLayoutContainerteste);
+
+                    if (fragmentDestroy != null) {
+                        FragmentTransaction ft = fm.beginTransaction();
+                        ft.remove(fragmentDestroy);
+                        ft.commit();
+                    }
+
                     fragmentManager = getActivity().getSupportFragmentManager();
 
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
