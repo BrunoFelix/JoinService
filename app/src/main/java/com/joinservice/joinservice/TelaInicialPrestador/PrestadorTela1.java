@@ -62,7 +62,7 @@ public class PrestadorTela1 extends Fragment {
         fachada = Fachada.getInstance(getActivity());
 
         listaServicos = (ListView) getActivity().findViewById(R.id.lvSericosAbertos);
-        servicos = fachada.ListarServicosProfVinc(fachada.usuarioLogado(), "");
+        servicos = fachada.ListarServicosProfVinc(fachada.usuarioLogado(), "ABERTO");
         ListaAdapterServico adapterServico = new ListaAdapterServico(getActivity(), (ArrayList<Servico>) servicos);
         listaServicos.setAdapter(adapterServico);
     }

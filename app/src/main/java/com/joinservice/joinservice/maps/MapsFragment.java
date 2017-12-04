@@ -59,12 +59,11 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
             if (exibirRota){
                 longitudeProfissional = getArguments().getDouble("LONGITUDEPROFISSIONAL");
                 latitudeProfissional = getArguments().getDouble("LATITUDEEPROFISSIONAL");
+
+                Route Route = new Route(new LatLng(latitude, longitude), new LatLng(latitudeProfissional, longitudeProfissional));
+                Route.execute();
             }
         }
-
-        Route Route = new Route(new LatLng(latitude, longitude), new LatLng(latitudeProfissional, longitudeProfissional));
-        Route.execute();
-
     }
 
     /**

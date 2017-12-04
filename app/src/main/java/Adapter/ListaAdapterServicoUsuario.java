@@ -50,7 +50,7 @@ public class ListaAdapterServicoUsuario extends ArrayAdapter<ServicoUsuario> {
         textViewEmail.setText(servicoUsuarioPosicao.getUsuario().getEmail());
 
         TextView textViewValorOfertado = (TextView) convertView.findViewById(R.id.textViewServicoUsuarioValorOfertado);
-        textViewValorOfertado.setText("R$: " + servicoUsuarioPosicao.getValorOfertado());
+        textViewValorOfertado.setText(context.getString(R.string.texto_moeda) + ": " + servicoUsuarioPosicao.getValorOfertado());
 
         TextView textViewDescricao = (TextView) convertView.findViewById(R.id.textViewServicoUsuarioDescricao);
         textViewDescricao.setText(servicoUsuarioPosicao.getDescricao());
@@ -60,9 +60,9 @@ public class ListaAdapterServicoUsuario extends ArrayAdapter<ServicoUsuario> {
         int qtdDias = (date.compareTo(servicoUsuarioPosicao.getDataOferta()) - 1);
         String texto;
         if (qtdDias > 1) {
-            texto = "Ofertado há " + Integer.toString(qtdDias) + " dias atrás";
+            texto = context.getString(R.string.texto_ofertado_servico_fragment_servico) + Integer.toString(qtdDias) + " " + context.getString(R.string.texto_lista_servico_05);
         }else{
-            texto = "Ofertado hoje";
+            texto = context.getString(R.string.texto_ofertado_hoje_servico_fragment_servico);
         }
 
         textViewTempo.setText(texto);

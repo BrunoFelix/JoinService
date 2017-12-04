@@ -21,6 +21,7 @@ public class PrestadorTela2 extends Fragment {
 
     Fachada fachada;
     private ListView listaServicos;
+    List<Servico> servicos;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -50,10 +51,9 @@ public class PrestadorTela2 extends Fragment {
         fachada = Fachada.getInstance(getActivity());
 
         listaServicos = (ListView) getActivity().findViewById(R.id.lvServicosFinalizados);
-        /*List<Servico> servicos = null;
-        servicos = fachada.ListarServicosUsuario(fachada.usuarioLogado());
+        servicos = fachada.ListarServicosProfVinc(fachada.usuarioLogado(), "FINALIZADO");
         ListaAdapterServico adapterServico = new ListaAdapterServico(getActivity(), (ArrayList<Servico>) servicos);
-        listaServicos.setAdapter(adapterServico);*/
+        listaServicos.setAdapter(adapterServico);
 
     }
 }

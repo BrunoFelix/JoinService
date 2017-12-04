@@ -56,6 +56,9 @@
     <string name="texto_anunciantes_fragment_servico">Anunciante</string>
     <string name="texto_quero_realizar_servico_fragment_servico">Quero realizar esse serviço</string>
     <string name="texto_quero_finalizar_servico_fragment_servico">Finalizar serviço</string>
+    <string name="texto_ofertado_servico_fragment_servico">Ofertado há</string>
+    <string name="texto_ofertado_hoje_servico_fragment_servico">Ofertado Hoje</string>
+    <string name="texto_moeda">R$</string>
 
     <string name="texto_toast_01">"Dados inválidos, tente novamente!"</string>
     <string name="texto_toast_02">"Redirecionando, aguarde...!"</string>
@@ -85,6 +88,7 @@
     <string name="texto_fragment_02">"Finalizados"</string>
     <string name="texto_fragment_03">"Meus Serviços"</string>
     <string name="texto_fragment_04">"Todos os serviços"</string>
+    <string name="texto_fragment_05">"Serviços"</string>
 
     <string name="texto_cadastro_servico_usuario_1">"Orçamento"</string>
     <string name="texto_cadastro_servico_usuario_2">"Por quanto você realizaria esse serviço?"</string>

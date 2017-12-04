@@ -57,6 +57,9 @@
     <string name="texto_anunciantes_fragment_servico">Advertiser</string>
     <string name="texto_quero_realizar_servico_fragment_servico">I want to perform this service</string>
     <string name="texto_quero_finalizar_servico_fragment_servico">Finalize service</string>
+    <string name="texto_ofertado_servico_fragment_servico">Offered</string>
+    <string name="texto_ofertado_hoje_servico_fragment_servico">Offered today</string>
+    <string name="texto_moeda">$</string>
 
     <string name="texto_toast_01">"Invalid data, try again!"</string>
     <string name="texto_toast_02">"Redirecting, please wait ...!"</string>
