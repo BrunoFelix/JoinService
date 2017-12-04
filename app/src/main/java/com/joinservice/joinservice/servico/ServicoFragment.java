@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.joinservice.joinservice.R;
 import com.joinservice.joinservice.maps.MapsFragment;
+import com.joinservice.joinservice.principal.consumer.StartCliente;
 import com.joinservice.joinservice.servicoUsuario.RegisterServicoUsuario;
 
 import java.text.DateFormat;
@@ -145,6 +146,13 @@ public class ServicoFragment extends Fragment {
             }
         });
 
+        btnFinalizarServico.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finalizarServico();
+            }
+        });
+
         if (!fachada.usuarioLogado().getTipo().equals("Prestador")){
             btnRealizarServico.setVisibility(View.INVISIBLE);
         }else{
@@ -153,7 +161,7 @@ public class ServicoFragment extends Fragment {
             btnFinalizarServico.setVisibility(View.INVISIBLE);
         }
 
-        if (servico.getStatus().equals("Finalizado")){
+        if (servico.getStatus().equals("FINALIZADO")){
             btnFinalizarServico.setVisibility(View.INVISIBLE);
             btnRealizarServico.setVisibility(View.INVISIBLE);
         }
@@ -169,7 +177,15 @@ public class ServicoFragment extends Fragment {
     }
 
     public void finalizarServico(){
-        btnRealizarServico.setText("Finalizado");
-        btnRealizarServico.setEnabled(false);
+        btnFinalizarServico.setText("Finalizado");
+        btnFinalizarServico.setEnabled(false);
+
+        servico.setStatus("FINALIZADO");
+        fachada.servicoInserir(servico);
+
+        Intent itEntrar;
+        itEntrar = new Intent(getActivity(), StartCliente.class);
+        startActivity(itEntrar);
+        getActivity().finish();
     }
 }

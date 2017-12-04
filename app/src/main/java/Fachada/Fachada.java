@@ -60,8 +60,8 @@ public class Fachada {
 
     public void usuarioAtualizarLocalizacaoUsuarioLogado(Usuario usuario){ usuarioNegocio.usuarioAtualizarLocalizacaoUsuarioLogado(usuario);}
     //Serviços
-    public List<Servico> ListarServicosDoUsuarioLogado(Usuario usuarioLogado) {
-        return servicoNegocio.ListarServicosDoUsuarioLogado(usuarioLogado);
+    public List<Servico> ListarServicosDoUsuarioLogado(Usuario usuarioLogado, String filtrarStatus) {
+        return servicoNegocio.ListarServicosDoUsuarioLogado(usuarioLogado, filtrarStatus);
     }
 
     public List<Servico> ListarTodosOsServicos(Usuario usuarioLogado) {

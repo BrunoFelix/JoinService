@@ -161,11 +161,7 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
         protected List<LatLng> doInBackground(Void... voids) {
             load.incrementProgressBy(10);
             listaRouter = getRoute();
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            ajustandoTempo();
             load.incrementProgressBy(10);
             return listaRouter;
         }
@@ -173,6 +169,7 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
         @Override
         protected void onPostExecute(List<LatLng> latLngs) {
             list = listaRouter;
+            ajustandoTempo();
             load.incrementProgressBy(10);
             load.dismiss();
             tracarRota();
@@ -180,14 +177,26 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
         }
 
         public void tracarRota(){
-            if (list != null) {
-                getActivity().runOnUiThread(new Runnable() {
-                    public void run() {
-                        //Log.i("Script", answer);
-                        drawRoute();
+            try {
+                if (list != null) {
+                    getActivity().runOnUiThread(new Runnable() {
+                        public void run() {
+                            //Log.i("Script", answer);
+                            drawRoute();
 
-                    }
-                });
+                        }
+                    });
+                }
+            }catch (Exception e){
+                //
+            }
+        }
+
+        public void ajustandoTempo(){
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
 
@@ -207,6 +216,8 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
 
             load.incrementProgressBy(10);
 
+            ajustandoTempo();
+
             InputStream is = null;
             try {
                 is = url.openConnection().getInputStream();
@@ -215,6 +226,8 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
             }
 
             load.incrementProgressBy(10);
+
+            ajustandoTempo();
 
             final StringBuffer buffer = new StringBuffer();
             BufferedReader reader = new BufferedReader(new InputStreamReader(is));
@@ -229,6 +242,8 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
             }
 
             load.incrementProgressBy(10);
+
+            ajustandoTempo();
 
             try {
                 list = buildJSONRoute(buffer.toString());
@@ -282,6 +297,8 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
             }
 
             load.incrementProgressBy(10);
+
+            ajustandoTempo();
 
             return(lines);
         }

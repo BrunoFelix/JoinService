@@ -165,7 +165,7 @@ public class ServicoDAO {
         return servicos;
     }
 
-    public List<Servico> buscarServicosDoUsuario(Servico servico, Usuario usuarioLogado) {
+    public List<Servico> buscarServicosDoUsuario(Servico servico, Usuario usuarioLogado, String filtrarStatus) {
         SQLiteDatabase db = helper.getReadableDatabase();
         String sql = "SELECT SERVICO.ID, SERVICO.DESCRICAO, SERVICO.PRAZO, SERVICO.LONGITUDE, SERVICO.LATITUDE, SERVICO.STATUS, SERVICO.DATA_INSERCAO, SERVICO.PROFISSIONAL_ID, SERVICO.VALOR_PROFISSIONAL, " +
                 "CONS.ID AS \"ID_CONSUMIDOR\", CONS.NOME AS \"NOME_CONSUMIDOR\", CONS.EMAIL AS \"EMAIL_CONSUMIDOR\", CONS.CELULAR AS \"CELULAR_CONSUMIDOR\"," +
@@ -185,6 +185,10 @@ public class ServicoDAO {
         if (servico.getDescricao() != null) {
             sql += " AND SERVICO.CATEGORIA_ID = ? ";
             lista.add(Integer.toString(servico.getCategoria().getId()));
+        }
+        if (filtrarStatus != null){
+            sql += " AND SERVICO.STATUS = ? ";
+            lista.add(filtrarStatus);
         }
         sql += " ORDER BY SERVICO.DESCRICAO ASC";
         String[] argumentos = (String[]) lista.toArray (new String[lista.size()]);

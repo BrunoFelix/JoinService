@@ -21,9 +21,9 @@ public class ServicoNegocio {
         servicoDAO = new ServicoDAO(context);
     }
 
-    public List<Servico> ListarServicosDoUsuarioLogado(Usuario usuarioLogado) {
+    public List<Servico> ListarServicosDoUsuarioLogado(Usuario usuarioLogado, String filtrarStatus) {
         Servico servico = new Servico();
-        return servicoDAO.buscarServicosDoUsuario(servico, usuarioLogado);
+        return servicoDAO.buscarServicosDoUsuario(servico, usuarioLogado, filtrarStatus);
     }
 
     public List<Servico> ListarTodosOsServicos(Usuario usuarioLogado) {
