@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -188,6 +189,8 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
 
                         }
                     });
+                }else{
+                    Toast.makeText(getActivity(), "Não foi possível traçar a rota", Toast.LENGTH_SHORT).show();
                 }
             }catch (Exception e){
                 //
@@ -205,57 +208,48 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
         // WEB CONNECTION
         //public void getRoute(final String origin, final String destination){
         public List<LatLng> getRoute()  {
-            String link= "http://maps.googleapis.com/maps/api/directions/json?origin="
-                    + origin.latitude+","+origin.longitude+"&destination="
-                    + destination.latitude+","+destination.longitude+"&sensor=false";
 
-            URL url = null;
+
+
             try {
+                String link = "http://maps.googleapis.com/maps/api/directions/json?origin="
+                        + origin.latitude + "," + origin.longitude + "&destination="
+                        + destination.latitude + "," + destination.longitude + "&sensor=false";
+
+                URL url = null;
                 url = new URL(link);
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            }
 
-            load.incrementProgressBy(10);
+                load.incrementProgressBy(10);
 
-            ajustandoTempo();
+                ajustandoTempo();
 
-            InputStream is = null;
-            try {
+                InputStream is = null;
                 is = url.openConnection().getInputStream();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
 
-            load.incrementProgressBy(10);
+                load.incrementProgressBy(10);
 
-            ajustandoTempo();
+                ajustandoTempo();
 
-            final StringBuffer buffer = new StringBuffer();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+                final StringBuffer buffer = new StringBuffer();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(is));
 
-            String line;
-            try {
+                String line;
+
                 while ((line = reader.readLine()) != null) {
                     buffer.append(line + "\n");
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
 
-            load.incrementProgressBy(10);
+                load.incrementProgressBy(10);
 
-            ajustandoTempo();
+                ajustandoTempo();
 
-            try {
                 listaRouter = buildJSONRoute(buffer.toString());
+                load.incrementProgressBy(10);
 
-            } catch (JSONException e) {
-                e.printStackTrace();
+                return listaRouter;
+            }catch (Exception e){
+                return null;
             }
-            load.incrementProgressBy(10);
-
-            return listaRouter;
         /*this.runOnUiThread(new Runnable(){
             public void run(){
                 try {
