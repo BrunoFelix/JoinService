@@ -59,9 +59,6 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
             if (exibirRota){
                 longitudeProfissional = getArguments().getDouble("LONGITUDEPROFISSIONAL");
                 latitudeProfissional = getArguments().getDouble("LATITUDEEPROFISSIONAL");
-
-                Route Route = new Route(new LatLng(latitude, longitude), new LatLng(latitudeProfissional, longitudeProfissional));
-                Route.execute();
             }
         }
     }
@@ -107,6 +104,11 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
 
             LatLng marcador = new LatLng(latitude,longitude);
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marcador, 15));
+
+            Route Route = new Route(new LatLng(latitude, longitude), new LatLng(latitudeProfissional, longitudeProfissional));
+            Route.execute();
+
+            Route.tracarRota();
 
           // mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(zoom.getCenter(), 10));
 
@@ -159,15 +161,16 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
         @Override
         protected List<LatLng> doInBackground(Void... voids) {
             load.incrementProgressBy(10);
-            listaRouter = getRoute();
+            list = getRoute();
             ajustandoTempo();
             load.incrementProgressBy(10);
+            tracarRota();
             return listaRouter;
         }
 
         @Override
         protected void onPostExecute(List<LatLng> latLngs) {
-            list = listaRouter;
+            //list = listaRouter;
             ajustandoTempo();
             load.incrementProgressBy(10);
             load.dismiss();
@@ -245,14 +248,14 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
             ajustandoTempo();
 
             try {
-                list = buildJSONRoute(buffer.toString());
+                listaRouter = buildJSONRoute(buffer.toString());
 
             } catch (JSONException e) {
                 e.printStackTrace();
             }
             load.incrementProgressBy(10);
 
-            return list;
+            return listaRouter;
         /*this.runOnUiThread(new Runnable(){
             public void run(){
                 try {

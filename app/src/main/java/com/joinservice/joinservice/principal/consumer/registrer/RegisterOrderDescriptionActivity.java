@@ -56,7 +56,7 @@ public class RegisterOrderDescriptionActivity extends AppCompatActivity {
             servico.setUsuario(fachada.usuarioLogado());
             Intent itEntrar = new Intent(this, StartCliente.class);
             startActivity(itEntrar);
-            fileList();
+            finish();
         }
     }
 }

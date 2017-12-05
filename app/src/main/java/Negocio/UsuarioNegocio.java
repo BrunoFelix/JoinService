@@ -54,10 +54,10 @@ public class UsuarioNegocio {
             throw new NegocioException("O campo \"Email\" precisa ser preenchido!");
         }
         
-       /*if (senha.length() < 3){
+       if (senha.length() < 3){
 
            throw new NegocioException("A senha deve ter no mínimo três caracteres");
-       }*/
+       }
 
         if ((senha == null) || (senha.isEmpty()))
         {
