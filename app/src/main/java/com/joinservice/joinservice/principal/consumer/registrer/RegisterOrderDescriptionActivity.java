@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.joinservice.joinservice.R;
 import com.joinservice.joinservice.principal.consumer.StartCliente;
@@ -40,18 +41,22 @@ public class RegisterOrderDescriptionActivity extends AppCompatActivity {
     }
 
     public void proximo(View v) throws ParseException {
-        servico.setDescricao(edittext.getText().toString());
-        servico.setUsuario(fachada.usuarioLogado());
+        if (edittext.getText().toString().isEmpty()) {
+            Toast.makeText(getApplicationContext(), getString(R.string.texto_toast_RegisterProfile_01), Toast.LENGTH_SHORT).show();
+        } else {
+            servico.setDescricao(edittext.getText().toString());
+            servico.setUsuario(fachada.usuarioLogado());
 
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        Date date = new Date();
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            Date date = new Date();
 
-        servico.setDataInsercao(new java.sql.Date(dateFormat.parse(dateFormat.format(date)).getTime()));
-        servico.setStatus("ABERTO");
-        fachada.servicoInserir(servico);
-        servico.setUsuario(fachada.usuarioLogado());
-        Intent itEntrar = new Intent(this, StartCliente.class);
-        startActivity(itEntrar);
-        fileList();
+            servico.setDataInsercao(new java.sql.Date(dateFormat.parse(dateFormat.format(date)).getTime()));
+            servico.setStatus("ABERTO");
+            fachada.servicoInserir(servico);
+            servico.setUsuario(fachada.usuarioLogado());
+            Intent itEntrar = new Intent(this, StartCliente.class);
+            startActivity(itEntrar);
+            fileList();
+        }
     }
 }

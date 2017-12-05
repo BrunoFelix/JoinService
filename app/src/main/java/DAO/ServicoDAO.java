@@ -92,8 +92,10 @@ public class ServicoDAO {
                 "INNER JOIN USUARIO ON (USUARIO.ID = SERVICO.USUARIO_ID) "+
                 "INNER JOIN CATEGORIA_SERVICO ON (CATEGORIA_SERVICO.ID = SERVICO.CATEGORIA_ID) "+
                 "WHERE SERVICO.ID NOT IN (SELECT SERVICO_ID FROM SERVICO_USUARIO WHERE USUARIO_ID = ?) "+
+                "AND USUARIO.ID <> ? "+
                 "AND STATUS = \"ABERTO\" ";
         List<String> lista = new ArrayList<String>();
+        lista.add(Integer.toString(usuarioLogado.getId()));
         lista.add(Integer.toString(usuarioLogado.getId()));
         if (servico.getDescricao() != null) {
             sql += " AND SERVICO.DESCRICAO LIKE ?";

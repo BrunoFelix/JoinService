@@ -2,6 +2,7 @@ package com.joinservice.joinservice.servico;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -44,6 +45,7 @@ public class ServicoFragment extends Fragment {
 
     TextView descricaoServico, prazoServico, dataServico, usuarioServico, lblPrestInt;
     Button btnRealizarServico, btnFinalizarServico;
+    FloatingActionButton btnExcluirServico;
     Fachada fachada;
     ListView listaPrestInt;
     List<ServicoUsuario> servicoUsuarios;
@@ -138,6 +140,11 @@ public class ServicoFragment extends Fragment {
 
         btnRealizarServico = (Button) view.findViewById(R.id.btnRealizarServico);
         btnFinalizarServico = (Button) view.findViewById(R.id.btnFinalizarServico);
+        btnExcluirServico = (FloatingActionButton) view.findViewById(R.id.btnExcluirServico);
+
+        if(!fachada.usuarioLogado().getNome().equals("ADMIN")){
+            btnExcluirServico.setVisibility(View.INVISIBLE);
+        }
 
         btnRealizarServico.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -150,6 +157,13 @@ public class ServicoFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 finalizarServico();
+            }
+        });
+
+        btnExcluirServico.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                excluirServico();
             }
         });
 
@@ -170,10 +184,14 @@ public class ServicoFragment extends Fragment {
     }
 
     public void realizarServico(){
+        btnRealizarServico.setText("Solicitado");
+        btnRealizarServico.setEnabled(false);
+
         Intent itRealizarServico;
         itRealizarServico = new Intent(getActivity(), RegisterServicoUsuario.class);
         itRealizarServico.putExtra("servico", servico);
         startActivity(itRealizarServico);
+        getActivity().finish();
     }
 
     public void finalizarServico(){
@@ -188,4 +206,14 @@ public class ServicoFragment extends Fragment {
         startActivity(itEntrar);
         getActivity().finish();
     }
+
+    public void excluirServico(){
+        fachada.excluirServico(servico);
+
+        Intent itEntrar;
+        itEntrar = new Intent(getActivity(), StartCliente.class);
+        startActivity(itEntrar);
+        getActivity().finish();
+    }
+
 }

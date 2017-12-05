@@ -62,6 +62,16 @@ public class ServicoUsuarioDAO {
         return linhasAfetadas;
     }
 
+    public int excluirTodosDeUmServico(Servico servico){
+        SQLiteDatabase db = helper.getWritableDatabase();
+        int linhasAfetadas = db.delete(
+                "SERVICO_USUARIO",
+                "SERVICO_ID = ?",
+                new String[]{ String.valueOf(servico.getId())});
+        db.close();
+        return linhasAfetadas;
+    }
+
 
     public void deletarTudo(){
         SQLiteDatabase db = helper.getWritableDatabase();

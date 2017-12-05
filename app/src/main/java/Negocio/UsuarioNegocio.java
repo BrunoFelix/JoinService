@@ -45,19 +45,19 @@ public class UsuarioNegocio {
 
             throw new NegocioException("Os campos \"Email\" e \"Senha\" precisam ser preenchidos!");
         }
-        if(email.indexOf("@") > 0 && email.indexOf(".") > -1 && email.indexOf("@.") == -1) {
+        /*if(email.indexOf("@") > 0 && email.indexOf(".") > -1 && email.indexOf("@.") == -1) {
             throw new NegocioException("Preencha o Campo de Email Corretamente");
-        }
+        }*/
 
         if ((email == null) || (email.isEmpty()))
          {
             throw new NegocioException("O campo \"Email\" precisa ser preenchido!");
         }
         
-       if (senha.length() < 3){
+       /*if (senha.length() < 3){
 
            throw new NegocioException("A senha deve ter no mínimo três caracteres");
-       }
+       }*/
 
         if ((senha == null) || (senha.isEmpty()))
         {

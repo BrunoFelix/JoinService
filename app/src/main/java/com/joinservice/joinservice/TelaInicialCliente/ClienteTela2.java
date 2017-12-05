@@ -36,7 +36,6 @@ public class ClienteTela2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_cliente_tela2, container, false);
         listaServicos = (ListView) view.findViewById(R.id.lvSolicitacoesServicos2);
-        cadastrarServico = (FloatingActionButton) view.findViewById(R.id.btCadastrarServico);
 
         return view;
     }
@@ -60,14 +59,7 @@ public class ClienteTela2 extends Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        cadastrarServico = (FloatingActionButton) view.findViewById(R.id.btCadastrarServico);
-        cadastrarServico.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent it = new Intent(getActivity(), RegisterOrderCategoryActivity.class);
-                startActivity(it);
-            }
-        });
+        //
     }
 
     public void carregarLista() {

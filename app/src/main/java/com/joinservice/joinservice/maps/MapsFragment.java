@@ -193,7 +193,7 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
 
         public void ajustandoTempo(){
             try {
-                Thread.sleep(500);
+                Thread.sleep(200);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

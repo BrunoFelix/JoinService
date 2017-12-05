@@ -59,6 +59,7 @@ public class Fachada {
     public void usuarioAtualizarUsuarioLogado(Usuario usuario){ usuarioNegocio.usuarioAtualizarUsuarioLogado(usuario);}
 
     public void usuarioAtualizarLocalizacaoUsuarioLogado(Usuario usuario){ usuarioNegocio.usuarioAtualizarLocalizacaoUsuarioLogado(usuario);}
+
     //Serviços
     public List<Servico> ListarServicosDoUsuarioLogado(Usuario usuarioLogado, String filtrarStatus) {
         return servicoNegocio.ListarServicosDoUsuarioLogado(usuarioLogado, filtrarStatus);
@@ -70,6 +71,11 @@ public class Fachada {
 
     public void servicoInserir(Servico servico) {
         servicoNegocio.inserir(servico);
+    }
+
+    public void excluirServico(Servico servico) {
+        servicoUsuarioNegocio.excluirTodosDeUmServico(servico);
+        servicoNegocio.excluirServico(servico);
     }
 
     //Usuários profissionais vinculados a um determinado serviço

@@ -32,4 +32,12 @@ public class ServicoUsuarioNegocio {
     public void inserir(ServicoUsuario servicoUsuario){
         servicoUsuarioDAO.salvar(servicoUsuario);
     }
+
+    public void excluir(ServicoUsuario servicoUsuario) {
+        servicoUsuarioDAO.excluir(servicoUsuario);
+    }
+
+    public void excluirTodosDeUmServico(Servico servico){
+        servicoUsuarioDAO.excluirTodosDeUmServico(servico);
+    }
 }

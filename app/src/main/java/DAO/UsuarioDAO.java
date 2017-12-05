@@ -169,10 +169,13 @@ public class UsuarioDAO {
                         cursor2.getColumnIndex("CELULAR"));
                 String em = cursor2.getString(
                         cursor2.getColumnIndex("EMAIL"));
+                String senha = cursor2.getString(
+                        cursor2.getColumnIndex("SENHA"));
 
                 usuario.setId(id);
                 usuario.setNome(nome);
                 usuario.setEmail(em);
+                usuario.setSenha(senha);
                 usuario.setCelular(celular);
                 usuario.setTipo(tipo);
                 usuario.setLatitude(latitude);

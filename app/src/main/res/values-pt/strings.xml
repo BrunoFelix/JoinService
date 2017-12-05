@@ -56,6 +56,7 @@
     <string name="texto_anunciantes_fragment_servico">Anunciante</string>
     <string name="texto_quero_realizar_servico_fragment_servico">Quero realizar esse serviço</string>
     <string name="texto_quero_finalizar_servico_fragment_servico">Finalizar serviço</string>
+    <string name="texto_quero_excluir_servico_fragment_servico">Excluir serviço</string>
     <string name="texto_ofertado_servico_fragment_servico">Ofertado há</string>
     <string name="texto_ofertado_hoje_servico_fragment_servico">Ofertado Hoje</string>
     <string name="texto_moeda">R$</string>

@@ -35,4 +35,9 @@ public class ServicoNegocio {
         servicoDAO.salvar(servico);
     }
 
+    public void excluirServico(Servico servico){
+        servicoDAO.excluir(servico);
+    }
+
+
 }

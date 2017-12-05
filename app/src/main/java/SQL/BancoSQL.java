@@ -66,10 +66,10 @@ public class BancoSQL extends SQLiteOpenHelper{
 
         //INSERT USUÁRIO ADMINISTRADOR
         cv = new ContentValues();
-        cv.put("NOME", "A");
-        cv.put("SENHA","A");
-        cv.put("EMAIL", "A");
-        cv.put("CELULAR", "81995782171");
+        cv.put("NOME", "ADMIN");
+        cv.put("SENHA","AAA");
+        cv.put("EMAIL", "AAA");
+        cv.put("CELULAR", "81 99578-2171");
         sqLiteDatabase.insert("USUARIO", null, cv);
 
         //INSERT DE 5 CATEGORIAS DE SERVIÇO

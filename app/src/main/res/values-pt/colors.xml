@@ -8,4 +8,5 @@
     <color name="colorPreto">#000000</color>
     <color name="colorAzulMarinho">#4b5f83</color>
     <color name="colorDestaque">#8dc98d</color>
+    <color name="colorRed">#ff0000</color>
 </resources>

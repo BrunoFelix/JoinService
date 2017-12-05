@@ -51,6 +51,12 @@ public class TelaLogin extends AppCompatActivity implements GoogleApiClient.Conn
         setContentView(R.layout.activity_tela_login);
         Button button = (Button) findViewById(R.id.btnEntrar_login);
         Button button1 = (Button) findViewById(R.id.btnCadastrar);
+        Button btnFacebook = (Button) findViewById(R.id.buttonLogarFacebook);
+        Button btnEsqueceuSenha = (Button) findViewById(R.id.btnEsqueceuSenha);
+
+        btnFacebook.setVisibility(View.INVISIBLE);
+        btnEsqueceuSenha.setVisibility(View.INVISIBLE);
+
         fachada = Fachada.getInstance(this);
 
         usuario = fachada.usuarioLogado();
