@@ -9,14 +9,14 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="110dp"
         android:orientation="horizontal"
         android:gravity="center">
 
         <ImageView
             android:id="@+id/imageViewServico"
-            android:layout_width="130dp"
-            android:layout_height="140dp"
+            android:layout_width="100dp"
+            android:layout_height="110dp"
             android:src="@drawable/ic_add_box_black_24dp" />
 
         <LinearLayout

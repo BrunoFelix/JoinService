@@ -73,14 +73,19 @@ public class ListaAdapterServico extends ArrayAdapter<Servico> {
 
         if (servicoPosicao.getCategoria().getId() == 1){
             categoria = context.getString(R.string.texto_novo_registro_01);
+            imageView.setImageResource(R.drawable.ic_smartphone_black_48dp);
         } else if (servicoPosicao.getCategoria().getId() == 2){
             categoria = context.getString(R.string.texto_novo_registro_02);
+            imageView.setImageResource(R.drawable.ic_devices_other_black_48dp);
         } else if (servicoPosicao.getCategoria().getId() == 3){
             categoria = context.getString(R.string.texto_novo_registro_03);
+            imageView.setImageResource(R.drawable.ic_weekend_black_48dp);
         } else if (servicoPosicao.getCategoria().getId() == 4){
             categoria = context.getString(R.string.texto_novo_registro_04);
+            imageView.setImageResource(R.drawable.ic_business_center_black_48dp);
         } else if (servicoPosicao.getCategoria().getId() == 5){
             categoria = context.getString(R.string.texto_novo_registro_05);
+            imageView.setImageResource(R.drawable.ic_home_black_48dp);
         }
 
         textViewCategoria.setText(context.getString(R.string.texto_lista_servico_01) + ": " + categoria);
